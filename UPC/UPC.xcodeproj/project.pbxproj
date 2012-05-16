@@ -41,6 +41,7 @@
 		1D09573A1563B547008C69E3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D0957391563B547008C69E3 /* MapKit.framework */; };
 		1D0957451563B796008C69E3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D0957431563B796008C69E3 /* Default.png */; };
 		1D0957461563B796008C69E3 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D0957441563B796008C69E3 /* Default@2x.png */; };
+		1D0957491563E326008C69E3 /* UPCResponsiveWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0957481563E326008C69E3 /* UPCResponsiveWebViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,8 @@
 		1D0957391563B547008C69E3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1D0957431563B796008C69E3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		1D0957441563B796008C69E3 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		1D0957471563E326008C69E3 /* UPCResponsiveWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPCResponsiveWebViewController.h; sourceTree = "<group>"; };
+		1D0957481563E326008C69E3 /* UPCResponsiveWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCResponsiveWebViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +216,8 @@
 		1D0956F51563A805008C69E3 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1D0957471563E326008C69E3 /* UPCResponsiveWebViewController.h */,
+				1D0957481563E326008C69E3 /* UPCResponsiveWebViewController.m */,
 				1D0956F61563A805008C69E3 /* UPCViewController.h */,
 				1D0956F71563A805008C69E3 /* UPCViewController.m */,
 			);
@@ -402,6 +407,7 @@
 				1D0956C51563A704008C69E3 /* main.m in Sources */,
 				1D0956F81563A805008C69E3 /* UPCAppDelegate.m in Sources */,
 				1D0956F91563A805008C69E3 /* UPCViewController.m in Sources */,
+				1D0957491563E326008C69E3 /* UPCResponsiveWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
