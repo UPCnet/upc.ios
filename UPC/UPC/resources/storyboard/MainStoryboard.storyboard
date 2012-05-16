@@ -43,7 +43,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="YtV-gx-haE" kind="push" id="Ph5-Fr-l6e"/>
+                                    <segue destination="YtV-gx-haE" kind="push" identifier="graus" id="Ph5-Fr-l6e"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Graus" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="GKi-WL-P2j">
@@ -65,7 +65,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="YtV-gx-haE" kind="push" id="GrQ-BQ-tai"/>
+                                    <segue destination="YtV-gx-haE" kind="push" identifier="masters" id="GrQ-BQ-tai"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Màsters universitaris" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" id="wRT-VC-aFt">
@@ -87,7 +87,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="oVZ-xC-aR9" kind="push" id="Arb-Vg-jAW"/>
+                                    <segue destination="oVZ-xC-aR9" kind="push" identifier="mapes" id="Arb-Vg-jAW"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Mapes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="m4O-nX-AdR">
@@ -131,7 +131,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="YtV-gx-haE" kind="push" id="XhF-VH-1iE"/>
+                                    <segue destination="YtV-gx-haE" kind="push" identifier="atenea" id="XhF-VH-1iE"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Atenea" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Lkb-OV-i1i">
@@ -221,6 +221,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Ph5-Fr-l6e"/>
+        <segue reference="XhF-VH-1iE"/>
     </inferredMetricsTieBreakers>
 </document>
