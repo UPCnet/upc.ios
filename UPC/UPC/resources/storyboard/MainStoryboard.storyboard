@@ -108,6 +108,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="videosButtonTapped:" destination="2" eventType="touchUpInside" id="3SU-dT-GbF"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Vídeos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="HS6-xb-ESk">
                                 <rect key="frame" x="20" y="214" width="72" height="21"/>
@@ -207,6 +210,9 @@
     <classes>
         <class className="UPCViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UPCViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="videosButtonTapped:"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

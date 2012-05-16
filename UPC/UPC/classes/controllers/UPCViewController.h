@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UPCViewController : UIViewController
 
+@interface UPCViewController : UIViewController
+- (IBAction)videosButtonTapped:(id)sender;
 @end

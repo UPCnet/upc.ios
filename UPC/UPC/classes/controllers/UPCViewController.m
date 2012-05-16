@@ -8,27 +8,16 @@
 
 #import "UPCViewController.h"
 
-@interface UPCViewController ()
 
-@end
+#pragma mark Class implementation
 
 @implementation UPCViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-}
+#pragma Event management
 
-- (void)viewDidUnload
+- (IBAction)videosButtonTapped:(id)sender 
 {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms://itunes.apple.com/es/institution/universitat-politecnica-catalunya./id465046416"]];
 }
 
 @end
