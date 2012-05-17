@@ -170,13 +170,13 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="6uD-S3-Yxb"/>
-                                    <barButtonItem style="plain" systemItem="rewind" id="Kk5-PO-EbJ">
+                                    <barButtonItem image="button.back.png" style="plain" id="Kk5-PO-EbJ" userLabel="Bar Button Item - Back">
                                         <connections>
                                             <action selector="goBack" destination="yJ6-S9-DfW" id="Y2q-Ym-ZZ4"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="0gI-ju-dux"/>
-                                    <barButtonItem style="plain" systemItem="fastForward" id="rDm-65-0G6">
+                                    <barButtonItem image="button.forward.png" style="plain" id="rDm-65-0G6" userLabel="Bar Button Item - Forward">
                                         <connections>
                                             <action selector="goForward" destination="yJ6-S9-DfW" id="vxH-ts-tFY"/>
                                         </connections>
@@ -237,6 +237,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="button.back.png" width="20" height="20"/>
+        <image name="button.forward.png" width="20" height="20"/>
         <image name="ico_atenea.png" width="72" height="72"/>
         <image name="ico_graus.png" width="72" height="72"/>
         <image name="ico_mapes.png" width="72" height="72"/>
@@ -247,10 +249,6 @@
         <class className="UPCResponsiveWebViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UPCResponsiveWebViewController.h"/>
             <relationships>
-                <relationship kind="action" name="goBack:"/>
-                <relationship kind="action" name="goForward:"/>
-                <relationship kind="action" name="refresh:"/>
-                <relationship kind="action" name="stop:"/>
                 <relationship kind="outlet" name="backButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="forwardButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="refreshButton" candidateClass="UIBarButtonItem"/>
@@ -271,6 +269,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="XhF-VH-1iE"/>
+        <segue reference="Ph5-Fr-l6e"/>
     </inferredMetricsTieBreakers>
 </document>
