@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="PeV-w4-YAP">
     <dependencies>
+        <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
@@ -214,23 +215,38 @@
             </objects>
             <point key="canvasLocation" x="394" y="-235"/>
         </scene>
-        <!--View Controller-->
+        <!--Maps View Controller - Mapes-->
         <scene sceneID="3gN-dc-H4t">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EfX-kR-fAM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="oVZ-xC-aR9" sceneMemberID="viewController">
+                <viewController id="oVZ-xC-aR9" customClass="UPCMapsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eAF-H4-uGd">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" id="N4d-z5-y6d">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                <connections>
+                                    <outlet property="delegate" destination="oVZ-xC-aR9" id="SXr-8G-SMA"/>
+                                </connections>
+                            </searchBar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="LPV-tD-oB0">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="372"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="oVZ-xC-aR9" id="1FD-7T-BCh"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="U89-Qd-QdE"/>
+                    <navigationItem key="navigationItem" title="Mapes" id="U89-Qd-QdE"/>
+                    <connections>
+                        <outlet property="mapView" destination="LPV-tD-oB0" id="8Ly-J7-9JB"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="394" y="357"/>
@@ -246,6 +262,12 @@
         <image name="ico_videos.png" width="72" height="72"/>
     </resources>
     <classes>
+        <class className="UPCMapsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UPCMapsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
         <class className="UPCResponsiveWebViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UPCResponsiveWebViewController.h"/>
             <relationships>

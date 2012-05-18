@@ -46,6 +46,7 @@
 		1D09575315650280008C69E3 /* button.back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D09574F15650280008C69E3 /* button.back@2x.png */; };
 		1D09575415650280008C69E3 /* button.forward.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D09575015650280008C69E3 /* button.forward.png */; };
 		1D09575515650280008C69E3 /* button.forward@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D09575115650280008C69E3 /* button.forward@2x.png */; };
+		1D09575815652F84008C69E3 /* UPCMapsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D09575715652F84008C69E3 /* UPCMapsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,8 @@
 		1D09574F15650280008C69E3 /* button.back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button.back@2x.png"; sourceTree = "<group>"; };
 		1D09575015650280008C69E3 /* button.forward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.forward.png; sourceTree = "<group>"; };
 		1D09575115650280008C69E3 /* button.forward@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button.forward@2x.png"; sourceTree = "<group>"; };
+		1D09575615652F83008C69E3 /* UPCMapsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPCMapsViewController.h; sourceTree = "<group>"; };
+		1D09575715652F84008C69E3 /* UPCMapsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCMapsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +227,8 @@
 		1D0956F51563A805008C69E3 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1D09575615652F83008C69E3 /* UPCMapsViewController.h */,
+				1D09575715652F84008C69E3 /* UPCMapsViewController.m */,
 				1D0957471563E326008C69E3 /* UPCResponsiveWebViewController.h */,
 				1D0957481563E326008C69E3 /* UPCResponsiveWebViewController.m */,
 				1D0956F61563A805008C69E3 /* UPCViewController.h */,
@@ -424,6 +429,7 @@
 				1D0956F81563A805008C69E3 /* UPCAppDelegate.m in Sources */,
 				1D0956F91563A805008C69E3 /* UPCViewController.m in Sources */,
 				1D0957491563E326008C69E3 /* UPCResponsiveWebViewController.m in Sources */,
+				1D09575815652F84008C69E3 /* UPCMapsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
