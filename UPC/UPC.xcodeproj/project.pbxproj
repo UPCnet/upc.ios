@@ -56,6 +56,7 @@
 		1DD707001566561A00346AE0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD706FF1566561A00346AE0 /* Security.framework */; };
 		1DD707021566562300346AE0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD707011566562300346AE0 /* SystemConfiguration.framework */; };
 		1DD707041566562F00346AE0 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD707031566562F00346AE0 /* libxml2.dylib */; };
+		1DD707061566580E00346AE0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD707051566580E00346AE0 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +127,7 @@
 		1DD706FF1566561A00346AE0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		1DD707011566562300346AE0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		1DD707031566562F00346AE0 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		1DD707051566580E00346AE0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DD707061566580E00346AE0 /* QuartzCore.framework in Frameworks */,
 				1D0956B91563A704008C69E3 /* UIKit.framework in Frameworks */,
 				1D0956BB1563A704008C69E3 /* Foundation.framework in Frameworks */,
 				1D0956BD1563A704008C69E3 /* CoreGraphics.framework in Frameworks */,
@@ -198,6 +201,7 @@
 				1DD706FF1566561A00346AE0 /* Security.framework */,
 				1DD707011566562300346AE0 /* SystemConfiguration.framework */,
 				1DD707031566562F00346AE0 /* libxml2.dylib */,
+				1DD707051566580E00346AE0 /* QuartzCore.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
