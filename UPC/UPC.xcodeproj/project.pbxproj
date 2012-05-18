@@ -47,6 +47,15 @@
 		1D09575415650280008C69E3 /* button.forward.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D09575015650280008C69E3 /* button.forward.png */; };
 		1D09575515650280008C69E3 /* button.forward@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D09575115650280008C69E3 /* button.forward@2x.png */; };
 		1D09575815652F84008C69E3 /* UPCMapsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D09575715652F84008C69E3 /* UPCMapsViewController.m */; };
+		1D09575E156531A2008C69E3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D09575D156531A2008C69E3 /* CoreLocation.framework */; };
+		1DD706F61566554800346AE0 /* libKiwi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD706F51566554800346AE0 /* libKiwi.a */; };
+		1DD706F8156655DC00346AE0 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD706F7156655DC00346AE0 /* libRestKit.a */; };
+		1DD706FA156655EF00346AE0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD706F9156655EF00346AE0 /* CFNetwork.framework */; };
+		1DD706FC156655FA00346AE0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD706FB156655FA00346AE0 /* CoreData.framework */; };
+		1DD706FE1566560800346AE0 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD706FD1566560800346AE0 /* MobileCoreServices.framework */; };
+		1DD707001566561A00346AE0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD706FF1566561A00346AE0 /* Security.framework */; };
+		1DD707021566562300346AE0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD707011566562300346AE0 /* SystemConfiguration.framework */; };
+		1DD707041566562F00346AE0 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD707031566562F00346AE0 /* libxml2.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +117,15 @@
 		1D09575115650280008C69E3 /* button.forward@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button.forward@2x.png"; sourceTree = "<group>"; };
 		1D09575615652F83008C69E3 /* UPCMapsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPCMapsViewController.h; sourceTree = "<group>"; };
 		1D09575715652F84008C69E3 /* UPCMapsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCMapsViewController.m; sourceTree = "<group>"; };
+		1D09575D156531A2008C69E3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1DD706F51566554800346AE0 /* libKiwi.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libKiwi.a; path = "../Kiwi/build/Release-iphoneos/libKiwi.a"; sourceTree = "<group>"; };
+		1DD706F7156655DC00346AE0 /* libRestKit.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libRestKit.a; path = "../RestKit/Build/Products/Release-iphoneos/libRestKit.a"; sourceTree = "<group>"; };
+		1DD706F9156655EF00346AE0 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		1DD706FB156655FA00346AE0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		1DD706FD1566560800346AE0 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		1DD706FF1566561A00346AE0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		1DD707011566562300346AE0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		1DD707031566562F00346AE0 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +137,14 @@
 				1D0956BB1563A704008C69E3 /* Foundation.framework in Frameworks */,
 				1D0956BD1563A704008C69E3 /* CoreGraphics.framework in Frameworks */,
 				1D09573A1563B547008C69E3 /* MapKit.framework in Frameworks */,
+				1D09575E156531A2008C69E3 /* CoreLocation.framework in Frameworks */,
+				1DD706F8156655DC00346AE0 /* libRestKit.a in Frameworks */,
+				1DD706FA156655EF00346AE0 /* CFNetwork.framework in Frameworks */,
+				1DD706FC156655FA00346AE0 /* CoreData.framework in Frameworks */,
+				1DD706FE1566560800346AE0 /* MobileCoreServices.framework in Frameworks */,
+				1DD707001566561A00346AE0 /* Security.framework in Frameworks */,
+				1DD707021566562300346AE0 /* SystemConfiguration.framework in Frameworks */,
+				1DD707041566562F00346AE0 /* libxml2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +155,7 @@
 				1D0956D71563A704008C69E3 /* SenTestingKit.framework in Frameworks */,
 				1D0956D81563A704008C69E3 /* UIKit.framework in Frameworks */,
 				1D0956D91563A704008C69E3 /* Foundation.framework in Frameworks */,
+				1DD706F61566554800346AE0 /* libKiwi.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,6 +189,15 @@
 				1D0956BC1563A704008C69E3 /* CoreGraphics.framework */,
 				1D0956D61563A704008C69E3 /* SenTestingKit.framework */,
 				1D0957391563B547008C69E3 /* MapKit.framework */,
+				1D09575D156531A2008C69E3 /* CoreLocation.framework */,
+				1DD706F51566554800346AE0 /* libKiwi.a */,
+				1DD706F7156655DC00346AE0 /* libRestKit.a */,
+				1DD706F9156655EF00346AE0 /* CFNetwork.framework */,
+				1DD706FB156655FA00346AE0 /* CoreData.framework */,
+				1DD706FD1566560800346AE0 /* MobileCoreServices.framework */,
+				1DD706FF1566561A00346AE0 /* Security.framework */,
+				1DD707011566562300346AE0 /* SystemConfiguration.framework */,
+				1DD707031566562F00346AE0 /* libxml2.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -515,7 +551,12 @@
 				GCC_PREFIX_HEADER = "UPC/UPC-Prefix.pch";
 				INFOPLIST_FILE = "UPC/UPC-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)/../RestKit/Build";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -527,7 +568,12 @@
 				GCC_PREFIX_HEADER = "UPC/UPC-Prefix.pch";
 				INFOPLIST_FILE = "UPC/UPC-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)/../RestKit/Build";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -543,8 +589,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UPC/UPC-Prefix.pch";
 				INFOPLIST_FILE = "UPCTests/UPCTests-Info.plist";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
+				USER_HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)/../Kiwi/Kiwi/**";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -560,8 +608,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UPC/UPC-Prefix.pch";
 				INFOPLIST_FILE = "UPCTests/UPCTests-Info.plist";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
+				USER_HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)/../Kiwi/Kiwi/**";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
