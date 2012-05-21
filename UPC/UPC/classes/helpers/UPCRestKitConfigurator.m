@@ -8,6 +8,7 @@
 
 #import "UPCRestKitConfigurator.h"
 #import "UPCSearchResult.h"
+#import "RestKit/RKJSONParserJSONKit.h"
 
 
 #pragma mark Category for UPC web service configuration
@@ -23,6 +24,9 @@
 
 - (void)configureForUPCConnectivity
 {
+    // Server returns incorrect MIME type
+    [[RKParserRegistry sharedRegistry] setParserClass:[RKJSONParserJSONKit class] forMIMEType:@"text/html"];
+
     RKObjectMapping *searchResultMapping = [RKObjectMapping mappingForClass:[UPCSearchResult class]];
     [searchResultMapping mapKeyPath:@"tipus"      toAttribute:@"type"];
     [searchResultMapping mapKeyPath:@"id"         toAttribute:@"identifier"];

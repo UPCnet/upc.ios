@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "RestKit/RestKit.h"
 
 
-@interface UPCMapsViewController : UIViewController <UISearchBarDelegate>
+@interface UPCMapsViewController : UIViewController <UISearchBarDelegate, RKObjectLoaderDelegate>
 
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 
