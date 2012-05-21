@@ -9,6 +9,7 @@
 #import "Kiwi.h"
 #import "NSArray+SearchResultsGrouping.h"
 #import "UPCSearchResult.h"
+#import <MapKit/MapKit.h>
 
 
 SPEC_BEGIN(SearchResultsGroupingSpec)
@@ -36,8 +37,8 @@ describe(@"SearchResultsGrouping", ^{
         __block NSArray *searchResults;
         
         beforeAll(^{
-            location1 = CLLocationCoordinate2DMake( 0,  0);
-            location2 = CLLocationCoordinate2DMake(45, 45);
+            location1 = CLLocationCoordinate2DMake( 0.2894023,  0.9899812);
+            location2 = CLLocationCoordinate2DMake(12.1578094, -5.0914832);
             
             UPCSearchResult *searchResult1 = [[UPCSearchResult alloc] init];
             searchResult1.identifier = @"1";
@@ -60,7 +61,7 @@ describe(@"SearchResultsGrouping", ^{
         
         it(@"should group the results with the same location", ^{
             [groupedSearchResults enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-                CLLocation *location = (CLLocation *)key;
+                UPCLocation *location = (UPCLocation *)key;
                 NSArray *searchResultsInLocation = (NSArray *)obj;
                 [searchResultsInLocation enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                     UPCSearchResult *searchResult = (UPCSearchResult *)obj;
@@ -68,6 +69,10 @@ describe(@"SearchResultsGrouping", ^{
                     [[theValue(location.coordinate.longitude) should] equal:searchResult.longitude withDelta:0];
                 }];
             }];
+        });
+        
+        it(@"should return the correct number of groups", ^{
+            [[theValue([groupedSearchResults count]) should] equal:theValue(2)];
         });
         
         context(@"", ^{
@@ -88,7 +93,7 @@ describe(@"SearchResultsGrouping", ^{
             });
             
             it(@"should return the same results from the original array", ^{
-                [[[NSSet setWithArray:searchResults] should] equal:[NSSet setWithArray:ungroupedSearchResults]];
+                [[[NSSet setWithArray:ungroupedSearchResults] should] equal:[NSSet setWithArray:searchResults]];
             });
         });
     });

@@ -7,7 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
 
+
+#pragma mark UPCLocation interface
+
+@interface UPCLocation : NSObject <NSCopying>
+
+@property (strong, nonatomic, readonly) NSNumber *latitude;
+@property (strong, nonatomic, readonly) NSNumber *longitude;
+@property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
+
+- (id)initWithLatitude:(CLLocationDegrees)latitude longitude:(CLLocationDegrees)longitude;
+
+@end
+
+
+#pragma mark NSArray category
 
 @interface NSArray (SearchResultsGrouping)
 

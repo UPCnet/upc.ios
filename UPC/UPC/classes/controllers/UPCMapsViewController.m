@@ -9,6 +9,8 @@
 #import "UPCMapsViewController.h"
 #import "UPCRestKitConfigurator.h"
 #import "UPCSearchResult.h"
+#import "UPCSearchResultGroup.h"
+#import "NSArray+SearchResultsGrouping.h"
 
 
 #pragma mark Class implementation
@@ -35,6 +37,29 @@
 
 #pragma mark Search bar
 
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+{
+    static NSString *SEARCH_RESULT = @"SEARCH_RESULT";
+    
+    if ([annotation isKindOfClass:[UPCSearchResultGroup class]]) {
+        MKPinAnnotationView *annotationView = (MKPinAnnotationView *)[self.mapView dequeueReusableAnnotationViewWithIdentifier:SEARCH_RESULT];
+        if (!annotationView) {
+            annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:SEARCH_RESULT];
+            annotationView.canShowCallout            = YES;
+            annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+            annotationView.pinColor                  = MKPinAnnotationColorRed;
+            annotationView.animatesDrop              = YES;
+        }
+        else {
+            annotationView.annotation = annotation;
+        }
+        return annotationView;
+    }
+    else {
+        return nil;
+    }
+}
+
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
 {
     NSLog(@"Error while loading search results!");
@@ -42,7 +67,12 @@
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
 {
-    NSLog(@"Search result ok, with %d results", [objects count]);
+    [self.mapView removeAnnotations:self.mapView.annotations];
+    NSDictionary *groupedSearchResults = [objects groupByLocation];
+    [groupedSearchResults enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        NSArray *searchResultsInLocation = (NSArray *)obj;
+        [self.mapView addAnnotation:[[UPCSearchResultGroup alloc] initWithSearchResults:searchResultsInLocation]];
+    }];
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar

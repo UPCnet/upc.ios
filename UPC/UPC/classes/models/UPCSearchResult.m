@@ -25,9 +25,4 @@ NSString * const UNIT_TYPE     = @"unitat";
 @synthesize latitude;
 @synthesize longitude;
 
-- (CLLocationCoordinate2D)location
-{
-    return CLLocationCoordinate2DMake(self.latitude, self.longitude);
-}
-
 @end

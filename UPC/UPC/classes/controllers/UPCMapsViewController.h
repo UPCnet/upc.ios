@@ -11,7 +11,7 @@
 #import "RestKit/RestKit.h"
 
 
-@interface UPCMapsViewController : UIViewController <UISearchBarDelegate, RKObjectLoaderDelegate>
+@interface UPCMapsViewController : UIViewController <UISearchBarDelegate, RKObjectLoaderDelegate, MKMapViewDelegate>
 
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 

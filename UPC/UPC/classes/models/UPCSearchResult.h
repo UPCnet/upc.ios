@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreLocation/CLLocation.h>
 
 
 extern NSString * const BUILDING_TYPE;
@@ -21,6 +20,5 @@ extern NSString * const UNIT_TYPE;
 @property (strong, nonatomic) NSString *name;
 @property (nonatomic) double latitude;
 @property (nonatomic) double longitude;
-@property (readonly, nonatomic) CLLocationCoordinate2D location;
 
 @end

@@ -12,6 +12,7 @@
 		1D051A27156A4138007BFE40 /* RKJSONParserJSONKit+TestAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D051A25156A4138007BFE40 /* RKJSONParserJSONKit+TestAdditions.m */; };
 		1D051A29156A415D007BFE40 /* SearchResultsGroupingSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D051A28156A415D007BFE40 /* SearchResultsGroupingSpec.m */; };
 		1D051A2A156A4952007BFE40 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D09575D156531A2008C69E3 /* CoreLocation.framework */; };
+		1D051A31156A6323007BFE40 /* UPCSearchResultGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D051A30156A6323007BFE40 /* UPCSearchResultGroup.m */; };
 		1D0956B91563A704008C69E3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D0956B81563A704008C69E3 /* UIKit.framework */; };
 		1D0956BB1563A704008C69E3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D0956BA1563A704008C69E3 /* Foundation.framework */; };
 		1D0956BD1563A704008C69E3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D0956BC1563A704008C69E3 /* CoreGraphics.framework */; };
@@ -85,6 +86,8 @@
 		1D051A24156A4138007BFE40 /* RKJSONParserJSONKit+TestAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RKJSONParserJSONKit+TestAdditions.h"; sourceTree = "<group>"; };
 		1D051A25156A4138007BFE40 /* RKJSONParserJSONKit+TestAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RKJSONParserJSONKit+TestAdditions.m"; sourceTree = "<group>"; };
 		1D051A28156A415D007BFE40 /* SearchResultsGroupingSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultsGroupingSpec.m; sourceTree = "<group>"; };
+		1D051A2F156A6323007BFE40 /* UPCSearchResultGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPCSearchResultGroup.h; sourceTree = "<group>"; };
+		1D051A30156A6323007BFE40 /* UPCSearchResultGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCSearchResultGroup.m; sourceTree = "<group>"; };
 		1D0956B41563A704008C69E3 /* UPC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UPC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D0956B81563A704008C69E3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1D0956BA1563A704008C69E3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -371,6 +374,8 @@
 			children = (
 				1DD707311566851A00346AE0 /* UPCSearchResult.h */,
 				1DD707321566851A00346AE0 /* UPCSearchResult.m */,
+				1D051A2F156A6323007BFE40 /* UPCSearchResultGroup.h */,
+				1D051A30156A6323007BFE40 /* UPCSearchResultGroup.m */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -569,6 +574,7 @@
 				1DD707331566851A00346AE0 /* UPCSearchResult.m in Sources */,
 				1DD7077A1566890B00346AE0 /* UPCRestKitConfigurator.m in Sources */,
 				1D051A1F156A4078007BFE40 /* NSArray+SearchResultsGrouping.m in Sources */,
+				1D051A31156A6323007BFE40 /* UPCSearchResultGroup.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
