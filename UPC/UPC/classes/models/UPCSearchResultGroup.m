@@ -53,7 +53,7 @@
 - (NSString *)subtitle
 {
     if ([self.searchResults count] > 1) {
-        return [NSString stringWithFormat:@"i %u resultat(s) mès", [self.searchResults count] - 1];
+        return [NSString stringWithFormat:@"i %u resultat(s) més", [self.searchResults count] - 1];
     }
     else {
         return nil;
