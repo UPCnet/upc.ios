@@ -14,8 +14,6 @@
 		1D0956D71563A704008C69E3 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D0956D61563A704008C69E3 /* SenTestingKit.framework */; };
 		1D0956D81563A704008C69E3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D0956B81563A704008C69E3 /* UIKit.framework */; };
 		1D0956D91563A704008C69E3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D0956BA1563A704008C69E3 /* Foundation.framework */; };
-		1D0956E11563A704008C69E3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D0956DF1563A704008C69E3 /* InfoPlist.strings */; };
-		1D0956E41563A704008C69E3 /* UPCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0956E31563A704008C69E3 /* UPCTests.m */; };
 		1D0956EF1563A7B7008C69E3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D0956F01563A7B7008C69E3 /* InfoPlist.strings */; };
 		1D0956F81563A805008C69E3 /* UPCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0956F41563A805008C69E3 /* UPCAppDelegate.m */; };
 		1D0956F91563A805008C69E3 /* UPCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0956F71563A805008C69E3 /* UPCViewController.m */; };
@@ -57,6 +55,13 @@
 		1DD707021566562300346AE0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD707011566562300346AE0 /* SystemConfiguration.framework */; };
 		1DD707041566562F00346AE0 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD707031566562F00346AE0 /* libxml2.dylib */; };
 		1DD707061566580E00346AE0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD707051566580E00346AE0 /* QuartzCore.framework */; };
+		1DD707331566851A00346AE0 /* UPCSearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD707321566851A00346AE0 /* UPCSearchResult.m */; };
+		1DD7077A1566890B00346AE0 /* UPCRestKitConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD707791566890B00346AE0 /* UPCRestKitConfigurator.m */; };
+		1DD7077D15668F5C00346AE0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DD7077E15668F5C00346AE0 /* InfoPlist.strings */; };
+		1DD7078115668FA300346AE0 /* searchResult.json in Resources */ = {isa = PBXBuildFile; fileRef = 1DD7078015668FA300346AE0 /* searchResult.json */; };
+		1DD70786156693B100346AE0 /* NSString+TestAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD70785156693B100346AE0 /* NSString+TestAdditions.m */; };
+		1DD70789156697DF00346AE0 /* RKJSONParserJSONKit+TestAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD70788156697DF00346AE0 /* RKJSONParserJSONKit+TestAdditions.m */; };
+		1DD7078B156698F300346AE0 /* UPCSearchResultsMappingSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD7078A156698F300346AE0 /* UPCSearchResultsMappingSpecs.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,9 +85,6 @@
 		1D0956D51563A704008C69E3 /* UPCTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UPCTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D0956D61563A704008C69E3 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		1D0956DE1563A704008C69E3 /* UPCTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UPCTests-Info.plist"; sourceTree = "<group>"; };
-		1D0956E01563A704008C69E3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		1D0956E21563A704008C69E3 /* UPCTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UPCTests.h; sourceTree = "<group>"; };
-		1D0956E31563A704008C69E3 /* UPCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UPCTests.m; sourceTree = "<group>"; };
 		1D0956F01563A7B7008C69E3 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		1D0956F31563A805008C69E3 /* UPCAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPCAppDelegate.h; sourceTree = "<group>"; };
 		1D0956F41563A805008C69E3 /* UPCAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCAppDelegate.m; sourceTree = "<group>"; };
@@ -128,6 +130,17 @@
 		1DD707011566562300346AE0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		1DD707031566562F00346AE0 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		1DD707051566580E00346AE0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		1DD707311566851A00346AE0 /* UPCSearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPCSearchResult.h; sourceTree = "<group>"; };
+		1DD707321566851A00346AE0 /* UPCSearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCSearchResult.m; sourceTree = "<group>"; };
+		1DD707781566890B00346AE0 /* UPCRestKitConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPCRestKitConfigurator.h; sourceTree = "<group>"; };
+		1DD707791566890B00346AE0 /* UPCRestKitConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCRestKitConfigurator.m; sourceTree = "<group>"; };
+		1DD7077E15668F5C00346AE0 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		1DD7078015668FA300346AE0 /* searchResult.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = searchResult.json; sourceTree = "<group>"; };
+		1DD70784156693B100346AE0 /* NSString+TestAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TestAdditions.h"; sourceTree = "<group>"; };
+		1DD70785156693B100346AE0 /* NSString+TestAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TestAdditions.m"; sourceTree = "<group>"; };
+		1DD70787156697DF00346AE0 /* RKJSONParserJSONKit+TestAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RKJSONParserJSONKit+TestAdditions.h"; sourceTree = "<group>"; };
+		1DD70788156697DF00346AE0 /* RKJSONParserJSONKit+TestAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RKJSONParserJSONKit+TestAdditions.m"; sourceTree = "<group>"; };
+		1DD7078A156698F300346AE0 /* UPCSearchResultsMappingSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCSearchResultsMappingSpecs.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,8 +243,8 @@
 		1D0956DC1563A704008C69E3 /* UPCTests */ = {
 			isa = PBXGroup;
 			children = (
-				1D0956E21563A704008C69E3 /* UPCTests.h */,
-				1D0956E31563A704008C69E3 /* UPCTests.m */,
+				1DD7077B15668F0200346AE0 /* classes */,
+				1DD7077C15668F0900346AE0 /* resources */,
 				1D0956DD1563A704008C69E3 /* Supporting Files */,
 			);
 			path = UPCTests;
@@ -241,7 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				1D0956DE1563A704008C69E3 /* UPCTests-Info.plist */,
-				1D0956DF1563A704008C69E3 /* InfoPlist.strings */,
+				1DD7077E15668F5C00346AE0 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -251,6 +264,8 @@
 			children = (
 				1D0956F21563A805008C69E3 /* app-delegate */,
 				1D0956F51563A805008C69E3 /* controllers */,
+				1DD70777156688A700346AE0 /* helpers */,
+				1DD707301566847C00346AE0 /* models */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -331,6 +346,68 @@
 				1D0957171563AADB008C69E3 /* spotlight_58x58.png */,
 			);
 			path = "ios-images";
+			sourceTree = "<group>";
+		};
+		1DD707301566847C00346AE0 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				1DD707311566851A00346AE0 /* UPCSearchResult.h */,
+				1DD707321566851A00346AE0 /* UPCSearchResult.m */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		1DD70777156688A700346AE0 /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				1DD707781566890B00346AE0 /* UPCRestKitConfigurator.h */,
+				1DD707791566890B00346AE0 /* UPCRestKitConfigurator.m */,
+			);
+			path = helpers;
+			sourceTree = "<group>";
+		};
+		1DD7077B15668F0200346AE0 /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				1DD707831566934900346AE0 /* helpers */,
+				1DD707821566932800346AE0 /* mappings */,
+			);
+			path = classes;
+			sourceTree = "<group>";
+		};
+		1DD7077C15668F0900346AE0 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				1DD7077F15668F7C00346AE0 /* fixtures */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		1DD7077F15668F7C00346AE0 /* fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				1DD7078015668FA300346AE0 /* searchResult.json */,
+			);
+			path = fixtures;
+			sourceTree = "<group>";
+		};
+		1DD707821566932800346AE0 /* mappings */ = {
+			isa = PBXGroup;
+			children = (
+				1DD7078A156698F300346AE0 /* UPCSearchResultsMappingSpecs.m */,
+			);
+			path = mappings;
+			sourceTree = "<group>";
+		};
+		1DD707831566934900346AE0 /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				1DD70784156693B100346AE0 /* NSString+TestAdditions.h */,
+				1DD70785156693B100346AE0 /* NSString+TestAdditions.m */,
+				1DD70787156697DF00346AE0 /* RKJSONParserJSONKit+TestAdditions.h */,
+				1DD70788156697DF00346AE0 /* RKJSONParserJSONKit+TestAdditions.m */,
+			);
+			path = helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -438,7 +515,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D0956E11563A704008C69E3 /* InfoPlist.strings in Resources */,
+				1DD7077D15668F5C00346AE0 /* InfoPlist.strings in Resources */,
+				1DD7078115668FA300346AE0 /* searchResult.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,6 +548,8 @@
 				1D0956F91563A805008C69E3 /* UPCViewController.m in Sources */,
 				1D0957491563E326008C69E3 /* UPCResponsiveWebViewController.m in Sources */,
 				1D09575815652F84008C69E3 /* UPCMapsViewController.m in Sources */,
+				1DD707331566851A00346AE0 /* UPCSearchResult.m in Sources */,
+				1DD7077A1566890B00346AE0 /* UPCRestKitConfigurator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,7 +557,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D0956E41563A704008C69E3 /* UPCTests.m in Sources */,
+				1DD70786156693B100346AE0 /* NSString+TestAdditions.m in Sources */,
+				1DD70789156697DF00346AE0 /* RKJSONParserJSONKit+TestAdditions.m in Sources */,
+				1DD7078B156698F300346AE0 /* UPCSearchResultsMappingSpecs.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,17 +572,6 @@
 			targetProxy = 1D0956DA1563A704008C69E3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		1D0956DF1563A704008C69E3 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1D0956E01563A704008C69E3 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1D0956E51563A704008C69E3 /* Debug */ = {
@@ -596,7 +667,7 @@
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				USER_HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)/../Kiwi/Kiwi/**";
+				USER_HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)/../Kiwi/Kiwi/** $(BUILT_PRODUCTS_DIR)/../../Headers";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -615,7 +686,7 @@
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				USER_HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)/../Kiwi/Kiwi/**";
+				USER_HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)/../Kiwi/Kiwi/** $(BUILT_PRODUCTS_DIR)/../../Headers";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;

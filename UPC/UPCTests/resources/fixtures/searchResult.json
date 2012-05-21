@@ -1,0 +1,31 @@
+[ {
+  "tipus" : "unitat",
+  "id" : "114",
+  "nom_ca" : "Facultat d'Informàtica de Barcelona",
+  "nom_es" : "Facultad de Informática de Barcelona",
+  "nom_en" : "Barcelona School of Informatics",
+  "coords" : {
+    "lat" : "41.3894272",
+    "lon" : "2.1133471"
+    }
+  }, {
+  "tipus" : "unitat",
+  "id" : "1034",
+  "nom_ca" : "Sala d'actes - FIB",
+  "nom_es" : "Sala de actos - FIB",
+  "nom_en" : "Assembly Hall - FIB",
+  "coords" : {
+    "lat" : "41.3894272",
+    "lon" : "2.1133471"
+    }
+  }, {
+  "tipus" : "edifici",
+  "id" : "106",
+  "nom_ca" : "Edifici MASTER'S",
+  "nom_es" : "Edifici MASTER'S",
+  "nom_en" : "Edifici MASTER'S",
+  "coords" : {
+    "lat" : "41.3900490",
+    "lon" : "2.1224205"
+    }
+  } ]
