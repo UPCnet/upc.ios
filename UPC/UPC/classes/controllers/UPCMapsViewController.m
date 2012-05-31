@@ -8,12 +8,26 @@
 
 #import "UPCMapsViewController.h"
 #import "UPCRestKitConfigurator.h"
+#import "UPCCampus.h"
 #import "UPCSearchResult.h"
 #import "UPCSearchResultGroup.h"
 #import "NSArray+SearchResultsGrouping.h"
 
 
-#pragma mark Class implementation
+NSString * const CAMPUS_LOADER = @"CAMPUS_LOADER";
+NSString * const SEARCH_LOADER = @"SEARCH_LOADER";
+
+
+#pragma mark Class extension
+
+@interface UPCMapsViewController ()
+
+- (void)loadCampuses;
+
+@end
+
+
+#pragma mark - Class implementation
 
 @implementation UPCMapsViewController
 
@@ -26,7 +40,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.mapView setRegion:MKCoordinateRegionMake(CLLocationCoordinate2DMake(41.65, 2), MKCoordinateSpanMake(2, 2)) animated:YES];
+    [self.mapView setRegion:MKCoordinateRegionMake(CLLocationCoordinate2DMake(41.65, 2), MKCoordinateSpanMake(2, 2)) animated:NO];
+    [self loadCampuses];
 }
 
 - (void)viewDidUnload
@@ -35,7 +50,35 @@
     [super viewDidUnload];
 }
 
+#pragma mark Initial loading of campuses
+
+- (void)loadCampuses
+{
+    RKObjectManager *objectManager = [UPCRestKitConfigurator sharedManager];
+    [objectManager.requestQueue cancelAllRequests];
+    [objectManager loadObjectsAtResourcePath:@"/InfoCampusv1.php" usingBlock:^(RKObjectLoader *loader) {
+        [loader.mappingProvider setMapping:[loader.mappingProvider objectMappingForClass:[UPCCampus class]] forKeyPath:@""];
+        loader.delegate = self;
+        loader.userData = CAMPUS_LOADER;
+    }];
+}
+
 #pragma mark Search bar
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [searchBar resignFirstResponder];
+    RKObjectManager *objectManager = [UPCRestKitConfigurator sharedManager];
+    [objectManager.requestQueue cancelAllRequests];
+    NSString *searchPath = [@"/CercadorMapsv1.php" stringByAppendingQueryParameters:[NSDictionary dictionaryWithObject:searchBar.text forKey:@"text"]];
+    [objectManager loadObjectsAtResourcePath:searchPath usingBlock:^(RKObjectLoader *loader) {
+        [loader.mappingProvider setMapping:[loader.mappingProvider objectMappingForClass:[UPCSearchResult class]] forKeyPath:@""];
+        loader.delegate = self;
+        loader.userData = SEARCH_LOADER;
+    }];
+}
+
+#pragma mark Map view management
 
 - (void)showAnnotatedRegion
 {
@@ -62,6 +105,8 @@
         CLLocationCoordinate2D center = CLLocationCoordinate2DMake((minLatitude + maxLatitude) / 2, (minLongitude + maxLongitude) / 2);
         MKCoordinateSpan span =  MKCoordinateSpanMake((maxLatitude - minLatitude) * SPAN_FACTOR, (maxLongitude - minLongitude) * SPAN_FACTOR);
         [self.mapView setRegion:MKCoordinateRegionMake(center, span) animated:YES];
+    } else {
+        [self.mapView setRegion:MKCoordinateRegionMake(CLLocationCoordinate2DMake(41.65, 2), MKCoordinateSpanMake(2, 2)) animated:YES];
     }
 }
 
@@ -69,7 +114,7 @@
 {
     static NSString *SEARCH_RESULT = @"SEARCH_RESULT";
     
-    if ([annotation isKindOfClass:[UPCSearchResultGroup class]]) {
+    if ([annotation isKindOfClass:[UPCCampus class]] || [annotation isKindOfClass:[UPCSearchResultGroup class]]) {
         MKPinAnnotationView *annotationView = (MKPinAnnotationView *)[self.mapView dequeueReusableAnnotationViewWithIdentifier:SEARCH_RESULT];
         if (!annotationView) {
             annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:SEARCH_RESULT];
@@ -88,6 +133,8 @@
     }
 }
 
+#pragma mark RestKit object loading
+
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
 {
     NSLog(@"Error while loading search results!");
@@ -96,23 +143,20 @@
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
 {
     [self.mapView removeAnnotations:self.mapView.annotations];
-    NSDictionary *groupedSearchResults = [objects groupByLocation];
-    [groupedSearchResults enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        NSArray *searchResultsInLocation = (NSArray *)obj;
-        [self.mapView addAnnotation:[[UPCSearchResultGroup alloc] initWithSearchResults:searchResultsInLocation]];
-    }];
+    
+    if ([objectLoader.userData isEqualToString:CAMPUS_LOADER]) {
+        [objects enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            [self.mapView addAnnotation:obj];
+        }];
+    } else if ([objectLoader.userData isEqualToString:SEARCH_LOADER]) {
+        NSDictionary *groupedSearchResults = [objects groupByLocation];
+        [groupedSearchResults enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+            NSArray *searchResultsInLocation = (NSArray *)obj;
+            [self.mapView addAnnotation:[[UPCSearchResultGroup alloc] initWithSearchResults:searchResultsInLocation]];
+        }];
+    }
+    
     [self showAnnotatedRegion];
-}
-
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
-{
-    [searchBar resignFirstResponder];
-    RKObjectManager *objectManager = [UPCRestKitConfigurator sharedManager];
-    NSString *searchPath = [@"/CercadorMapsv1.php" stringByAppendingQueryParameters:[NSDictionary dictionaryWithObject:searchBar.text forKey:@"text"]];
-    [objectManager loadObjectsAtResourcePath:searchPath usingBlock:^(RKObjectLoader *loader) {
-        [loader.mappingProvider setMapping:[loader.mappingProvider objectMappingForClass:[UPCSearchResult class]] forKeyPath:@""];
-        loader.delegate = self;
-    }];
 }
 
 @end
