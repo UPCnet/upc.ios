@@ -16,7 +16,7 @@
 
 SPEC_BEGIN(UPCCampusMappingSpec)
 
-describe(@"UPCSearchResultMappings", ^{
+describe(@"UPCCampusMappings", ^{
     context(@"when parsing a valid campus list result", ^{
         __block NSArray *mappedCampuses;
         __block UPCCampus *mappedCampus;
