@@ -7,6 +7,8 @@
 //
 
 #import "UPCRestKitConfigurator.h"
+#import "UPCCampus.h"
+#import "UPCCenter.h"
 #import "UPCSearchResult.h"
 #import "RestKit/RKJSONParserJSONKit.h"
 
@@ -34,7 +36,21 @@
     [searchResultMapping mapKeyPath:@"coords.lat" toAttribute:@"latitude"];
     [searchResultMapping mapKeyPath:@"coords.lon" toAttribute:@"longitude"];
     
+    RKObjectMapping *centerMapping = [RKObjectMapping mappingForClass:[UPCCenter class]];
+    [centerMapping mapKeyPath:@"id"     toAttribute:@"identifier"];
+    [centerMapping mapKeyPath:@"nom_ca" toAttribute:@"name"];
+    
+    RKObjectMapping *campusMapping = [RKObjectMapping mappingForClass:[UPCCampus class]];
+    [campusMapping mapKeyPath:@"nom"       toAttribute:@"name"];
+    [campusMapping mapKeyPath:@"localitat" toAttribute:@"locality"];
+    [campusMapping mapKeyPath:@"coord.lat" toAttribute:@"latitude"];
+    [campusMapping mapKeyPath:@"coord.lon" toAttribute:@"longitude"];
+    [campusMapping mapKeyPath:@"centres.propis"   toRelationship:@"ownCenters"      withMapping:centerMapping];
+    [campusMapping mapKeyPath:@"centres.adscrits" toRelationship:@"attachedCenters" withMapping:centerMapping];
+    
     [self.mappingProvider addObjectMapping:searchResultMapping];
+    [self.mappingProvider addObjectMapping:centerMapping];
+    [self.mappingProvider addObjectMapping:campusMapping];
 }
 
 @end

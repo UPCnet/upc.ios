@@ -1,0 +1,238 @@
+ [ {
+  "nom" : "Urgell",
+  "localitat" : "Barcelona",
+  "coord" : {
+  "lat" : "41.388474",
+  "lon" : "2.148685"
+  },
+  "centres" : {
+  "propis" : [ ],
+  "adscrits" : [ {
+                "id" : "378",
+                "nom_ca" : "Escola Universitària d'Enginyeria Tècnica Industrial de Barcelona",
+                "nom_es" : "Escuela Universitaria de Ingeniería Técnica Industrial de Barcelona",
+                "nom_en" : "Barcelona College of Industrial Engineering"
+                } ]
+  }
+  }, {
+  "nom" : "Nàutica",
+  "localitat" : "Barcelona",
+  "coord" : {
+  "lat" : "41.380695",
+  "lon" : "2.185335"
+  },
+  "centres" : {
+  "propis" : [ {
+              "id" : "118",
+              "nom_ca" : "Facultat de Nàutica de Barcelona",
+              "nom_es" : "Facultad de Náutica de Barcelona",
+              "nom_en" : "Barcelona School of Nautical Studies"
+              } ],
+  "adscrits" : [ ]
+  }
+  }, {
+  "nom" : "Campus Diagonal Nord",
+  "localitat" : "Barcelona",
+  "coord" : {
+  "lat" : "41.388184",
+  "lon" : "2.112991"
+  },
+  "centres" : {
+  "propis" : [ {
+              "id" : "109",
+              "nom_ca" : "Escola Tècnica Superior d'Enginyeria de Telecomunicació de Barcelona",
+              "nom_es" : "Escuela Técnica Superior de Ingeniería de Telecomunicación de Barcelona",
+              "nom_en" : "Barcelona School of Telecommunications Engineering"
+              }, {
+              "id" : "112",
+              "nom_ca" : "Escola Tècnica Superior d'Enginyers de Camins, Canals i Ports de Barcelona",
+              "nom_es" : "Escuela Técnica Superior de Ingenieros de Caminos, Canales y Puertos de Barcelona",
+              "nom_en" : "Barcelona School of Civil Engineering"
+              }, {
+              "id" : "114",
+              "nom_ca" : "Facultat d'Informàtica de Barcelona",
+              "nom_es" : "Facultad de Informática de Barcelona",
+              "nom_en" : "Barcelona School of Informatics"
+              } ],
+  "adscrits" : [ ]
+  }
+  }, {
+  "nom" : "Campus Diagonal Sud",
+  "localitat" : "Barcelona",
+  "coord" : {
+  "lat" : "41.383976",
+  "lon" : "2.114557"
+  },
+  "centres" : {
+  "propis" : [ {
+              "id" : "103",
+              "nom_ca" : "Centre de Formació Interdisciplinària Superior",
+              "nom_es" : "Centro de Formación Interdisciplinaria Superior",
+              "nom_en" : "Interdisciplinary Higher Education Centre"
+              }, {
+              "id" : "106",
+              "nom_ca" : "Facultat de Matemàtiques i Estadística",
+              "nom_es" : "Facultad de Matemáticas y Estadística",
+              "nom_en" : "School of Mathematics and Statistics"
+              }, {
+              "id" : "107",
+              "nom_ca" : "Escola Tècnica Superior d'Arquitectura de Barcelona",
+              "nom_es" : "Escuela Técnica Superior de Arquitectura de Barcelona",
+              "nom_en" : "Barcelona School of Architecture"
+              }, {
+              "id" : "123",
+              "nom_ca" : "Escola Politècnica Superior d'Edificació de Barcelona",
+              "nom_es" : "Escuela Politécnica Superior de Edificación de Barcelona",
+              "nom_en" : "Barcelona School of Building Construction"
+              }, {
+              "id" : "412",
+              "nom_ca" : "Escola Tècnica Superior d'Enginyeria Industrial de Barcelona",
+              "nom_es" : "Escuela Técnica Superior de Ingeniería Industrial de Barcelona",
+              "nom_en" : "Barcelona School of Industrial Engineering"
+              } ],
+  "adscrits" : [ ]
+  }
+  }, {
+  "nom" : "22@",
+  "localitat" : "Barcelona",
+  "coord" : {
+  "lat" : "41.397743",
+  "lon" : "2.196370"
+  },
+  "centres" : {
+  "propis" : [ ],
+  "adscrits" : [ ]
+  }
+  }, {
+  "nom" : "Campus del Baix Llobregat",
+  "localitat" : "Castelldefels",
+  "coord" : {
+  "lat" : "41.275734",
+  "lon" : "1.987699"
+  },
+  "centres" : {
+  "propis" : [ {
+              "id" : "122",
+              "nom_ca" : "Escola d'Enginyeria de Telecomunicació i Aeroespacial de Castelldefels",
+              "nom_es" : "Escuela de Ingeniería de Telecomunicación y Aeroespacial de Castelldefels",
+              "nom_en" : "Castelldefels School of Telecommunications and Aerospace Engineering"
+              }, {
+              "id" : "377",
+              "nom_ca" : "Escola Superior d'Agricultura de Barcelona",
+              "nom_es" : "Escuela Superior de Agricultura de Barcelona",
+              "nom_en" : "Barcelona School of Agricultural Engineering"
+              } ],
+  "adscrits" : [ ]
+  }
+  }, {
+  "nom" : "Igualada",
+  "localitat" : "Igualada",
+  "coord" : {
+  "lat" : "41.578056",
+  "lon" : "1.619421"
+  },
+  "centres" : {
+  "propis" : [ ],
+  "adscrits" : [ {
+                "id" : "389",
+                "nom_ca" : "Escola d'Enginyeria d'Igualada",
+                "nom_es" : "Escuela de Ingeniería de Igualada",
+                "nom_en" : "Igualada School of Engineering"
+                } ]
+  }
+  }, {
+  "nom" : "Manresa",
+  "localitat" : "Manresa",
+  "coord" : {
+  "lat" : "41.736374",
+  "lon" : "1.826820"
+  },
+  "centres" : {
+  "propis" : [ {
+              "id" : "138",
+              "nom_ca" : "Escola Politècnica Superior d'Enginyeria de Manresa",
+              "nom_es" : "Escuela Politécnica Superior de Ingeniería de Manresa",
+              "nom_en" : "Manresa School of Engineering"
+              } ],
+  "adscrits" : [ ]
+  }
+  }, {
+  "nom" : "Mataró",
+  "localitat" : "Mataró",
+  "coord" : {
+  "lat" : "41.540150",
+  "lon" : "2.428668"
+  },
+  "centres" : {
+  "propis" : [ ],
+  "adscrits" : [ {
+                "id" : "380",
+                "nom_ca" : "Escola Universitària Politècnica de Mataró",
+                "nom_es" : "Escuela Universitaria Politécnica de Mataró",
+                "nom_en" : "Mataró College of Engineering"
+                } ]
+  }
+  }, {
+  "nom" : "Sant Cugat del Vallès",
+  "localitat" : "Sant Cugat del Vallès",
+  "coord" : {
+  "lat" : "41.470062",
+  "lon" : "2.071357"
+  },
+  "centres" : {
+  "propis" : [ {
+              "id" : "120",
+              "nom_ca" : "Escola Tècnica Superior d'Arquitectura del Vallès",
+              "nom_es" : "Escuela Técnica Superior de Arquitectura del Vallès",
+              "nom_en" : "Vallès School of Architecture"
+              } ],
+  "adscrits" : [ ]
+  }
+  }, {
+  "nom" : "Campus de Terrassa",
+  "localitat" : "Terrassa",
+  "coord" : {
+  "lat" : "41.563099",
+  "lon" : "2.023394"
+  },
+  "centres" : {
+  "propis" : [ {
+              "id" : "110",
+              "nom_ca" : "Escola Tècnica Superior d'Enginyeries Industrial i Aeronàutica de Terrassa",
+              "nom_es" : "Escuela Técnica Superior de Ingenierías Industrial y Aeronáutica de Terrassa",
+              "nom_en" : "Terrassa School of Industrial and Aeronautical Engineering"
+              }, {
+              "id" : "133",
+              "nom_ca" : "Escola d'Enginyeria de Terrassa",
+              "nom_es" : "Escuela de Ingeniería de Terrassa",
+              "nom_en" : "Terrassa School of Engineering"
+              }, {
+              "id" : "148",
+              "nom_ca" : "Facultat d'Òptica i Optometria de Terrassa",
+              "nom_es" : "Facultad de Óptica y Optometría de Terrassa",
+              "nom_en" : "Terrassa School of Optics and Optometry"
+              } ],
+  "adscrits" : [ {
+                "id" : "1066",
+                "nom_ca" : "Centre de la Imatge i la Tecnologia Multimèdia",
+                "nom_es" : "Centro de la Imagen y la Tecnología Multimedia",
+                "nom_en" : "Image Processing and Multimedia Technology Centre"
+                } ]
+  }
+  }, {
+  "nom" : "Vilanova i la Geltrú",
+  "localitat" : "Vilanova i la Geltrú",
+  "coord" : {
+  "lat" : "41.221535",
+  "lon" : "1.730154"
+  },
+  "centres" : {
+  "propis" : [ {
+              "id" : "124",
+              "nom_ca" : "Escola Politècnica Superior d'Enginyeria de Vilanova i la Geltrú",
+              "nom_es" : "Escuela Politécnica Superior de Ingeniería de Vilanova i la Geltrú",
+              "nom_en" : "Vilanova i la Geltrú School of Engineering"
+              } ],
+  "adscrits" : [ ]
+  }
+  } ]
