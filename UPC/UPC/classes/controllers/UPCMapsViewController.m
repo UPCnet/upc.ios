@@ -12,6 +12,7 @@
 #import "UPCSearchResult.h"
 #import "UPCSearchResultGroup.h"
 #import "NSArray+SearchResultsGrouping.h"
+#import "UPCCampusViewController.h"
 
 
 NSString * const CAMPUS_LOADER = @"CAMPUS_LOADER";
@@ -133,6 +134,19 @@ NSString * const SEARCH_LOADER = @"SEARCH_LOADER";
     }
 }
 
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    if ([view.annotation isKindOfClass:[UPCCampus class]]) {
+        [self performSegueWithIdentifier:@"campus" sender:view];
+    } else  if ([view.annotation isKindOfClass:[UPCSearchResultGroup class]]) {
+        UPCSearchResultGroup *searchResultGroup = (UPCSearchResultGroup *)view.annotation;
+        if ([searchResultGroup.searchResults count] == 1) {
+        } else {
+        }
+        [self performSegueWithIdentifier:@"campus" sender:view];
+    }
+}
+
 #pragma mark RestKit object loading
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
@@ -157,6 +171,18 @@ NSString * const SEARCH_LOADER = @"SEARCH_LOADER";
     }
     
     [self showAnnotatedRegion];
+}
+
+#pragma mark Segue management
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"campus"]) {
+        UPCCampus *campus = [(MKAnnotationView *)sender annotation];
+        UPCCampusViewController *campusViewController = segue.destinationViewController;
+        campusViewController.campus = campus;
+        campusViewController.navigationItem.title = campus.name;
+    }
 }
 
 @end
