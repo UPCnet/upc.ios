@@ -65,7 +65,7 @@
 		1DD7077A1566890B00346AE0 /* UPCRestKitConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD707791566890B00346AE0 /* UPCRestKitConfigurator.m */; };
 		1DD7077D15668F5C00346AE0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DD7077E15668F5C00346AE0 /* InfoPlist.strings */; };
 		1DD7078115668FA300346AE0 /* searchResult.json in Resources */ = {isa = PBXBuildFile; fileRef = 1DD7078015668FA300346AE0 /* searchResult.json */; };
-		1DD7078B156698F300346AE0 /* UPCSearchResultsMappingSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD7078A156698F300346AE0 /* UPCSearchResultsMappingSpecs.m */; };
+		1DD7078B156698F300346AE0 /* UPCSearchResultsMappingSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD7078A156698F300346AE0 /* UPCSearchResultsMappingSpec.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,7 +149,7 @@
 		1DD707791566890B00346AE0 /* UPCRestKitConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCRestKitConfigurator.m; sourceTree = "<group>"; };
 		1DD7077E15668F5C00346AE0 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		1DD7078015668FA300346AE0 /* searchResult.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = searchResult.json; sourceTree = "<group>"; };
-		1DD7078A156698F300346AE0 /* UPCSearchResultsMappingSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCSearchResultsMappingSpecs.m; sourceTree = "<group>"; };
+		1DD7078A156698F300346AE0 /* UPCSearchResultsMappingSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCSearchResultsMappingSpec.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -420,7 +420,7 @@
 		1DD707821566932800346AE0 /* mappings */ = {
 			isa = PBXGroup;
 			children = (
-				1DD7078A156698F300346AE0 /* UPCSearchResultsMappingSpecs.m */,
+				1DD7078A156698F300346AE0 /* UPCSearchResultsMappingSpec.m */,
 			);
 			path = mappings;
 			sourceTree = "<group>";
@@ -582,7 +582,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DD7078B156698F300346AE0 /* UPCSearchResultsMappingSpecs.m in Sources */,
+				1DD7078B156698F300346AE0 /* UPCSearchResultsMappingSpec.m in Sources */,
 				1D051A26156A4138007BFE40 /* NSString+TestAdditions.m in Sources */,
 				1D051A27156A4138007BFE40 /* RKJSONParserJSONKit+TestAdditions.m in Sources */,
 				1D051A29156A415D007BFE40 /* SearchResultsGroupingSpec.m in Sources */,

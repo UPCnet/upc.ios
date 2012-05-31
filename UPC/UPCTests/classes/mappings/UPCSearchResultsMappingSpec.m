@@ -13,7 +13,7 @@
 #import "UPCSearchResult.h"
 
 
-SPEC_BEGIN(UPCSearchResultsMappingSpecs)
+SPEC_BEGIN(UPCSearchResultsMappingSpec)
 
 describe(@"UPCSearchResultMappings", ^{
     context(@"when parsing a valid search result", ^{
