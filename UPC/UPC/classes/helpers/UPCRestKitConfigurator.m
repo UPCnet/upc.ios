@@ -7,10 +7,12 @@
 //
 
 #import "UPCRestKitConfigurator.h"
+#import "RestKit/RKJSONParserJSONKit.h"
+#import "UPCSearchResult.h"
 #import "UPCCampus.h"
 #import "UPCCenter.h"
-#import "UPCSearchResult.h"
-#import "RestKit/RKJSONParserJSONKit.h"
+#import "UPCUnit.h"
+#import "UPCQualifications.h"
 
 
 #pragma mark Category for UPC web service configuration
@@ -48,9 +50,40 @@
     [campusMapping mapKeyPath:@"centres.propis"   toRelationship:@"ownCenters"      withMapping:centerMapping];
     [campusMapping mapKeyPath:@"centres.adscrits" toRelationship:@"attachedCenters" withMapping:centerMapping];
     
+    RKObjectMapping *qualificationsMapping = [RKObjectMapping mappingForClass:[UPCQualifications class]];
+    [qualificationsMapping mapKeyPath:@"id"     toAttribute:@"identifier"];
+    [qualificationsMapping mapKeyPath:@"nom_ca" toAttribute:@"name"];
+    
+    RKObjectMapping *unitMapping = [RKObjectMapping mappingForClass:[UPCUnit class]];
+    [unitMapping mapKeyPath:@"id"             toAttribute:@"identifier"];
+    [unitMapping mapKeyPath:@"nom_ca"         toAttribute:@"name"];
+    [unitMapping mapKeyPath:@"campus_ca"      toAttribute:@"campusName"];
+    [unitMapping mapKeyPath:@"sigles"         toAttribute:@"acronym"];
+    [unitMapping mapKeyPath:@"codi_upc"       toAttribute:@"code"];
+    [unitMapping mapKeyPath:@"adreça"         toAttribute:@"address"];
+    [unitMapping mapKeyPath:@"localitat"      toAttribute:@"locality"];
+    [unitMapping mapKeyPath:@"codi_postal"    toAttribute:@"postcode"];
+    [unitMapping mapKeyPath:@"director"       toAttribute:@"directorName"];
+    [unitMapping mapKeyPath:@"telefon"        toAttribute:@"phone"];
+    [unitMapping mapKeyPath:@"fax"            toAttribute:@"fax"];
+    [unitMapping mapKeyPath:@"email"          toAttribute:@"emailAddress"];
+    [unitMapping mapKeyPath:@"web_ca"         toAttribute:@"webAddress"];
+    [unitMapping mapKeyPath:@"presentacio_ca" toAttribute:@"introduction"];
+    [unitMapping mapKeyPath:@"video_youtube"  toAttribute:@"youTubeVideoAddress"];
+    [unitMapping mapKeyPath:@"fotos.normal"   toAttribute:@"photoAddress"];
+    [unitMapping mapKeyPath:@"fotos.video"    toAttribute:@"videoThumbnailAddress"];
+    [unitMapping mapKeyPath:@"web_matricula"  toAttribute:@"enrollmentWebAddress"];
+    [unitMapping mapKeyPath:@"coord.lat"      toAttribute:@"latitude"];
+    [unitMapping mapKeyPath:@"coord.lon"      toAttribute:@"longitude"];
+    [unitMapping mapKeyPath:@"estudis.graus"              toRelationship:@"degrees"      withMapping:qualificationsMapping];
+    [unitMapping mapKeyPath:@"estudis.dobles_titulacions" toRelationship:@"jointDegrees" withMapping:qualificationsMapping];
+    [unitMapping mapKeyPath:@"estudis.masters"            toRelationship:@"masters"      withMapping:qualificationsMapping];
+    
     [self.mappingProvider addObjectMapping:searchResultMapping];
     [self.mappingProvider addObjectMapping:centerMapping];
     [self.mappingProvider addObjectMapping:campusMapping];
+    [self.mappingProvider addObjectMapping:unitMapping];
+    [self.mappingProvider addObjectMapping:qualificationsMapping];
 }
 
 @end
