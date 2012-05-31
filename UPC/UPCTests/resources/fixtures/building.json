@@ -1,0 +1,116 @@
+{
+    "campus_ca" : "Campus Diagonal Sud",
+    "campus_es" : "Campus Diagonal Sud",
+    "campus_en" : "Campus Diagonal Sud",
+    "nom_ca" : "Edifici A",
+    "nom_es" : "Edificio A",
+    "nom_en" : "Building A",
+    "codi_postal" : "08028",
+    "localitat" : "Barcelona",
+    "adreça" : "Campus Campus Diagonal Sud, Av. Diagonal, 649, 08028 Barcelona",
+    "coord" : {
+        "lat" : "41.3843384",
+        "lon" : "2.1136291"
+    },
+    "unitats" : [ {
+                 "id" : "107",
+                 "nom_ca" : "Escola Tècnica Superior d'Arquitectura de Barcelona",
+                 "nom_es" : "Escuela Técnica Superior de Arquitectura de Barcelona",
+                 "nom_en" : "Barcelona School of Architecture"
+                 }, {
+                 "id" : "128",
+                 "nom_ca" : "Càtedra CEMEX-España (Càtedra Blanca)",
+                 "nom_es" : "Cátedra CEMEX-España (Cátedra Blanca)",
+                 "nom_en" : "CEMEX Spain Chair (White Concrete Chair)"
+                 }, {
+                 "id" : "173",
+                 "nom_ca" : "Departament de Composició Arquitectònica",
+                 "nom_es" : "Departamento de Composición Arquitectónica",
+                 "nom_en" : "Department of History and Theory of Architecture"
+                 }, {
+                 "id" : "182",
+                 "nom_ca" : "Departament de Construccions Arquitectòniques I",
+                 "nom_es" : "Departamento de Construcciones Arquitectónicas I",
+                 "nom_en" : "Department of Architectural Technology I"
+                 }, {
+                 "id" : "231",
+                 "nom_ca" : "Departament d'Estructures a l'Arquitectura",
+                 "nom_es" : "Departamento de Estructuras en la Arquitectura",
+                 "nom_en" : "Department of Structural Architecture"
+                 }, {
+                 "id" : "239",
+                 "nom_ca" : "Departament d'Expressió Gràfica Arquitectònica I",
+                 "nom_es" : "Departamento de Expresión Gráfica Arquitectónica I",
+                 "nom_en" : "Department of Architectural Representation and Visual Analysis I"
+                 }, {
+                 "id" : "270",
+                 "nom_ca" : "Centre de Recerca i Projectes de Paisatge",
+                 "nom_es" : "Centro de Investigación y Proyectos de Paisaje",
+                 "nom_en" : "Centre for Landscape Research and Design"
+                 }, {
+                 "id" : "282",
+                 "nom_ca" : "Centre de Política de Sòl i Valoracions",
+                 "nom_es" : "Centro de Política del Suelo y Valoraciones",
+                 "nom_en" : "Centre for Land Valuation Policy"
+                 }, {
+                 "id" : "290",
+                 "nom_ca" : "Departament de Projectes Arquitectònics",
+                 "nom_es" : "Departamento de Proyectos Arquitectónicos",
+                 "nom_en" : "Department of Architectural Design"
+                 }, {
+                 "id" : "292",
+                 "nom_ca" : "Càtedra Gaudí",
+                 "nom_es" : "Cátedra Gaudí",
+                 "nom_en" : "Gaudí Chair"
+                 }, {
+                 "id" : "311",
+                 "nom_ca" : "Departament d'Urbanisme i Ordenació del Territori",
+                 "nom_es" : "Departamento de Urbanismo y Ordenación del Territorio",
+                 "nom_en" : "Department of Urbanism and Regional Planning"
+                 }, {
+                 "id" : "319",
+                 "nom_ca" : "Centre de Documentació de Projectes d’Arquitectura de Catalunya",
+                 "nom_es" : "Centro de Documentación de Proyectos de Arquitectura de Cataluña",
+                 "nom_en" : "Centre for Documentation on Architectural Projects of Catalonia"
+                 }, {
+                 "id" : "372",
+                 "nom_ca" : "Fundació Politècnica de Catalunya",
+                 "nom_es" : "Fundació Politècnica de Catalunya",
+                 "nom_en" : "Fundació Politècnica de Catalunya"
+                 }, {
+                 "id" : "696",
+                 "nom_ca" : "Delegació d'Estudiants de l'ETSAB",
+                 "nom_es" : "Delegación de Estudiantes de la ETSAB",
+                 "nom_en" : "Delegación de Estudiantes de la ETSAB"
+                 }, {
+                 "id" : "1042",
+                 "nom_ca" : "Aula Pi Calleja",
+                 "nom_es" : "Aula Pi Calleja",
+                 "nom_en" : "Pi Calleja Classroom"
+                 }, {
+                 "id" : "1055",
+                 "nom_ca" : "Biblioteca de l'Escola Tècnica Superior d'Arquitectura de Barcelona (ETSAB)",
+                 "nom_es" : "Biblioteca de la Escuela Técnica Superior de Arquitectura de Barcelona (ETSAB)",
+                 "nom_en" : "School of Architecture of Barcelona Library (ETSAB)"
+                 }, {
+                 "id" : "1180",
+                 "nom_ca" : "Modelatge i Simulació Visual a l'Arquitectura",
+                 "nom_es" : "Modelado y Simulación Visual en Arquitectura",
+                 "nom_en" : "Modeling and Visual Simulation in Arquitecture"
+                 }, {
+                 "id" : "1181",
+                 "nom_ca" : "Grup de recerca CERCLE",
+                 "nom_es" : "Grupo de investigación CERCLE",
+                 "nom_en" : "Grup de recerca CERCLE"
+                 }, {
+                 "id" : "1240",
+                 "nom_ca" : "Laboratori d'Urbanisme de Barcelona",
+                 "nom_es" : "Laboratorio de Urbanismo de Barcelona",
+                 "nom_en" : "Laboratori d'Urbanisme de Barcelona"
+                 }, {
+                 "id" : "1299",
+                 "nom_ca" : "Eco-pretextes d’Arquitectura de Barcelona",
+                 "nom_es" : "Eco-pretextes d’Arquitectura de Barcelona",
+                 "nom_en" : "Eco-pretextes d’Arquitectura de Barcelona"
+                 } ]
+}

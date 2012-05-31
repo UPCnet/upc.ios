@@ -11,6 +11,7 @@
 #import "UPCSearchResult.h"
 #import "UPCCampus.h"
 #import "UPCCenter.h"
+#import "UPCBuilding.h"
 #import "UPCUnit.h"
 #import "UPCQualifications.h"
 
@@ -79,11 +80,22 @@
     [unitMapping mapKeyPath:@"estudis.dobles_titulacions" toRelationship:@"jointDegrees" withMapping:qualificationsMapping];
     [unitMapping mapKeyPath:@"estudis.masters"            toRelationship:@"masters"      withMapping:qualificationsMapping];
     
+    RKObjectMapping *buildingMapping = [RKObjectMapping mappingForClass:[UPCBuilding class]];
+    [buildingMapping mapKeyPath:@"nom_ca"      toAttribute:@"name"];
+    [buildingMapping mapKeyPath:@"campus_ca"   toAttribute:@"campusName"];
+    [buildingMapping mapKeyPath:@"adreça"      toAttribute:@"address"];
+    [buildingMapping mapKeyPath:@"localitat"   toAttribute:@"locality"];
+    [buildingMapping mapKeyPath:@"codi_postal" toAttribute:@"postcode"];
+    [buildingMapping mapKeyPath:@"coord.lat"   toAttribute:@"latitude"];
+    [buildingMapping mapKeyPath:@"coord.lon"   toAttribute:@"longitude"];
+    [buildingMapping mapKeyPath:@"unitats"     toRelationship:@"units" withMapping:unitMapping];
+    
     [self.mappingProvider addObjectMapping:searchResultMapping];
     [self.mappingProvider addObjectMapping:centerMapping];
     [self.mappingProvider addObjectMapping:campusMapping];
     [self.mappingProvider addObjectMapping:unitMapping];
     [self.mappingProvider addObjectMapping:qualificationsMapping];
+    [self.mappingProvider addObjectMapping:buildingMapping];
 }
 
 @end
