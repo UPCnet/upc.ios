@@ -7,6 +7,7 @@
 //
 
 #import "UPCLocalityViewController.h"
+#import "UPCLocalizedCurrentLocation.h"
 
 
 #pragma mark Class implementation
@@ -19,71 +20,120 @@
 
 #pragma mark Build locality data
 
+- (CellConfigurator)localityInfoCellConfigurator
+{
+    return ^(UITableView *tableView, NSIndexPath *indexPath) {
+        static NSString *LOCALITY_NAME_CELL = @"LOCALITY_NAME_CELL";
+        
+        UITableViewCell *cell;
+        cell = [tableView dequeueReusableCellWithIdentifier:LOCALITY_NAME_CELL];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:LOCALITY_NAME_CELL];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+        cell.textLabel.text = [[(NSArray *)[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] description];
+        return cell;
+    };
+}
+
+- (CellConfigurator)centerCellConfigurator
+{
+    return ^(UITableView *tableView, NSIndexPath *indexPath) {
+        static NSString *LOCALITY_CENTER_CELL = @"LOCALITY_CENTER_CELL";
+        
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:LOCALITY_CENTER_CELL];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:LOCALITY_CENTER_CELL];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.textLabel.font = [UIFont systemFontOfSize:14];
+            cell.textLabel.numberOfLines = 0;
+            cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
+            cell.textLabel.textColor = [UIColor colorWithRed:0 green:123.f/255.f blue:192.f/255.f alpha:1];
+        }
+        cell.textLabel.text = [[(NSArray *)[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] description];
+        [cell sizeToFit];
+        return cell;
+    };
+}
+
+- (CellConfigurator)directionsCellConfigurator
+{
+    return ^(UITableView *tableView, NSIndexPath *indexPath) {
+        static NSString *LOCALITY_DIRECTIONS_CELL = @"LOCALITY_DIRECTIONS_CELL";
+        
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:LOCALITY_DIRECTIONS_CELL];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:LOCALITY_DIRECTIONS_CELL];
+            cell.textLabel.textAlignment = UITextAlignmentCenter;
+        }
+        cell.textLabel.text = [[(NSArray *)[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] description];
+        return cell;
+    };
+}
+
+- (CellHeightEstimator)centerHeightEstimator
+{
+    return ^(UITableView *tableView, NSIndexPath *indexPath) {
+        NSString *text = [[(NSArray *)[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] description];
+        CGSize textSize = [text sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(282, 44) lineBreakMode:UILineBreakModeWordWrap];
+        return textSize.height + 16;
+    };
+}
+
 - (void)setLocality:(UPCLocality *)locality
 {
     self->_locality = locality;
     
     NSMutableArray *sections = [[NSMutableArray alloc] init];
     NSMutableArray *sectionHeaders = [[NSMutableArray alloc] init];
+    NSMutableArray *cellHeightEstimators = [[NSMutableArray alloc] init];
     NSMutableArray *cellConfigurators = [[NSMutableArray alloc] init];
     
-    CellConfigurator localityInfoCellConfigurator = ^(UITableView *tableView, NSIndexPath *indexPath) {
-        static NSString *LOCALITY_NAME_CELL     = @"LOCALITY_NAME_CELL";
-        static NSString *LOCALITY_LOCALITY_CELL = @"LOCALITY_LOCALITY_CELL";
-        
-        UITableViewCell *cell;
-        if (indexPath.row == 0) {
-            cell = [tableView dequeueReusableCellWithIdentifier:LOCALITY_NAME_CELL];
-            if (!cell) {
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:LOCALITY_NAME_CELL];
-            }
-            cell.textLabel.text = [(NSArray *)[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-        } else {
-            cell = [tableView dequeueReusableCellWithIdentifier:LOCALITY_LOCALITY_CELL];
-            if (!cell) {
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:LOCALITY_LOCALITY_CELL];
-                cell.textLabel.font = [UIFont fontWithName:@"System" size:14];
-            }
-            cell.textLabel.text = [(NSArray *)[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-        }
-        return cell;
-    };
+    CellConfigurator localityInfoCellConfigurator = [self localityInfoCellConfigurator];
+    CellConfigurator centerCellConfigurator       = [self centerCellConfigurator];
+    CellConfigurator directionsCellConfigurator   = [self directionsCellConfigurator];
     
-    CellConfigurator centerCellConfigurator = ^(UITableView *tableView, NSIndexPath *indexPath) {
-        static NSString *LOCALITY_CENTER_CELL     = @"LOCALITY_CENTER_CELL";
-        
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:LOCALITY_CENTER_CELL];
-        if (!cell) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:LOCALITY_CENTER_CELL];
-            cell.textLabel.font = [UIFont fontWithName:@"System" size:12];
-            cell.textLabel.numberOfLines = 0;
-            cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
-            cell.textLabel.textColor = [UIColor colorWithRed:0 green:123.f/255.f blue:192.f/255.f alpha:1];
-        }
-        cell.textLabel.text = [NSString stringWithFormat:@"%@", [(NSArray *)[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]];
-        [cell sizeToFit];
-        return cell;
-    };
+    CellHeightEstimator centerHeightEstimator = [self centerHeightEstimator];
     
+    // Add locality info
     NSArray *localityInfo = [NSArray arrayWithObjects:locality.name, nil];
     [sections addObject:localityInfo];
     [sectionHeaders addObject:[NSNull null]];
+    [cellHeightEstimators addObject:DEFAULT_HEIGHT_ESTIMATOR];
     [cellConfigurators addObject:localityInfoCellConfigurator];
     
+    // Add centers
     if ([locality.ownCenters count] > 0) {
         [sections addObject:locality.ownCenters];
         [sectionHeaders addObject:@"Centres propis"];
+        [cellHeightEstimators addObject:centerHeightEstimator];
         [cellConfigurators addObject:centerCellConfigurator];
     }
     
+    // Add attached centers
     if ([locality.attachedCenters count] > 0) {
         [sections addObject:locality.attachedCenters];
         [sectionHeaders addObject:@"Centres adscrits"];
+        [cellHeightEstimators addObject:centerHeightEstimator];
         [cellConfigurators addObject:centerCellConfigurator];
+    }
+    
+    // Add directions button
+    if (locality.longitude != 0 && locality.latitude != 0) {
+        [sections addObject:[NSArray arrayWithObject:[[UPCStructuredDataAction alloc] initWithLabel:@"Com anar-hi" andAction:^(UITableView *tableView, NSIndexPath *indexPath) {
+            NSString *currentLocation = [UPCLocalizedCurrentLocation currentLocationStringForCurrentLanguage];
+            NSString *googleMapsAddress = [NSString stringWithFormat:@"http://maps.google.com/maps?saddr=%@&daddr=%f,%f", [currentLocation stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], locality.latitude, locality.longitude];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:googleMapsAddress]];
+            [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        }]]];
+        [sectionHeaders addObject:[NSNull null]];
+        [cellHeightEstimators addObject:DEFAULT_HEIGHT_ESTIMATOR];
+        [cellConfigurators addObject:directionsCellConfigurator];
     }
     
     self.sections = sections;
     self.sectionHeaders = sectionHeaders;
+    self.cellHeightEstimators = cellHeightEstimators;
     self.cellConfigurators = cellConfigurators;
 }
 

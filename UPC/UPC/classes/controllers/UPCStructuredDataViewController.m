@@ -9,13 +9,46 @@
 #import "UPCStructuredDataViewController.h"
 
 
+const CellHeightEstimator DEFAULT_HEIGHT_ESTIMATOR = ^(UITableView *tableView, NSIndexPath *indexPath) {
+    return tableView.rowHeight;
+};
+
+
+#pragma mark - UPCStructuredDataAction class implementation
+
+@implementation UPCStructuredDataAction
+
+@synthesize label  = _label;
+@synthesize action = _action;
+
+- (id)initWithLabel:(NSString *)label andAction:(CellAction)action
+{
+    self = [super init];
+    if (self) {
+        self->_label  = label;
+        self->_action = action;
+    }
+    return self;
+}
+
+- (NSString *)description
+{
+    return self.label;
+}
+
+@end
+
+
+#pragma mark - UPCStructuredDataViewController class implementation
+
 @implementation UPCStructuredDataViewController
 
 #pragma mark Synthesized properties
 
-@synthesize sections          = _sections;
-@synthesize sectionHeaders    = _sectionHeaders;
-@synthesize cellConfigurators = _cellConfigurators;
+@synthesize sections             = _sections;
+@synthesize sectionHeaders       = _sectionHeaders;
+@synthesize cellHeightEstimators = _cellHeightEstimators;
+@synthesize cellConfigurators    = _cellConfigurators;
 
 #pragma mark Table view data source
 
@@ -41,7 +74,8 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return self.tableView.rowHeight;
+    CellHeightEstimator cellHeightEstimator = [self.cellHeightEstimators objectAtIndex:indexPath.section];
+    return cellHeightEstimator(tableView, indexPath);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -52,7 +86,17 @@
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return nil;
+    if ([[(NSArray *)[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] isKindOfClass:[UPCStructuredDataAction class]]) {
+        return indexPath;
+    } else {
+        return nil;
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UPCStructuredDataAction *action = [(NSArray *)[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    action.action(tableView, indexPath);
 }
 
 @end

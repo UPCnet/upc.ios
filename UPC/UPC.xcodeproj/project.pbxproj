@@ -82,6 +82,7 @@
 		1DD7077D15668F5C00346AE0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DD7077E15668F5C00346AE0 /* InfoPlist.strings */; };
 		1DD7078115668FA300346AE0 /* searchResult.json in Resources */ = {isa = PBXBuildFile; fileRef = 1DD7078015668FA300346AE0 /* searchResult.json */; };
 		1DD7078B156698F300346AE0 /* UPCSearchResultsMappingSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD7078A156698F300346AE0 /* UPCSearchResultsMappingSpec.m */; };
+		1DE870E71579191400A1EA7F /* UPCLocalizedCurrentLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE870E61579191400A1EA7F /* UPCLocalizedCurrentLocation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -192,6 +193,8 @@
 		1DD7077E15668F5C00346AE0 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		1DD7078015668FA300346AE0 /* searchResult.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = searchResult.json; sourceTree = "<group>"; };
 		1DD7078A156698F300346AE0 /* UPCSearchResultsMappingSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCSearchResultsMappingSpec.m; sourceTree = "<group>"; };
+		1DE870E51579191400A1EA7F /* UPCLocalizedCurrentLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPCLocalizedCurrentLocation.h; sourceTree = "<group>"; };
+		1DE870E61579191400A1EA7F /* UPCLocalizedCurrentLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCLocalizedCurrentLocation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -447,6 +450,8 @@
 			children = (
 				1D051A1D156A4078007BFE40 /* NSArray+SearchResultsGrouping.h */,
 				1D051A1E156A4078007BFE40 /* NSArray+SearchResultsGrouping.m */,
+				1DE870E51579191400A1EA7F /* UPCLocalizedCurrentLocation.h */,
+				1DE870E61579191400A1EA7F /* UPCLocalizedCurrentLocation.m */,
 				1DD707781566890B00346AE0 /* UPCRestKitConfigurator.h */,
 				1DD707791566890B00346AE0 /* UPCRestKitConfigurator.m */,
 			);
@@ -656,6 +661,7 @@
 				1D7BA3671578DA27000189AB /* UPCBuildingViewController.m in Sources */,
 				1D7BA36A1578DA47000189AB /* UPCUnitViewController.m in Sources */,
 				1D7BA36D1578DBB8000189AB /* UPCStructuredDataViewController.m in Sources */,
+				1DE870E71579191400A1EA7F /* UPCLocalizedCurrentLocation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
