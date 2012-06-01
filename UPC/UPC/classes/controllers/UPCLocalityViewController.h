@@ -1,5 +1,5 @@
 //
-//  UPCCampusViewController.h
+//  UPCLocalityViewController.h
 //  UPC
 //
 //  Created by Jose Gonzalez Gomez on 31/05/12.
@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "UPCStructuredDataViewController.h"
-#import "UPCCampus.h"
+#import "UPCLocality.h"
 
 
-@interface UPCCampusViewController : UPCStructuredDataViewController
+@interface UPCLocalityViewController : UPCStructuredDataViewController
 
-@property (strong, nonatomic) UPCCampus *campus;
+@property (strong, nonatomic) UPCLocality *locality;
 
 @end

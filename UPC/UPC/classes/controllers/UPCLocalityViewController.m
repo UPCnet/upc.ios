@@ -1,47 +1,47 @@
 //
-//  UPCCampusViewController.m
+//  UPCLocalityViewController.m
 //  UPC
 //
 //  Created by Jose Gonzalez Gomez on 31/05/12.
 //  Copyright (c) 2012 Universitat Politècnica de Catalunya. All rights reserved.
 //
 
-#import "UPCCampusViewController.h"
+#import "UPCLocalityViewController.h"
 
 
 #pragma mark Class implementation
 
-@implementation UPCCampusViewController
+@implementation UPCLocalityViewController
 
 #pragma mark Synthesized properties
 
-@synthesize campus = _campus;
+@synthesize locality = _locality;
 
-#pragma mark Build campus data
+#pragma mark Build locality data
 
-- (void)setCampus:(UPCCampus *)campus
+- (void)setLocality:(UPCLocality *)locality
 {
-    self->_campus = campus;
+    self->_locality = locality;
     
     NSMutableArray *sections = [[NSMutableArray alloc] init];
     NSMutableArray *sectionHeaders = [[NSMutableArray alloc] init];
     NSMutableArray *cellConfigurators = [[NSMutableArray alloc] init];
     
-    CellConfigurator campusInfoCellConfigurator = ^(UITableView *tableView, NSIndexPath *indexPath) {
-        static NSString *CAMPUS_NAME_CELL     = @"CAMPUS_NAME_CELL";
-        static NSString *CAMPUS_LOCALITY_CELL = @"CAMPUS_LOCALITY_CELL";
+    CellConfigurator localityInfoCellConfigurator = ^(UITableView *tableView, NSIndexPath *indexPath) {
+        static NSString *LOCALITY_NAME_CELL     = @"LOCALITY_NAME_CELL";
+        static NSString *LOCALITY_LOCALITY_CELL = @"LOCALITY_LOCALITY_CELL";
         
         UITableViewCell *cell;
         if (indexPath.row == 0) {
-            cell = [tableView dequeueReusableCellWithIdentifier:CAMPUS_NAME_CELL];
+            cell = [tableView dequeueReusableCellWithIdentifier:LOCALITY_NAME_CELL];
             if (!cell) {
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CAMPUS_NAME_CELL];
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:LOCALITY_NAME_CELL];
             }
             cell.textLabel.text = [(NSArray *)[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
         } else {
-            cell = [tableView dequeueReusableCellWithIdentifier:CAMPUS_LOCALITY_CELL];
+            cell = [tableView dequeueReusableCellWithIdentifier:LOCALITY_LOCALITY_CELL];
             if (!cell) {
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CAMPUS_LOCALITY_CELL];
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:LOCALITY_LOCALITY_CELL];
                 cell.textLabel.font = [UIFont fontWithName:@"System" size:14];
             }
             cell.textLabel.text = [(NSArray *)[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
@@ -50,11 +50,11 @@
     };
     
     CellConfigurator centerCellConfigurator = ^(UITableView *tableView, NSIndexPath *indexPath) {
-        static NSString *CAMPUS_CENTER_CELL     = @"CAMPUS_CENTER_CELL";
+        static NSString *LOCALITY_CENTER_CELL     = @"LOCALITY_CENTER_CELL";
         
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CAMPUS_CENTER_CELL];
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:LOCALITY_CENTER_CELL];
         if (!cell) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CAMPUS_CENTER_CELL];
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:LOCALITY_CENTER_CELL];
             cell.textLabel.font = [UIFont fontWithName:@"System" size:12];
             cell.textLabel.numberOfLines = 0;
             cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
@@ -65,19 +65,19 @@
         return cell;
     };
     
-    NSArray *campusInfo = [NSArray arrayWithObjects:campus.name, campus.locality, nil];
-    [sections addObject:campusInfo];
+    NSArray *localityInfo = [NSArray arrayWithObjects:locality.name, nil];
+    [sections addObject:localityInfo];
     [sectionHeaders addObject:[NSNull null]];
-    [cellConfigurators addObject:campusInfoCellConfigurator];
+    [cellConfigurators addObject:localityInfoCellConfigurator];
     
-    if ([campus.ownCenters count] > 0) {
-        [sections addObject:campus.ownCenters];
+    if ([locality.ownCenters count] > 0) {
+        [sections addObject:locality.ownCenters];
         [sectionHeaders addObject:@"Centres propis"];
         [cellConfigurators addObject:centerCellConfigurator];
     }
     
-    if ([campus.attachedCenters count] > 0) {
-        [sections addObject:campus.attachedCenters];
+    if ([locality.attachedCenters count] > 0) {
+        [sections addObject:locality.attachedCenters];
         [sectionHeaders addObject:@"Centres adscrits"];
         [cellConfigurators addObject:centerCellConfigurator];
     }

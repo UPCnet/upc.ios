@@ -1,18 +1,17 @@
 //
-//  UPCCampus.m
+//  UPCLocality.m
 //  UPC
 //
 //  Created by Jose Gonzalez Gomez on 31/05/12.
 //  Copyright (c) 2012 Universitat Politècnica de Catalunya. All rights reserved.
 //
 
-#import "UPCCampus.h"
+#import "UPCLocality.h"
 
 
-@implementation UPCCampus
+@implementation UPCLocality
 
 @synthesize name            = _name;
-@synthesize locality        = _locality;
 @synthesize latitude        = _latitude;
 @synthesize longitude       = _longitude;
 @synthesize ownCenters      = _ownCenters;

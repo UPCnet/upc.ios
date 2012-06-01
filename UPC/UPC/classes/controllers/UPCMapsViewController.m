@@ -8,16 +8,16 @@
 
 #import "UPCMapsViewController.h"
 #import "UPCRestKitConfigurator.h"
-#import "UPCCampus.h"
+#import "UPCLocality.h"
 #import "UPCSearchResult.h"
 #import "UPCSearchResultGroup.h"
 #import "NSArray+SearchResultsGrouping.h"
-#import "UPCCampusViewController.h"
+#import "UPCLocalityViewController.h"
 #import "UPCSearchResultsViewController.h"
 
 
-NSString * const CAMPUS_LOADER = @"CAMPUS_LOADER";
-NSString * const SEARCH_LOADER = @"SEARCH_LOADER";
+NSString * const LOCALITY_LOADER = @"LOCALITY_LOADER";
+NSString * const SEARCH_LOADER   = @"SEARCH_LOADER";
 
 
 #pragma mark Class extension
@@ -26,7 +26,7 @@ NSString * const SEARCH_LOADER = @"SEARCH_LOADER";
 
 @property (strong, nonatomic) NSString *lastSearchTerm;
 
-- (void)loadCampuses;
+- (void)loadLocalities;
 
 @end
 
@@ -46,7 +46,7 @@ NSString * const SEARCH_LOADER = @"SEARCH_LOADER";
 {
     [super viewDidLoad];
     [self.mapView setRegion:MKCoordinateRegionMake(CLLocationCoordinate2DMake(41.65, 2), MKCoordinateSpanMake(2, 2)) animated:NO];
-    [self loadCampuses];
+    [self loadLocalities];
 }
 
 - (void)viewDidUnload
@@ -55,16 +55,16 @@ NSString * const SEARCH_LOADER = @"SEARCH_LOADER";
     [super viewDidUnload];
 }
 
-#pragma mark Initial loading of campuses
+#pragma mark Initial loading of localities
 
-- (void)loadCampuses
+- (void)loadLocalities
 {
     RKObjectManager *objectManager = [UPCRestKitConfigurator sharedManager];
     [objectManager.requestQueue cancelAllRequests];
-    [objectManager loadObjectsAtResourcePath:@"/InfoCampusv1.php" usingBlock:^(RKObjectLoader *loader) {
-        [loader.mappingProvider setMapping:[loader.mappingProvider objectMappingForClass:[UPCCampus class]] forKeyPath:@""];
+    [objectManager loadObjectsAtResourcePath:@"/InfoLocalitatsv1.php" usingBlock:^(RKObjectLoader *loader) {
+        [loader.mappingProvider setMapping:[loader.mappingProvider objectMappingForClass:[UPCLocality class]] forKeyPath:@""];
         loader.delegate = self;
-        loader.userData = CAMPUS_LOADER;
+        loader.userData = LOCALITY_LOADER;
     }];
 }
 
@@ -120,7 +120,7 @@ NSString * const SEARCH_LOADER = @"SEARCH_LOADER";
 {
     static NSString *SEARCH_RESULT = @"SEARCH_RESULT";
     
-    if ([annotation isKindOfClass:[UPCCampus class]] || [annotation isKindOfClass:[UPCSearchResultGroup class]]) {
+    if ([annotation isKindOfClass:[UPCLocality class]] || [annotation isKindOfClass:[UPCSearchResultGroup class]]) {
         MKPinAnnotationView *annotationView = (MKPinAnnotationView *)[self.mapView dequeueReusableAnnotationViewWithIdentifier:SEARCH_RESULT];
         if (!annotationView) {
             annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:SEARCH_RESULT];
@@ -141,8 +141,8 @@ NSString * const SEARCH_LOADER = @"SEARCH_LOADER";
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
-    if ([view.annotation isKindOfClass:[UPCCampus class]]) {
-        [self performSegueWithIdentifier:@"campus" sender:view];
+    if ([view.annotation isKindOfClass:[UPCLocality class]]) {
+        [self performSegueWithIdentifier:@"locality" sender:view];
     } else  if ([view.annotation isKindOfClass:[UPCSearchResultGroup class]]) {
         UPCSearchResultGroup *searchResultGroup = (UPCSearchResultGroup *)view.annotation;
         if ([searchResultGroup.searchResults count] == 1) {
@@ -163,7 +163,7 @@ NSString * const SEARCH_LOADER = @"SEARCH_LOADER";
 {
     [self.mapView removeAnnotations:self.mapView.annotations];
     
-    if ([objectLoader.userData isEqualToString:CAMPUS_LOADER]) {
+    if ([objectLoader.userData isEqualToString:LOCALITY_LOADER]) {
         [objects enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             [self.mapView addAnnotation:obj];
         }];
@@ -182,11 +182,11 @@ NSString * const SEARCH_LOADER = @"SEARCH_LOADER";
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"campus"]) {
-        UPCCampus *campus = [(MKAnnotationView *)sender annotation];
-        UPCCampusViewController *campusViewController = segue.destinationViewController;
-        campusViewController.campus = campus;
-        campusViewController.navigationItem.title = campus.name;
+    if ([segue.identifier isEqualToString:@"locality"]) {
+        UPCLocality *locality = [(MKAnnotationView *)sender annotation];
+        UPCLocalityViewController *localityViewController = segue.destinationViewController;
+        localityViewController.locality = locality;
+        localityViewController.navigationItem.title = locality.name;
     } else if ([segue.identifier isEqualToString:@"searchResults"]) {
         UPCSearchResultGroup *searchResultGroup = (UPCSearchResultGroup *)[(MKAnnotationView *)sender annotation];
         UPCSearchResultsViewController *searchResultsViewController = segue.destinationViewController;

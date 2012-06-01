@@ -1,5 +1,5 @@
 //
-//  UPCCampus.h
+//  UPCLocality.h
 //  UPC
 //
 //  Created by Jose Gonzalez Gomez on 31/05/12.
@@ -10,12 +10,11 @@
 #import <MapKit/MapKit.h>
 
 
-@interface UPCCampus : NSObject <MKAnnotation>
+@interface UPCLocality : NSObject <MKAnnotation>
 
 @property (strong, nonatomic) NSString *name;
-@property (strong, nonatomic) NSString *locality;
-@property (nonatomic) double latitude;
-@property (nonatomic) double longitude;
+@property (nonatomic)         double    latitude;
+@property (nonatomic)         double    longitude;
 @property (strong, nonatomic) NSArray *ownCenters;
 @property (strong, nonatomic) NSArray *attachedCenters;
 

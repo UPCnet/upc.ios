@@ -9,7 +9,7 @@
 #import "UPCRestKitConfigurator.h"
 #import "RestKit/RKJSONParserJSONKit.h"
 #import "UPCSearchResult.h"
-#import "UPCCampus.h"
+#import "UPCLocality.h"
 #import "UPCCenter.h"
 #import "UPCBuilding.h"
 #import "UPCUnit.h"
@@ -43,13 +43,12 @@
     [centerMapping mapKeyPath:@"id"     toAttribute:@"identifier"];
     [centerMapping mapKeyPath:@"nom_ca" toAttribute:@"name"];
     
-    RKObjectMapping *campusMapping = [RKObjectMapping mappingForClass:[UPCCampus class]];
-    [campusMapping mapKeyPath:@"nom"       toAttribute:@"name"];
-    [campusMapping mapKeyPath:@"localitat" toAttribute:@"locality"];
-    [campusMapping mapKeyPath:@"coord.lat" toAttribute:@"latitude"];
-    [campusMapping mapKeyPath:@"coord.lon" toAttribute:@"longitude"];
-    [campusMapping mapKeyPath:@"centres.propis"   toRelationship:@"ownCenters"      withMapping:centerMapping];
-    [campusMapping mapKeyPath:@"centres.adscrits" toRelationship:@"attachedCenters" withMapping:centerMapping];
+    RKObjectMapping *localityMapping = [RKObjectMapping mappingForClass:[UPCLocality class]];
+    [localityMapping mapKeyPath:@"nom"       toAttribute:@"name"];
+    [localityMapping mapKeyPath:@"coord.lat" toAttribute:@"latitude"];
+    [localityMapping mapKeyPath:@"coord.lon" toAttribute:@"longitude"];
+    [localityMapping mapKeyPath:@"centres.propis"   toRelationship:@"ownCenters"      withMapping:centerMapping];
+    [localityMapping mapKeyPath:@"centres.adscrits" toRelationship:@"attachedCenters" withMapping:centerMapping];
     
     RKObjectMapping *qualificationsMapping = [RKObjectMapping mappingForClass:[UPCQualifications class]];
     [qualificationsMapping mapKeyPath:@"id"     toAttribute:@"identifier"];
@@ -92,7 +91,7 @@
     
     [self.mappingProvider addObjectMapping:searchResultMapping];
     [self.mappingProvider addObjectMapping:centerMapping];
-    [self.mappingProvider addObjectMapping:campusMapping];
+    [self.mappingProvider addObjectMapping:localityMapping];
     [self.mappingProvider addObjectMapping:unitMapping];
     [self.mappingProvider addObjectMapping:qualificationsMapping];
     [self.mappingProvider addObjectMapping:buildingMapping];

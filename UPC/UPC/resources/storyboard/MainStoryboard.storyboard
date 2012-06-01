@@ -215,11 +215,11 @@
             </objects>
             <point key="canvasLocation" x="394" y="-235"/>
         </scene>
-        <!--Campus View Controller-->
+        <!--Locality View Controller-->
         <scene sceneID="NGd-tj-Tps">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iPw-kS-Bks" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="eKR-xJ-Sw1" customClass="UPCCampusViewController" sceneMemberID="viewController">
+                <tableViewController id="eKR-xJ-Sw1" customClass="UPCLocalityViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Czb-kg-8px">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -276,7 +276,7 @@
                     <navigationItem key="navigationItem" title="Mapes" id="U89-Qd-QdE"/>
                     <connections>
                         <outlet property="mapView" destination="LPV-tD-oB0" id="8Ly-J7-9JB"/>
-                        <segue destination="eKR-xJ-Sw1" kind="push" identifier="campus" id="MnX-Io-Z6d"/>
+                        <segue destination="eKR-xJ-Sw1" kind="push" identifier="locality" id="MnX-Io-Z6d"/>
                         <segue destination="bgU-ba-v2E" kind="push" identifier="searchResults" id="BDk-vx-A1h"/>
                         <segue destination="eVg-tv-CBN" kind="push" identifier="building" id="8Au-0r-Mki"/>
                         <segue destination="aEx-ra-9OU" kind="push" identifier="unit" id="qM3-0J-pu7"/>
@@ -393,11 +393,11 @@
         <image name="ico_videos.png" width="72" height="72"/>
     </resources>
     <classes>
-        <class className="UPCBuildingViewController" superclassName="UITableViewController">
+        <class className="UPCBuildingViewController" superclassName="UPCStructuredDataViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UPCBuildingViewController.h"/>
         </class>
-        <class className="UPCCampusViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UPCCampusViewController.h"/>
+        <class className="UPCLocalityViewController" superclassName="UPCStructuredDataViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UPCLocalityViewController.h"/>
         </class>
         <class className="UPCMapsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UPCMapsViewController.h"/>
@@ -418,7 +418,10 @@
         <class className="UPCSearchResultsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UPCSearchResultsViewController.h"/>
         </class>
-        <class className="UPCUnitViewController" superclassName="UITableViewController">
+        <class className="UPCStructuredDataViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UPCStructuredDataViewController.h"/>
+        </class>
+        <class className="UPCUnitViewController" superclassName="UPCStructuredDataViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UPCUnitViewController.h"/>
         </class>
         <class className="UPCViewController" superclassName="UIViewController">
