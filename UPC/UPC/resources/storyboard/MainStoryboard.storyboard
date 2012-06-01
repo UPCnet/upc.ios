@@ -278,6 +278,8 @@
                         <outlet property="mapView" destination="LPV-tD-oB0" id="8Ly-J7-9JB"/>
                         <segue destination="eKR-xJ-Sw1" kind="push" identifier="campus" id="MnX-Io-Z6d"/>
                         <segue destination="bgU-ba-v2E" kind="push" identifier="searchResults" id="BDk-vx-A1h"/>
+                        <segue destination="0JQ-Nc-sVc" kind="push" identifier="building" id="9UY-RF-t2l"/>
+                        <segue destination="pFW-en-7nn" kind="push" identifier="unit" id="of1-AA-MhA"/>
                     </connections>
                 </viewController>
             </objects>
@@ -309,9 +311,46 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="CM6-D1-16x"/>
+                    <connections>
+                        <segue destination="0JQ-Nc-sVc" kind="push" identifier="building" id="3uv-Lp-h4d"/>
+                        <segue destination="pFW-en-7nn" kind="push" identifier="unit" id="WOI-pe-9KF"/>
+                    </connections>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="909" y="357"/>
+            <point key="canvasLocation" x="889" y="1043"/>
+        </scene>
+        <!--Unit View Controller-->
+        <scene sceneID="0Ic-kD-PoN">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rtf-SV-Y9l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="pFW-en-7nn" customClass="UPCUnitViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZoW-qw-CF4">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="AKH-M8-wqA"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1979" y="1043"/>
+        </scene>
+        <!--Building View Controller-->
+        <scene sceneID="oq2-Hl-2qh">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IUU-OP-Iir" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="0JQ-Nc-sVc" customClass="UPCBuildingViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RVQ-Yt-jVc">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="cZ6-co-xLy"/>
+                    <connections>
+                        <segue destination="pFW-en-7nn" kind="push" identifier="unit" id="7ZN-eF-sIx"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1445" y="357"/>
         </scene>
     </scenes>
     <resources>
@@ -324,6 +363,9 @@
         <image name="ico_videos.png" width="72" height="72"/>
     </resources>
     <classes>
+        <class className="UPCBuildingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UPCBuildingViewController.h"/>
+        </class>
         <class className="UPCCampusViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UPCCampusViewController.h"/>
         </class>
@@ -346,6 +388,9 @@
         <class className="UPCSearchResultsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UPCSearchResultsViewController.h"/>
         </class>
+        <class className="UPCUnitViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UPCUnitViewController.h"/>
+        </class>
         <class className="UPCViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UPCViewController.h"/>
             <relationships>
@@ -360,5 +405,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="XhF-VH-1iE"/>
+        <segue reference="3uv-Lp-h4d"/>
+        <segue reference="7ZN-eF-sIx"/>
     </inferredMetricsTieBreakers>
 </document>
