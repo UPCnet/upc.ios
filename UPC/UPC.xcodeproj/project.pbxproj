@@ -64,6 +64,7 @@
 		1D7BA3131577AA2B000189AB /* UPCBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BA3121577AA2B000189AB /* UPCBuilding.m */; };
 		1D7BA3151577ABF9000189AB /* UPCBuildingMappingSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BA3141577ABF8000189AB /* UPCBuildingMappingSpec.m */; };
 		1D7BA3181577B49B000189AB /* UPCCampusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BA3171577B49B000189AB /* UPCCampusViewController.m */; };
+		1D7BA35E1577CC92000189AB /* UPCSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BA35D1577CC91000189AB /* UPCSearchResultsViewController.m */; };
 		1DD706F61566554800346AE0 /* libKiwi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD706F51566554800346AE0 /* libKiwi.a */; };
 		1DD706F8156655DC00346AE0 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD706F7156655DC00346AE0 /* libRestKit.a */; };
 		1DD706FA156655EF00346AE0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD706F9156655EF00346AE0 /* CFNetwork.framework */; };
@@ -164,6 +165,8 @@
 		1D7BA3141577ABF8000189AB /* UPCBuildingMappingSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCBuildingMappingSpec.m; sourceTree = "<group>"; };
 		1D7BA3161577B49B000189AB /* UPCCampusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPCCampusViewController.h; sourceTree = "<group>"; };
 		1D7BA3171577B49B000189AB /* UPCCampusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCCampusViewController.m; sourceTree = "<group>"; };
+		1D7BA35C1577CC91000189AB /* UPCSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPCSearchResultsViewController.h; sourceTree = "<group>"; };
+		1D7BA35D1577CC91000189AB /* UPCSearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCSearchResultsViewController.m; sourceTree = "<group>"; };
 		1DD706F51566554800346AE0 /* libKiwi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libKiwi.a; path = "../Kiwi/build/Release-iphoneos/libKiwi.a"; sourceTree = "<group>"; };
 		1DD706F7156655DC00346AE0 /* libRestKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libRestKit.a; path = "../RestKit/Build/Products/Release-iphoneos/libRestKit.a"; sourceTree = "<group>"; };
 		1DD706F9156655EF00346AE0 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -339,6 +342,8 @@
 				1D09575715652F84008C69E3 /* UPCMapsViewController.m */,
 				1D0957471563E326008C69E3 /* UPCResponsiveWebViewController.h */,
 				1D0957481563E326008C69E3 /* UPCResponsiveWebViewController.m */,
+				1D7BA35C1577CC91000189AB /* UPCSearchResultsViewController.h */,
+				1D7BA35D1577CC91000189AB /* UPCSearchResultsViewController.m */,
 				1D0956F61563A805008C69E3 /* UPCViewController.h */,
 				1D0956F71563A805008C69E3 /* UPCViewController.m */,
 			);
@@ -632,6 +637,7 @@
 				1D7BA30C15779FF2000189AB /* UPCQualifications.m in Sources */,
 				1D7BA3131577AA2B000189AB /* UPCBuilding.m in Sources */,
 				1D7BA3181577B49B000189AB /* UPCCampusViewController.m in Sources */,
+				1D7BA35E1577CC92000189AB /* UPCSearchResultsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

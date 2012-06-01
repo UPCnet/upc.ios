@@ -13,6 +13,7 @@
 #import "UPCSearchResultGroup.h"
 #import "NSArray+SearchResultsGrouping.h"
 #import "UPCCampusViewController.h"
+#import "UPCSearchResultsViewController.h"
 
 
 NSString * const CAMPUS_LOADER = @"CAMPUS_LOADER";
@@ -22,6 +23,8 @@ NSString * const SEARCH_LOADER = @"SEARCH_LOADER";
 #pragma mark Class extension
 
 @interface UPCMapsViewController ()
+
+@property (strong, nonatomic) NSString *lastSearchTerm;
 
 - (void)loadCampuses;
 
@@ -35,6 +38,7 @@ NSString * const SEARCH_LOADER = @"SEARCH_LOADER";
 #pragma mark Synthesized properties
 
 @synthesize mapView;
+@synthesize lastSearchTerm;
 
 #pragma mark View lifecycle management
 
@@ -77,6 +81,7 @@ NSString * const SEARCH_LOADER = @"SEARCH_LOADER";
         loader.delegate = self;
         loader.userData = SEARCH_LOADER;
     }];
+    self.lastSearchTerm = searchBar.text;
 }
 
 #pragma mark Map view management
@@ -142,8 +147,8 @@ NSString * const SEARCH_LOADER = @"SEARCH_LOADER";
         UPCSearchResultGroup *searchResultGroup = (UPCSearchResultGroup *)view.annotation;
         if ([searchResultGroup.searchResults count] == 1) {
         } else {
+            [self performSegueWithIdentifier:@"searchResults" sender:view];
         }
-        [self performSegueWithIdentifier:@"campus" sender:view];
     }
 }
 
@@ -182,6 +187,11 @@ NSString * const SEARCH_LOADER = @"SEARCH_LOADER";
         UPCCampusViewController *campusViewController = segue.destinationViewController;
         campusViewController.campus = campus;
         campusViewController.navigationItem.title = campus.name;
+    } else if ([segue.identifier isEqualToString:@"searchResults"]) {
+        UPCSearchResultGroup *searchResultGroup = (UPCSearchResultGroup *)[(MKAnnotationView *)sender annotation];
+        UPCSearchResultsViewController *searchResultsViewController = segue.destinationViewController;
+        searchResultsViewController.searchResults = searchResultGroup.searchResults;
+        searchResultsViewController.navigationItem.title = self.lastSearchTerm;
     }
 }
 
