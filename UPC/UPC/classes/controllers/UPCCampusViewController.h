@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UPCStructuredDataViewController.h"
 #import "UPCCampus.h"
 
 
-@interface UPCCampusViewController : UITableViewController
+@interface UPCCampusViewController : UPCStructuredDataViewController
 
 @property (strong, nonatomic) UPCCampus *campus;
 

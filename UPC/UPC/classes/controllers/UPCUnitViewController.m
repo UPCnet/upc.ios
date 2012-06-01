@@ -9,5 +9,20 @@
 #import "UPCUnitViewController.h"
 
 
+#pragma mark Class implementation
+
 @implementation UPCUnitViewController
+
+#pragma mark Synthesized properties
+
+@synthesize unit = _unit;
+
+#pragma mark Build unit data
+
+- (void)setUnit:(UPCUnit *)unit
+{
+    self->_unit = unit;
+    //TODO
+}
+
 @end

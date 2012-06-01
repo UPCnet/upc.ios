@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UPCStructuredDataViewController.h"
+#import "UPCUnit.h"
 
 
-@interface UPCUnitViewController : UIViewController
+@interface UPCUnitViewController : UPCStructuredDataViewController
+
+@property (strong, nonatomic) UPCUnit *unit;
+
 @end

@@ -119,7 +119,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Yvy-gG-drX" userLabel="Button - Atenea">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Yvy-gG-drX" userLabel="Button - Atenea">
                                 <rect key="frame" x="124" y="142" width="72" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -134,7 +134,7 @@
                                     <segue destination="YtV-gx-haE" kind="push" identifier="atenea" id="XhF-VH-1iE"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Atenea" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Lkb-OV-i1i">
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Atenea" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Lkb-OV-i1i">
                                 <rect key="frame" x="124" y="214" width="72" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
@@ -243,7 +243,7 @@
                     <navigationItem key="navigationItem" id="dBz-xU-M1z"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="909" y="-235"/>
+            <point key="canvasLocation" x="933" y="-235"/>
         </scene>
         <!--Maps View Controller - Mapes-->
         <scene sceneID="3gN-dc-H4t">
@@ -278,8 +278,8 @@
                         <outlet property="mapView" destination="LPV-tD-oB0" id="8Ly-J7-9JB"/>
                         <segue destination="eKR-xJ-Sw1" kind="push" identifier="campus" id="MnX-Io-Z6d"/>
                         <segue destination="bgU-ba-v2E" kind="push" identifier="searchResults" id="BDk-vx-A1h"/>
-                        <segue destination="0JQ-Nc-sVc" kind="push" identifier="building" id="9UY-RF-t2l"/>
-                        <segue destination="pFW-en-7nn" kind="push" identifier="unit" id="of1-AA-MhA"/>
+                        <segue destination="eVg-tv-CBN" kind="push" identifier="building" id="8Au-0r-Mki"/>
+                        <segue destination="aEx-ra-9OU" kind="push" identifier="unit" id="qM3-0J-pu7"/>
                     </connections>
                 </viewController>
             </objects>
@@ -312,45 +312,75 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="CM6-D1-16x"/>
                     <connections>
-                        <segue destination="0JQ-Nc-sVc" kind="push" identifier="building" id="3uv-Lp-h4d"/>
-                        <segue destination="pFW-en-7nn" kind="push" identifier="unit" id="WOI-pe-9KF"/>
+                        <segue destination="eVg-tv-CBN" kind="push" identifier="building" id="yVj-be-rnI"/>
+                        <segue destination="aEx-ra-9OU" kind="push" identifier="unit" id="loS-w2-DWK"/>
                     </connections>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="889" y="1043"/>
-        </scene>
-        <!--Unit View Controller-->
-        <scene sceneID="0Ic-kD-PoN">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rtf-SV-Y9l" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="pFW-en-7nn" customClass="UPCUnitViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ZoW-qw-CF4">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="AKH-M8-wqA"/>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="1979" y="1043"/>
+            <point key="canvasLocation" x="933" y="1043"/>
         </scene>
         <!--Building View Controller-->
-        <scene sceneID="oq2-Hl-2qh">
+        <scene sceneID="GlJ-nw-VMO">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IUU-OP-Iir" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="0JQ-Nc-sVc" customClass="UPCBuildingViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="RVQ-Yt-jVc">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DPH-04-zje" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="eVg-tv-CBN" customClass="UPCBuildingViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="hRH-op-A3F">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="cZ6-co-xLy"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="3pz-eK-bQz">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="eVg-tv-CBN" id="nUO-EL-epG"/>
+                            <outlet property="delegate" destination="eVg-tv-CBN" id="SC6-Wl-VOE"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="imi-Gg-iGZ"/>
                     <connections>
-                        <segue destination="pFW-en-7nn" kind="push" identifier="unit" id="7ZN-eF-sIx"/>
+                        <segue destination="aEx-ra-9OU" kind="push" identifier="unit" id="YDy-aD-a7X"/>
                     </connections>
-                </viewController>
+                </tableViewController>
             </objects>
-            <point key="canvasLocation" x="1445" y="357"/>
+            <point key="canvasLocation" x="1475" y="357"/>
+        </scene>
+        <!--Unit View Controller-->
+        <scene sceneID="hl7-Is-5Fw">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dFb-Sb-a0Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="aEx-ra-9OU" customClass="UPCUnitViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Jti-Om-jOA">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="fqd-0w-mNB">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="aEx-ra-9OU" id="fH5-my-je6"/>
+                            <outlet property="delegate" destination="aEx-ra-9OU" id="Sc4-R5-nRf"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="yaI-B9-QUQ"/>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="2015" y="1043"/>
         </scene>
     </scenes>
     <resources>
@@ -363,7 +393,7 @@
         <image name="ico_videos.png" width="72" height="72"/>
     </resources>
     <classes>
-        <class className="UPCBuildingViewController" superclassName="UIViewController">
+        <class className="UPCBuildingViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UPCBuildingViewController.h"/>
         </class>
         <class className="UPCCampusViewController" superclassName="UITableViewController">
@@ -388,7 +418,7 @@
         <class className="UPCSearchResultsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UPCSearchResultsViewController.h"/>
         </class>
-        <class className="UPCUnitViewController" superclassName="UIViewController">
+        <class className="UPCUnitViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UPCUnitViewController.h"/>
         </class>
         <class className="UPCViewController" superclassName="UIViewController">
@@ -405,7 +435,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="XhF-VH-1iE"/>
-        <segue reference="3uv-Lp-h4d"/>
-        <segue reference="7ZN-eF-sIx"/>
+        <segue reference="yVj-be-rnI"/>
+        <segue reference="YDy-aD-a7X"/>
     </inferredMetricsTieBreakers>
 </document>

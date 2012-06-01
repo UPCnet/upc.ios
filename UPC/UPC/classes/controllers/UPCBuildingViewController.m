@@ -9,5 +9,20 @@
 #import "UPCBuildingViewController.h"
 
 
+#pragma mark Class implementation
+
 @implementation UPCBuildingViewController
+
+# pragma mark Synthesized properties
+
+@synthesize building = _building;
+
+#pragma mark Build building data
+
+- (void)setBuilding:(UPCBuilding *)building
+{
+    self->_building = building;
+    //TODO
+}
+
 @end
