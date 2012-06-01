@@ -33,7 +33,7 @@
 
 - (void)viewDidLoad
 {
-    self.responsiveURLs = [NSDictionary dictionaryWithObjectsAndKeys:@"http://m.upc.edu/graus", @"graus", @"http://m.upc.edu/masters", @"masters", @"http://m.atenea.upc.edu", @"atenea", nil];
+    self.responsiveURLs = [NSDictionary dictionaryWithObjectsAndKeys:@"http://llocs.upc.edu/provesscp/www-upc-css/grau/graus.php?mob", @"graus", @"http://llocs.upc.edu/provesscp/www-upc-css/master/masters.php?mob", @"masters", @"http://m.atenea.upc.edu", @"atenea", nil];
     self.titles = [NSDictionary dictionaryWithObjectsAndKeys:@"Graus", @"graus", @"Màsters universitaris", @"masters", @"Atenea", @"atenea", nil];
     [super viewDidLoad];
 }
