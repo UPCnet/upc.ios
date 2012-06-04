@@ -187,25 +187,25 @@ NSString * const UNIT_LOADER     = @"UNIT_LOADER";
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
 {
-    [self.mapView removeAnnotations:self.mapView.annotations];
-    
     if ([objectLoader.userData isEqualToString:LOCALITY_LOADER]) {
+        [self.mapView removeAnnotations:self.mapView.annotations];
         [objects enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             [self.mapView addAnnotation:obj];
         }];
+        [self showAnnotatedRegion];
     } else if ([objectLoader.userData isEqualToString:SEARCH_LOADER]) {
+        [self.mapView removeAnnotations:self.mapView.annotations];
         NSDictionary *groupedSearchResults = [objects groupByLocation];
         [groupedSearchResults enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
             NSArray *searchResultsInLocation = (NSArray *)obj;
             [self.mapView addAnnotation:[[UPCSearchResultGroup alloc] initWithSearchResults:searchResultsInLocation]];
         }];
+        [self showAnnotatedRegion];
     } else if ([objectLoader.userData isEqualToString:BUILDING_LOADER]) {
         [self performSegueWithIdentifier:@"building" sender:[objects objectAtIndex:0]];
     } else if ([objectLoader.userData isEqualToString:UNIT_LOADER]) {
         [self performSegueWithIdentifier:@"unit" sender:[objects objectAtIndex:0]];
     }
-    
-    [self showAnnotatedRegion];
 }
 
 #pragma mark Segue management
