@@ -58,7 +58,6 @@
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:BUILDING_UNIT_CELL];
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:BUILDING_UNIT_CELL];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             cell.textLabel.font = [UIFont systemFontOfSize:14];
             cell.textLabel.numberOfLines = 0;
             cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
