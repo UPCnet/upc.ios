@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RestKit/RestKit.h"
 
 
-@interface UPCSearchResultsViewController : UITableViewController
+@interface UPCSearchResultsViewController : UITableViewController <RKObjectLoaderDelegate>
 
 @property (strong, nonatomic) NSArray *searchResults;
 
