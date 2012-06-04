@@ -50,6 +50,17 @@
     };
 }
 
+- (CellConfigurator)contactInfoCellConfigurator
+{
+    return ^(UITableView *tableView, NSIndexPath *indexPath) {
+        static NSString *UNIT_NAME_CELL = @"UNIT_NAME_CELL";
+        
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:UNIT_NAME_CELL];
+        cell.textLabel.text = [[(NSArray *)[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] description];
+        return cell;
+    };
+}
+
 - (CellConfigurator)qualificationsCellConfigurator
 {
     return ^(UITableView *tableView, NSIndexPath *indexPath) {
@@ -120,6 +131,25 @@
     [cellHeightEstimators addObject:[self unitInfoHeightEstimator]];
     [cellConfigurators addObject:unitInfoCellConfigurator];
     [cellActions addObject:[NSNull null]];
+    
+    // Add contact info
+    if ([unit.phone length] > 0 || [unit.emailAddress length] > 0 || [unit.webAddress length] > 0) {
+        NSMutableArray *contactInfo = [[NSMutableArray alloc] init];
+        if ([unit.phone length] > 0) {
+            [contactInfo addObject:unit.phone];
+        }
+        if ([unit.emailAddress length] > 0) {
+            [contactInfo addObject:unit.emailAddress];
+        }
+        if ([unit.webAddress length] > 0) {
+            [contactInfo addObject:unit.webAddress];
+        }
+        [sections addObject:contactInfo];
+        [sectionHeaders addObject:[NSNull null]];
+        [cellHeightEstimators addObject:DEFAULT_HEIGHT_ESTIMATOR];
+        [cellConfigurators addObject:[self contactInfoCellConfigurator]];
+        [cellActions addObject:[NSNull null]];
+    }
     
     // Add qualifications
     if ([unit.degrees count] > 0) {
