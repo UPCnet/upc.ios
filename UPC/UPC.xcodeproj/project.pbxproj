@@ -365,9 +365,9 @@
 				1D7BA35D1577CC91000189AB /* UPCSearchResultsViewController.m */,
 				1D7BA36B1578DBB6000189AB /* UPCStructuredDataViewController.h */,
 				1D7BA36C1578DBB7000189AB /* UPCStructuredDataViewController.m */,
-				1D0956F61563A805008C69E3 /* UPCViewController.h */,
 				1D7BA3681578DA46000189AB /* UPCUnitViewController.h */,
 				1D7BA3691578DA47000189AB /* UPCUnitViewController.m */,
+				1D0956F61563A805008C69E3 /* UPCViewController.h */,
 				1D0956F71563A805008C69E3 /* UPCViewController.m */,
 			);
 			path = controllers;

@@ -114,7 +114,7 @@
         [cellConfigurators addObject:qualificationsCellConfigurator];
         [cellActions addObject:^(UITableView *tableView, NSIndexPath *indexPath) {
             UPCQualifications *qualifications = [unit.degrees objectAtIndex:indexPath.row];
-            NSString *degreeInfoAddress = [NSString stringWithFormat:@"http://llocs.upc.edu/provesscp/www-upc-css/grau/fitxa_grau.php?mob&id_estudi=%@&lang=cat#content", qualifications.identifier];
+            NSString *degreeInfoAddress = [NSString stringWithFormat:@"http://www.upc.edu/grau/fitxa_grau.php?id_estudi=%@&lang=ca", qualifications.identifier];
             [self performSegueWithIdentifier:@"qualifications" sender:[NSURL URLWithString:degreeInfoAddress]];
         }];
     }
@@ -126,7 +126,7 @@
         [cellConfigurators addObject:qualificationsCellConfigurator];
         [cellActions addObject:^(UITableView *tableView, NSIndexPath *indexPath) {
             UPCQualifications *qualifications = [unit.masters objectAtIndex:indexPath.row];
-            NSString *degreeInfoAddress = [NSString stringWithFormat:@"http://llocs.upc.edu/provesscp/www-upc-css/master/fitxa_master.php?mob&id_estudi=%@&lang=cat#content", qualifications.identifier];
+            NSString *degreeInfoAddress = [NSString stringWithFormat:@"http://www.upc.edu/master/fitxa_master.php?id_estudi=%@&lang=ca", qualifications.identifier];
             [self performSegueWithIdentifier:@"qualifications" sender:[NSURL URLWithString:degreeInfoAddress]];
         }];
     }
