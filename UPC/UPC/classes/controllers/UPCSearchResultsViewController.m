@@ -39,11 +39,6 @@
     static NSString *SEARCH_RESULT_CELL = @"SEARCH_RESULT_CELL";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SEARCH_RESULT_CELL];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:SEARCH_RESULT_CELL];
-        cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
-    }
-    
     cell.textLabel.text = [(UPCSearchResult *)[self.searchResults objectAtIndex:indexPath.row] name];
     
     return cell;
