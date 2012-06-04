@@ -14,4 +14,9 @@
 @synthesize identifier;
 @synthesize name;
 
+- (NSString *)description
+{
+    return self.name;
+}
+
 @end

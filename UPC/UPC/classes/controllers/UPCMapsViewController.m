@@ -9,15 +9,21 @@
 #import "UPCMapsViewController.h"
 #import "UPCRestKitConfigurator.h"
 #import "UPCLocality.h"
-#import "UPCSearchResult.h"
 #import "UPCSearchResultGroup.h"
+#import "UPCSearchResult.h"
+#import "UPCUnit.h"
+#import "UPCBuilding.h"
 #import "NSArray+SearchResultsGrouping.h"
 #import "UPCLocalityViewController.h"
 #import "UPCSearchResultsViewController.h"
+#import "UPCUnitViewController.h"
+#import "UPCBuildingViewController.h"
 
 
 NSString * const LOCALITY_LOADER = @"LOCALITY_LOADER";
 NSString * const SEARCH_LOADER   = @"SEARCH_LOADER";
+NSString * const BUILDING_LOADER = @"BUILDING_LOADER";
+NSString * const UNIT_LOADER     = @"UNIT_LOADER";
 
 
 #pragma mark Class extension
@@ -146,6 +152,26 @@ NSString * const SEARCH_LOADER   = @"SEARCH_LOADER";
     } else  if ([view.annotation isKindOfClass:[UPCSearchResultGroup class]]) {
         UPCSearchResultGroup *searchResultGroup = (UPCSearchResultGroup *)view.annotation;
         if ([searchResultGroup.searchResults count] == 1) {
+            UPCSearchResult *searchResult = [searchResultGroup.searchResults objectAtIndex:0];
+            if ([searchResult.type isEqualToString:BUILDING_TYPE]) {
+                RKObjectManager *objectManager = [UPCRestKitConfigurator sharedManager];
+                [objectManager.requestQueue cancelAllRequests];
+                NSString *searchPath = [@"/InfoEdificiv1.php" stringByAppendingQueryParameters:[NSDictionary dictionaryWithObject:searchResult.identifier forKey:@"id"]];
+                [objectManager loadObjectsAtResourcePath:searchPath usingBlock:^(RKObjectLoader *loader) {
+                    [loader.mappingProvider setMapping:[loader.mappingProvider objectMappingForClass:[UPCBuilding class]] forKeyPath:@""];
+                    loader.delegate = self;
+                    loader.userData = BUILDING_LOADER;
+                }];
+            } else { // Unit type
+                RKObjectManager *objectManager = [UPCRestKitConfigurator sharedManager];
+                [objectManager.requestQueue cancelAllRequests];
+                NSString *searchPath = [@"/InfoUnitatv1.php" stringByAppendingQueryParameters:[NSDictionary dictionaryWithObject:searchResult.identifier forKey:@"id"]];
+                [objectManager loadObjectsAtResourcePath:searchPath usingBlock:^(RKObjectLoader *loader) {
+                    [loader.mappingProvider setMapping:[loader.mappingProvider objectMappingForClass:[UPCUnit class]] forKeyPath:@""];
+                    loader.delegate = self;
+                    loader.userData = UNIT_LOADER;
+                }];
+            }
         } else {
             [self performSegueWithIdentifier:@"searchResults" sender:view];
         }
@@ -173,6 +199,10 @@ NSString * const SEARCH_LOADER   = @"SEARCH_LOADER";
             NSArray *searchResultsInLocation = (NSArray *)obj;
             [self.mapView addAnnotation:[[UPCSearchResultGroup alloc] initWithSearchResults:searchResultsInLocation]];
         }];
+    } else if ([objectLoader.userData isEqualToString:BUILDING_LOADER]) {
+        [self performSegueWithIdentifier:@"building" sender:[objects objectAtIndex:0]];
+    } else if ([objectLoader.userData isEqualToString:UNIT_LOADER]) {
+        [self performSegueWithIdentifier:@"unit" sender:[objects objectAtIndex:0]];
     }
     
     [self showAnnotatedRegion];
@@ -192,6 +222,16 @@ NSString * const SEARCH_LOADER   = @"SEARCH_LOADER";
         UPCSearchResultsViewController *searchResultsViewController = segue.destinationViewController;
         searchResultsViewController.searchResults = searchResultGroup.searchResults;
         searchResultsViewController.navigationItem.title = self.lastSearchTerm;
+    } else if ([segue.identifier isEqualToString:@"building"]) {
+        UPCBuilding *building = sender;
+        UPCBuildingViewController *buildingViewController = segue.destinationViewController;
+        buildingViewController.building = building;
+        buildingViewController.navigationItem.title = building.name;
+    } else if ([segue.identifier isEqualToString:@"unit"]) {
+        UPCUnit *unit = sender;
+        UPCUnitViewController *unitViewController = segue.destinationViewController;
+        unitViewController.unit = unit;
+        unitViewController.navigationItem.title = unit.name;
     }
 }
 

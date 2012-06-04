@@ -14,31 +14,6 @@ const CellHeightEstimator DEFAULT_HEIGHT_ESTIMATOR = ^(UITableView *tableView, N
 };
 
 
-#pragma mark - UPCStructuredDataAction class implementation
-
-@implementation UPCStructuredDataAction
-
-@synthesize label  = _label;
-@synthesize action = _action;
-
-- (id)initWithLabel:(NSString *)label andAction:(CellAction)action
-{
-    self = [super init];
-    if (self) {
-        self->_label  = label;
-        self->_action = action;
-    }
-    return self;
-}
-
-- (NSString *)description
-{
-    return self.label;
-}
-
-@end
-
-
 #pragma mark - UPCStructuredDataViewController class implementation
 
 @implementation UPCStructuredDataViewController
@@ -49,6 +24,7 @@ const CellHeightEstimator DEFAULT_HEIGHT_ESTIMATOR = ^(UITableView *tableView, N
 @synthesize sectionHeaders       = _sectionHeaders;
 @synthesize cellHeightEstimators = _cellHeightEstimators;
 @synthesize cellConfigurators    = _cellConfigurators;
+@synthesize cellActions          = _cellActions;
 
 #pragma mark Table view data source
 
@@ -64,8 +40,8 @@ const CellHeightEstimator DEFAULT_HEIGHT_ESTIMATOR = ^(UITableView *tableView, N
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    NSString *sectionHeader = [self.sectionHeaders objectAtIndex:section];
-    if (![sectionHeader isEqual:[NSNull null]]) {
+    id sectionHeader = [self.sectionHeaders objectAtIndex:section];
+    if (sectionHeader != [NSNull null]) {
         return sectionHeader;
     } else {
         return nil;
@@ -86,7 +62,8 @@ const CellHeightEstimator DEFAULT_HEIGHT_ESTIMATOR = ^(UITableView *tableView, N
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([[(NSArray *)[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] isKindOfClass:[UPCStructuredDataAction class]]) {
+    id action = [self.cellActions objectAtIndex:indexPath.section];
+    if (action != [NSNull null]) {
         return indexPath;
     } else {
         return nil;
@@ -95,8 +72,8 @@ const CellHeightEstimator DEFAULT_HEIGHT_ESTIMATOR = ^(UITableView *tableView, N
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UPCStructuredDataAction *action = [(NSArray *)[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-    action.action(tableView, indexPath);
+    CellAction action = [self.cellActions objectAtIndex:indexPath.section];
+    action(tableView, indexPath);
 }
 
 @end

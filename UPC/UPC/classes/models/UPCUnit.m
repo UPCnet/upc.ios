@@ -35,4 +35,9 @@
 @synthesize jointDegrees;
 @synthesize masters;
 
+- (NSString *)description
+{
+    return self.name;
+}
+
 @end

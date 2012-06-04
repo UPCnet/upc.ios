@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RestKit/RestKit.h"
 #import "UPCStructuredDataViewController.h"
 #import "UPCBuilding.h"
 
 
-@interface UPCBuildingViewController : UPCStructuredDataViewController
+@interface UPCBuildingViewController : UPCStructuredDataViewController <RKObjectLoaderDelegate>
 
 @property (strong, nonatomic) UPCBuilding *building;
 

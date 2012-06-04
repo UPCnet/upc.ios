@@ -88,6 +88,7 @@
     NSMutableArray *sectionHeaders = [[NSMutableArray alloc] init];
     NSMutableArray *cellHeightEstimators = [[NSMutableArray alloc] init];
     NSMutableArray *cellConfigurators = [[NSMutableArray alloc] init];
+    NSMutableArray *cellActions = [[NSMutableArray alloc] init];
     
     CellConfigurator localityInfoCellConfigurator = [self localityInfoCellConfigurator];
     CellConfigurator centerCellConfigurator       = [self centerCellConfigurator];
@@ -101,6 +102,7 @@
     [sectionHeaders addObject:[NSNull null]];
     [cellHeightEstimators addObject:DEFAULT_HEIGHT_ESTIMATOR];
     [cellConfigurators addObject:localityInfoCellConfigurator];
+    [cellActions addObject:[NSNull null]];
     
     // Add centers
     if ([locality.ownCenters count] > 0) {
@@ -108,6 +110,7 @@
         [sectionHeaders addObject:@"Centres propis"];
         [cellHeightEstimators addObject:centerHeightEstimator];
         [cellConfigurators addObject:centerCellConfigurator];
+        [cellActions addObject:[NSNull null]];
     }
     
     // Add attached centers
@@ -116,25 +119,28 @@
         [sectionHeaders addObject:@"Centres adscrits"];
         [cellHeightEstimators addObject:centerHeightEstimator];
         [cellConfigurators addObject:centerCellConfigurator];
+        [cellActions addObject:[NSNull null]];
     }
     
     // Add directions button
     if (locality.longitude != 0 && locality.latitude != 0) {
-        [sections addObject:[NSArray arrayWithObject:[[UPCStructuredDataAction alloc] initWithLabel:@"Com anar-hi" andAction:^(UITableView *tableView, NSIndexPath *indexPath) {
+        [sections addObject:[NSArray arrayWithObject:@"Com anar-hi"]];
+        [sectionHeaders addObject:[NSNull null]];
+        [cellHeightEstimators addObject:DEFAULT_HEIGHT_ESTIMATOR];
+        [cellConfigurators addObject:directionsCellConfigurator];
+        [cellActions addObject:^(UITableView *tableView, NSIndexPath *indexPath) {
             NSString *currentLocation = [UPCLocalizedCurrentLocation currentLocationStringForCurrentLanguage];
             NSString *googleMapsAddress = [NSString stringWithFormat:@"http://maps.google.com/maps?saddr=%@&daddr=%f,%f", [currentLocation stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], locality.latitude, locality.longitude];
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:googleMapsAddress]];
             [tableView deselectRowAtIndexPath:indexPath animated:YES];
-        }]]];
-        [sectionHeaders addObject:[NSNull null]];
-        [cellHeightEstimators addObject:DEFAULT_HEIGHT_ESTIMATOR];
-        [cellConfigurators addObject:directionsCellConfigurator];
+        }];
     }
     
     self.sections = sections;
     self.sectionHeaders = sectionHeaders;
     self.cellHeightEstimators = cellHeightEstimators;
     self.cellConfigurators = cellConfigurators;
+    self.cellActions = cellActions;
 }
 
 @end
