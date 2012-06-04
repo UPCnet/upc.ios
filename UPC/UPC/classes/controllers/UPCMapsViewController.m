@@ -195,7 +195,7 @@
         [self showAnnotatedRegion];
     } else if ([objectLoader.userData isEqualToString:SEARCH_LOADER]) {
         [self.mapView removeAnnotations:self.mapView.annotations];
-        NSArray *buildingsAndUnits = [objects filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"type == 'building' OR type == 'unit'"]];
+        NSArray *buildingsAndUnits = [objects filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"type == 'edifici' OR type == 'unitat'"]];
         NSDictionary *groupedSearchResults = [buildingsAndUnits groupByLocation];
         [groupedSearchResults enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
             NSArray *searchResultsInLocation = (NSArray *)obj;
