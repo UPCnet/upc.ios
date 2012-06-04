@@ -11,7 +11,7 @@
 #import "UPCAddressVideoCell.h"
 #import "UPCQualifications.h"
 #import "UPCLocalizedCurrentLocation.h"
-#import <SDWebImage/UIButton+WebCache.h>
+#import "UIButton+WebCache.h"
 
 
 #pragma mark Class implementation
