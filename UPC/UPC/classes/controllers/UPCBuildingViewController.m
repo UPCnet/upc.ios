@@ -92,11 +92,11 @@
     NSMutableArray *cellActions = [[NSMutableArray alloc] init];
     
     CellConfigurator buildingInfoCellConfigurator = [self buildingInfoCellConfigurator];
-    CellConfigurator centerCellConfigurator       = [self unitCellConfigurator];
+    CellConfigurator unitCellConfigurator         = [self unitCellConfigurator];
     CellConfigurator directionsCellConfigurator   = [self directionsCellConfigurator];
     
     CellHeightEstimator buildingInfoHeightEstimator = [self buildingInfoHeightEstimator];
-    CellHeightEstimator centerHeightEstimator       = [self unitHeightEstimator];
+    CellHeightEstimator unitHeightEstimator         = [self unitHeightEstimator];
     
     // Add building info
     NSArray *buildingInfo = [NSArray arrayWithObjects:building.name, building.address, nil];
@@ -110,8 +110,8 @@
     if ([building.units count] > 0) {
         [sections addObject:building.units];
         [sectionHeaders addObject:@"Unitats"];
-        [cellHeightEstimators addObject:centerHeightEstimator];
-        [cellConfigurators addObject:centerCellConfigurator];
+        [cellHeightEstimators addObject:unitHeightEstimator];
+        [cellConfigurators addObject:unitCellConfigurator];
         [cellActions addObject:^(UITableView *tableView, NSIndexPath *indexPath) {
             RKObjectManager *objectManager = [UPCRestKitConfigurator sharedManager];
             [objectManager.requestQueue cancelAllRequests];
