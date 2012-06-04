@@ -125,7 +125,8 @@
     CellHeightEstimator qualificationsHeightEstimator = [self qualificationsHeightEstimator];
     
     // Add locality info
-    NSArray *unitInfo = [NSArray arrayWithObjects:unit.name, unit.address, nil];
+    NSString *address = [unit.address length] > 0 ? unit.address : nil;
+    NSArray *unitInfo = [NSArray arrayWithObjects:unit.name, address, nil];
     [sections addObject:unitInfo];
     [sectionHeaders addObject:[NSNull null]];
     [cellHeightEstimators addObject:[self unitInfoHeightEstimator]];
