@@ -15,4 +15,6 @@
 
 @property (strong, nonatomic) UPCUnit *unit;
 
+- (IBAction)youtubeVideoButtonTapped:(id)sender;
+
 @end

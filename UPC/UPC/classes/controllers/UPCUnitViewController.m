@@ -8,8 +8,10 @@
 
 #import "UPCUnitViewController.h"
 #import "UPCQualificationsViewController.h"
+#import "UPCAddressVideoCell.h"
 #import "UPCQualifications.h"
 #import "UPCLocalizedCurrentLocation.h"
+#import <SDWebImage/UIButton+WebCache.h>
 
 
 #pragma mark Class implementation
@@ -25,11 +27,26 @@
 - (CellConfigurator)unitInfoCellConfigurator
 {
     return ^(UITableView *tableView, NSIndexPath *indexPath) {
-        static NSString *UNIT_NAME_CELL = @"UNIT_NAME_CELL";
+        static NSString *UNIT_NAME_CELL          = @"UNIT_NAME_CELL";
+        static NSString *UNIT_ADDRESS_VIDEO_CELL = @"UNIT_ADDRESS_VIDEO_CELL";
+        static NSString *UNIT_ADDRESS_CELL       = @"UNIT_ADDRESS_CELL";
         
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:UNIT_NAME_CELL];
-        cell.textLabel.text = [[(NSArray *)[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] description];
-        return cell;
+        if (indexPath.row == 0) {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:UNIT_NAME_CELL];
+            cell.textLabel.text = [[(NSArray *)[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] description];
+            return cell;
+        } else {
+            NSString *imageURL = self.unit.youTubeVideoAddress != nil ? (self.unit.videoThumbnailAddress != nil ? self.unit.videoThumbnailAddress : self.unit.photoAddress) : self.unit.photoAddress;
+            NSString *reusableCellIdentifier = self.unit.photoAddress || (self.unit.youTubeVideoAddress && self.unit.videoThumbnailAddress) ? UNIT_ADDRESS_VIDEO_CELL : UNIT_ADDRESS_CELL;
+            UPCAddressVideoCell *cell = [tableView dequeueReusableCellWithIdentifier:reusableCellIdentifier];
+            cell.addressLabel.text = [[(NSArray *)[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] description];
+            if (imageURL) {
+                [cell.videoButton setImageWithURL:[NSURL URLWithString:imageURL]];
+            }
+            [cell sizeToFit];
+            return cell;
+        }
+        
     };
 }
 
@@ -53,6 +70,21 @@
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:UNIT_DIRECTIONS_CELL];
         cell.textLabel.text = [[(NSArray *)[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] description];
         return cell;
+    };
+}
+
+- (CellHeightEstimator)unitInfoHeightEstimator
+{
+    return ^(UITableView *tableView, NSIndexPath *indexPath) {
+        if (indexPath.row == 0) {
+            return tableView.rowHeight;
+        } else {
+            NSString *text = [[(NSArray *)[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] description];
+            CGFloat addressWidth = self.unit.photoAddress || (self.unit.youTubeVideoAddress && self.unit.videoThumbnailAddress) ? 140.f : 280.f;
+            CGFloat minimumCellHeight  = self.unit.photoAddress || (self.unit.youTubeVideoAddress && self.unit.videoThumbnailAddress) ? 100.f : 44.f;
+            CGSize textSize = [text sizeWithFont:[UIFont systemFontOfSize:17] constrainedToSize:CGSizeMake(addressWidth, 500) lineBreakMode:UILineBreakModeWordWrap];
+            return MAX(textSize.height + 16, minimumCellHeight);
+        }
     };
 }
 
@@ -82,10 +114,10 @@
     CellHeightEstimator qualificationsHeightEstimator = [self qualificationsHeightEstimator];
     
     // Add locality info
-    NSArray *unitInfo = [NSArray arrayWithObjects:unit.name, nil];
+    NSArray *unitInfo = [NSArray arrayWithObjects:unit.name, unit.address, nil];
     [sections addObject:unitInfo];
     [sectionHeaders addObject:[NSNull null]];
-    [cellHeightEstimators addObject:DEFAULT_HEIGHT_ESTIMATOR];
+    [cellHeightEstimators addObject:[self unitInfoHeightEstimator]];
     [cellConfigurators addObject:unitInfoCellConfigurator];
     [cellActions addObject:[NSNull null]];
     
@@ -147,6 +179,15 @@
 {
     UPCQualificationsViewController *qualificationsViewController = segue.destinationViewController;
     qualificationsViewController.url = sender;
+}
+
+#pragma mark YouTube video button
+
+- (IBAction)youtubeVideoButtonTapped:(id)sender
+{
+    if (self.unit.youTubeVideoAddress) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.unit.youTubeVideoAddress]];
+    }
 }
 
 @end

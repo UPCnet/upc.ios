@@ -4,3 +4,6 @@
 [submodule "Kiwi"]
 	path = Kiwi
 	url = git://github.com/allending/Kiwi.git
+[submodule "SDWebImage"]
+	path = SDWebImage
+	url = https://github.com/rs/SDWebImage.git

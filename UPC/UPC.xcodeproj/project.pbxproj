@@ -69,6 +69,9 @@
 		1D7BA36A1578DA47000189AB /* UPCUnitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BA3691578DA47000189AB /* UPCUnitViewController.m */; };
 		1D7BA36D1578DBB8000189AB /* UPCStructuredDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BA36C1578DBB7000189AB /* UPCStructuredDataViewController.m */; };
 		1DCE0AFA157C9BDA002A45DC /* UPCQualificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DCE0AF9157C9BDA002A45DC /* UPCQualificationsViewController.m */; };
+		1DCE0AFF157D0EF1002A45DC /* UPCAddressVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DCE0AFE157D0EF1002A45DC /* UPCAddressVideoCell.m */; };
+		1DCE0B07157D16E9002A45DC /* libSDWebImageARC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DCE0B06157D16E9002A45DC /* libSDWebImageARC.a */; };
+		1DCE0B09157D1CFE002A45DC /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DCE0B08157D1CFE002A45DC /* ImageIO.framework */; };
 		1DD706F61566554800346AE0 /* libKiwi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD706F51566554800346AE0 /* libKiwi.a */; };
 		1DD706F8156655DC00346AE0 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD706F7156655DC00346AE0 /* libRestKit.a */; };
 		1DD706FA156655EF00346AE0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD706F9156655EF00346AE0 /* CFNetwork.framework */; };
@@ -180,6 +183,10 @@
 		1D7BA36C1578DBB7000189AB /* UPCStructuredDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCStructuredDataViewController.m; sourceTree = "<group>"; };
 		1DCE0AF8157C9BD9002A45DC /* UPCQualificationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPCQualificationsViewController.h; sourceTree = "<group>"; };
 		1DCE0AF9157C9BDA002A45DC /* UPCQualificationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCQualificationsViewController.m; sourceTree = "<group>"; };
+		1DCE0AFD157D0EF1002A45DC /* UPCAddressVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPCAddressVideoCell.h; sourceTree = "<group>"; };
+		1DCE0AFE157D0EF1002A45DC /* UPCAddressVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCAddressVideoCell.m; sourceTree = "<group>"; };
+		1DCE0B06157D16E9002A45DC /* libSDWebImageARC.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libSDWebImageARC.a; path = "../SDWebImage/build/Release-iphoneos/libSDWebImageARC.a"; sourceTree = "<group>"; };
+		1DCE0B08157D1CFE002A45DC /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		1DD706F51566554800346AE0 /* libKiwi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libKiwi.a; path = "../Kiwi/build/Release-iphoneos/libKiwi.a"; sourceTree = "<group>"; };
 		1DD706F7156655DC00346AE0 /* libRestKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libRestKit.a; path = "../RestKit/Build/Products/Release-iphoneos/libRestKit.a"; sourceTree = "<group>"; };
 		1DD706F9156655EF00346AE0 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -218,6 +225,8 @@
 				1DD707001566561A00346AE0 /* Security.framework in Frameworks */,
 				1DD707021566562300346AE0 /* SystemConfiguration.framework in Frameworks */,
 				1DD707041566562F00346AE0 /* libxml2.dylib in Frameworks */,
+				1DCE0B07157D16E9002A45DC /* libSDWebImageARC.a in Frameworks */,
+				1DCE0B09157D1CFE002A45DC /* ImageIO.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +293,8 @@
 				1DD707011566562300346AE0 /* SystemConfiguration.framework */,
 				1DD707031566562F00346AE0 /* libxml2.dylib */,
 				1DD707051566580E00346AE0 /* QuartzCore.framework */,
+				1DCE0B06157D16E9002A45DC /* libSDWebImageARC.a */,
+				1DCE0B08157D1CFE002A45DC /* ImageIO.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -335,6 +346,7 @@
 				1D0956F51563A805008C69E3 /* controllers */,
 				1DD70777156688A700346AE0 /* helpers */,
 				1DD707301566847C00346AE0 /* models */,
+				1DCE0AFC157D0E9D002A45DC /* views */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -427,6 +439,15 @@
 				1D0957171563AADB008C69E3 /* spotlight_58x58.png */,
 			);
 			path = "ios-images";
+			sourceTree = "<group>";
+		};
+		1DCE0AFC157D0E9D002A45DC /* views */ = {
+			isa = PBXGroup;
+			children = (
+				1DCE0AFD157D0EF1002A45DC /* UPCAddressVideoCell.h */,
+				1DCE0AFE157D0EF1002A45DC /* UPCAddressVideoCell.m */,
+			);
+			path = views;
 			sourceTree = "<group>";
 		};
 		1DD707301566847C00346AE0 /* models */ = {
@@ -668,6 +689,7 @@
 				1D7BA36D1578DBB8000189AB /* UPCStructuredDataViewController.m in Sources */,
 				1DE870E71579191400A1EA7F /* UPCLocalizedCurrentLocation.m in Sources */,
 				1DCE0AFA157C9BDA002A45DC /* UPCQualificationsViewController.m in Sources */,
+				1DCE0AFF157D0EF1002A45DC /* UPCAddressVideoCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
