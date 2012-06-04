@@ -25,12 +25,7 @@
     return ^(UITableView *tableView, NSIndexPath *indexPath) {
         static NSString *LOCALITY_NAME_CELL = @"LOCALITY_NAME_CELL";
         
-        UITableViewCell *cell;
-        cell = [tableView dequeueReusableCellWithIdentifier:LOCALITY_NAME_CELL];
-        if (!cell) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:LOCALITY_NAME_CELL];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        }
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:LOCALITY_NAME_CELL];
         cell.textLabel.text = [[(NSArray *)[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] description];
         return cell;
     };
@@ -42,14 +37,6 @@
         static NSString *LOCALITY_CENTER_CELL = @"LOCALITY_CENTER_CELL";
         
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:LOCALITY_CENTER_CELL];
-        if (!cell) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:LOCALITY_CENTER_CELL];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            cell.textLabel.font = [UIFont systemFontOfSize:14];
-            cell.textLabel.numberOfLines = 0;
-            cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
-            cell.textLabel.textColor = [UIColor colorWithRed:0 green:123.f/255.f blue:192.f/255.f alpha:1];
-        }
         cell.textLabel.text = [[(NSArray *)[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] description];
         [cell sizeToFit];
         return cell;
@@ -62,10 +49,6 @@
         static NSString *LOCALITY_DIRECTIONS_CELL = @"LOCALITY_DIRECTIONS_CELL";
         
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:LOCALITY_DIRECTIONS_CELL];
-        if (!cell) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:LOCALITY_DIRECTIONS_CELL];
-            cell.textLabel.textAlignment = UITextAlignmentCenter;
-        }
         cell.textLabel.text = [[(NSArray *)[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] description];
         return cell;
     };
@@ -75,7 +58,7 @@
 {
     return ^(UITableView *tableView, NSIndexPath *indexPath) {
         NSString *text = [[(NSArray *)[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] description];
-        CGSize textSize = [text sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(282, 44) lineBreakMode:UILineBreakModeWordWrap];
+        CGSize textSize = [text sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(280, 44) lineBreakMode:UILineBreakModeWordWrap];
         return textSize.height + 16;
     };
 }
