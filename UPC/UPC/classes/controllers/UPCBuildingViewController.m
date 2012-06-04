@@ -149,7 +149,8 @@
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
 {
-    NSLog(@"Error while loading search results!");
+    [[[UIAlertView alloc] initWithTitle:@"Error" message:@"S'ha produït un error de comunicació. Sisplau, intenta-ho de nou més tard." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
