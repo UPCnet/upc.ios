@@ -20,10 +20,10 @@
 #import "UPCBuildingViewController.h"
 
 
-NSString * const LOCALITY_LOADER = @"LOCALITY_LOADER";
-NSString * const SEARCH_LOADER   = @"SEARCH_LOADER";
-NSString * const BUILDING_LOADER = @"BUILDING_LOADER";
-NSString * const UNIT_LOADER     = @"UNIT_LOADER";
+#define LOCALITY_LOADER @"LOCALITY_LOADER"
+#define SEARCH_LOADER   @"SEARCH_LOADER"
+#define BUILDING_LOADER @"BUILDING_LOADER"
+#define UNIT_LOADER     @"UNIT_LOADER"
 
 
 #pragma mark Class extension
@@ -162,7 +162,7 @@ NSString * const UNIT_LOADER     = @"UNIT_LOADER";
                     loader.delegate = self;
                     loader.userData = BUILDING_LOADER;
                 }];
-            } else { // Unit type
+            } else if ([searchResult.type isEqualToString:UNIT_TYPE]) {
                 RKObjectManager *objectManager = [UPCRestKitConfigurator sharedManager];
                 [objectManager.requestQueue cancelAllRequests];
                 NSString *searchPath = [@"/InfoUnitatv1.php" stringByAppendingQueryParameters:[NSDictionary dictionaryWithObject:searchResult.identifier forKey:@"id"]];
@@ -195,7 +195,8 @@ NSString * const UNIT_LOADER     = @"UNIT_LOADER";
         [self showAnnotatedRegion];
     } else if ([objectLoader.userData isEqualToString:SEARCH_LOADER]) {
         [self.mapView removeAnnotations:self.mapView.annotations];
-        NSDictionary *groupedSearchResults = [objects groupByLocation];
+        NSArray *buildingsAndUnits = [objects filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"type == 'building' OR type == 'unit'"]];
+        NSDictionary *groupedSearchResults = [buildingsAndUnits groupByLocation];
         [groupedSearchResults enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
             NSArray *searchResultsInLocation = (NSArray *)obj;
             [self.mapView addAnnotation:[[UPCSearchResultGroup alloc] initWithSearchResults:searchResultsInLocation]];
