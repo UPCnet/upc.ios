@@ -58,7 +58,7 @@
 {
     return ^(UITableView *tableView, NSIndexPath *indexPath) {
         NSString *text = [[(NSArray *)[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] description];
-        CGSize textSize = [text sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(280, 44) lineBreakMode:UILineBreakModeWordWrap];
+        CGSize textSize = [text sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(280, 500) lineBreakMode:UILineBreakModeWordWrap];
         return textSize.height + 16;
     };
 }
