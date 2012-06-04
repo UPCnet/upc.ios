@@ -28,23 +28,9 @@
         static NSString *BUILDING_NAME_CELL    = @"BUILDING_NAME_CELL";
         static NSString *BUILDING_ADDRESS_CELL = @"BUILDING_ADDRESS_CELL";
         
-        UITableViewCell *cell;
-        if (indexPath.row == 0) {
-            cell = [tableView dequeueReusableCellWithIdentifier:BUILDING_NAME_CELL];
-            if (!cell) {
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:BUILDING_NAME_CELL];
-                cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            }
-        } else {
-            cell = [tableView dequeueReusableCellWithIdentifier:BUILDING_ADDRESS_CELL];
-            if (!cell) {
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:BUILDING_ADDRESS_CELL];
-                cell.selectionStyle = UITableViewCellSelectionStyleNone;
-                cell.textLabel.font = [UIFont systemFontOfSize:14];
-                cell.textLabel.numberOfLines = 0;
-                cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
-            }
-        }
+        NSString *reusableCellIdentifier = indexPath.row == 0 ? BUILDING_NAME_CELL : BUILDING_ADDRESS_CELL;
+        
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reusableCellIdentifier];
         cell.textLabel.text = [[(NSArray *)[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] description];
         return cell;
     };
@@ -56,13 +42,6 @@
         static NSString *BUILDING_UNIT_CELL = @"BUILDING_UNIT_CELL";
         
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:BUILDING_UNIT_CELL];
-        if (!cell) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:BUILDING_UNIT_CELL];
-            cell.textLabel.font = [UIFont systemFontOfSize:14];
-            cell.textLabel.numberOfLines = 0;
-            cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
-            cell.textLabel.textColor = [UIColor colorWithRed:0 green:123.f/255.f blue:192.f/255.f alpha:1];
-        }
         cell.textLabel.text = [[(NSArray *)[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] description];
         [cell sizeToFit];
         return cell;
@@ -75,10 +54,6 @@
         static NSString *BUILDING_DIRECTIONS_CELL = @"BUILDING_DIRECTIONS_CELL";
         
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:BUILDING_DIRECTIONS_CELL];
-        if (!cell) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:BUILDING_DIRECTIONS_CELL];
-            cell.textLabel.textAlignment = UITextAlignmentCenter;
-        }
         cell.textLabel.text = [[(NSArray *)[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] description];
         return cell;
     };
@@ -91,7 +66,7 @@
             return tableView.rowHeight;
         } else {
             NSString *text = [[(NSArray *)[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] description];
-            CGSize textSize = [text sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(282, 44) lineBreakMode:UILineBreakModeWordWrap];
+            CGSize textSize = [text sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(280, 44) lineBreakMode:UILineBreakModeWordWrap];
             return textSize.height + 16;
         }
     };
@@ -101,7 +76,7 @@
 {
     return ^(UITableView *tableView, NSIndexPath *indexPath) {
         NSString *text = [[(NSArray *)[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] description];
-        CGSize textSize = [text sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(282, 44) lineBreakMode:UILineBreakModeWordWrap];
+        CGSize textSize = [text sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(247, 44) lineBreakMode:UILineBreakModeWordWrap];
         return textSize.height + 16;
     };
 }
