@@ -38,7 +38,7 @@
         } else {
             cell = [tableView dequeueReusableCellWithIdentifier:BUILDING_ADDRESS_CELL];
             if (!cell) {
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:BUILDING_NAME_CELL];
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:BUILDING_ADDRESS_CELL];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 cell.textLabel.font = [UIFont systemFontOfSize:14];
                 cell.textLabel.numberOfLines = 0;
