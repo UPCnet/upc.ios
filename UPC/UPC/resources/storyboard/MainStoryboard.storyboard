@@ -250,15 +250,15 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="LOCALITY_CENTER_CELL" textLabel="MoD-Gp-HJo" style="IBUITableViewCellStyleDefault" id="5lg-eX-ZdI">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="LOCALITY_CENTER_CELL" textLabel="a9a-4o-tkH" style="IBUITableViewCellStyleDefault" id="3I0-gu-Y9z">
                                 <rect key="frame" x="0.0" y="91" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="10" y="0.0" width="300" height="43"/>
+                                    <rect key="frame" x="10" y="0.0" width="267" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MoD-Gp-HJo">
-                                            <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a9a-4o-tkH">
+                                            <rect key="frame" x="10" y="0.0" width="247" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.0" green="0.4823529412" blue="0.75165374090000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -293,6 +293,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="dBz-xU-M1z"/>
+                    <connections>
+                        <segue destination="aEx-ra-9OU" kind="push" identifier="unit" id="bwN-hf-Hil"/>
+                    </connections>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="933" y="-235"/>

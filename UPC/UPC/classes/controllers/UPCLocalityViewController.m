@@ -7,6 +7,10 @@
 //
 
 #import "UPCLocalityViewController.h"
+#import "UPCUnitViewController.h"
+#import "UPCCenter.h"
+#import "UPCUnit.h"
+#import "UPCRestKitConfigurator.h"
 #import "UPCLocalizedCurrentLocation.h"
 
 
@@ -58,7 +62,7 @@
 {
     return ^(UITableView *tableView, NSIndexPath *indexPath) {
         NSString *text = [[(NSArray *)[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] description];
-        CGSize textSize = [text sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(280, 500) lineBreakMode:UILineBreakModeWordWrap];
+        CGSize textSize = [text sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(247, 500) lineBreakMode:UILineBreakModeWordWrap];
         return textSize.height + 16;
     };
 }
@@ -93,7 +97,16 @@
         [sectionHeaders addObject:@"Centres propis"];
         [cellHeightEstimators addObject:centerHeightEstimator];
         [cellConfigurators addObject:centerCellConfigurator];
-        [cellActions addObject:[NSNull null]];
+        [cellActions addObject:^(UITableView *tableView, NSIndexPath *indexPath) {
+            RKObjectManager *objectManager = [UPCRestKitConfigurator sharedManager];
+            [objectManager.requestQueue cancelAllRequests];
+            UPCCenter *center = [locality.ownCenters objectAtIndex:indexPath.row];
+            NSString *searchPath = [@"/InfoUnitatv1.php" stringByAppendingQueryParameters:[NSDictionary dictionaryWithObject:center.identifier forKey:@"id"]];
+            [objectManager loadObjectsAtResourcePath:searchPath usingBlock:^(RKObjectLoader *loader) {
+                [loader.mappingProvider setMapping:[loader.mappingProvider objectMappingForClass:[UPCUnit class]] forKeyPath:@""];
+                loader.delegate = self;
+            }];
+        }];
     }
     
     // Add attached centers
@@ -102,7 +115,16 @@
         [sectionHeaders addObject:@"Centres adscrits"];
         [cellHeightEstimators addObject:centerHeightEstimator];
         [cellConfigurators addObject:centerCellConfigurator];
-        [cellActions addObject:[NSNull null]];
+        [cellActions addObject:^(UITableView *tableView, NSIndexPath *indexPath) {
+            RKObjectManager *objectManager = [UPCRestKitConfigurator sharedManager];
+            [objectManager.requestQueue cancelAllRequests];
+            UPCCenter *center = [locality.attachedCenters objectAtIndex:indexPath.row];
+            NSString *searchPath = [@"/InfoUnitatv1.php" stringByAppendingQueryParameters:[NSDictionary dictionaryWithObject:center.identifier forKey:@"id"]];
+            [objectManager loadObjectsAtResourcePath:searchPath usingBlock:^(RKObjectLoader *loader) {
+                [loader.mappingProvider setMapping:[loader.mappingProvider objectMappingForClass:[UPCUnit class]] forKeyPath:@""];
+                loader.delegate = self;
+            }];
+        }];
     }
     
     // Add directions button
@@ -124,6 +146,29 @@
     self.cellHeightEstimators = cellHeightEstimators;
     self.cellConfigurators = cellConfigurators;
     self.cellActions = cellActions;
+}
+
+#pragma mark RestKit object loading
+
+- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
+{
+    [[[UIAlertView alloc] initWithTitle:@"Error" message:@"S'ha produït un error de comunicació. Sisplau, intenta-ho de nou més tard." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+}
+
+- (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
+{
+    [self performSegueWithIdentifier:@"unit" sender:[objects objectAtIndex:0]];
+}
+
+#pragma mark Segue management
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    UPCUnit *unit = sender;
+    UPCUnitViewController *unitViewController = segue.destinationViewController;
+    unitViewController.unit = unit;
+    unitViewController.navigationItem.title = unit.name;
 }
 
 @end
