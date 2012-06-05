@@ -52,6 +52,8 @@
 		1D09575515650280008C69E3 /* button.forward@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D09575115650280008C69E3 /* button.forward@2x.png */; };
 		1D09575815652F84008C69E3 /* UPCMapsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D09575715652F84008C69E3 /* UPCMapsViewController.m */; };
 		1D09575E156531A2008C69E3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D09575D156531A2008C69E3 /* CoreLocation.framework */; };
+		1D237111157E45DF00C89B54 /* menu_fonsDegradat.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D23710F157E45DF00C89B54 /* menu_fonsDegradat.png */; };
+		1D237112157E45DF00C89B54 /* menu_logoUPC.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D237110157E45DF00C89B54 /* menu_logoUPC.png */; };
 		1D7BA2FC157781E8000189AB /* UPCLocality.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BA2FB157781E8000189AB /* UPCLocality.m */; };
 		1D7BA300157783EB000189AB /* UPCCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BA2FF157783EB000189AB /* UPCCenter.m */; };
 		1D7BA30215778695000189AB /* UPCLocalityMappingSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BA30115778695000189AB /* UPCLocalityMappingSpec.m */; };
@@ -155,6 +157,8 @@
 		1D09575615652F83008C69E3 /* UPCMapsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPCMapsViewController.h; sourceTree = "<group>"; };
 		1D09575715652F84008C69E3 /* UPCMapsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCMapsViewController.m; sourceTree = "<group>"; };
 		1D09575D156531A2008C69E3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1D23710F157E45DF00C89B54 /* menu_fonsDegradat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_fonsDegradat.png; sourceTree = "<group>"; };
+		1D237110157E45DF00C89B54 /* menu_logoUPC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_logoUPC.png; sourceTree = "<group>"; };
 		1D7BA2FA157781E8000189AB /* UPCLocality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPCLocality.h; sourceTree = "<group>"; };
 		1D7BA2FB157781E8000189AB /* UPCLocality.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCLocality.m; sourceTree = "<group>"; };
 		1D7BA2FE157783EB000189AB /* UPCCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPCCenter.h; sourceTree = "<group>"; };
@@ -185,7 +189,7 @@
 		1DCE0AF9157C9BDA002A45DC /* UPCQualificationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCQualificationsViewController.m; sourceTree = "<group>"; };
 		1DCE0AFD157D0EF1002A45DC /* UPCAddressVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPCAddressVideoCell.h; sourceTree = "<group>"; };
 		1DCE0AFE157D0EF1002A45DC /* UPCAddressVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCAddressVideoCell.m; sourceTree = "<group>"; };
-		1DCE0B06157D16E9002A45DC /* libSDWebImageARC.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libSDWebImageARC.a; path = "../SDWebImage/build/Release-iphoneos/libSDWebImageARC.a"; sourceTree = "<group>"; };
+		1DCE0B06157D16E9002A45DC /* libSDWebImageARC.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDWebImageARC.a; path = "../SDWebImage/build/Release-iphoneos/libSDWebImageARC.a"; sourceTree = "<group>"; };
 		1DCE0B08157D1CFE002A45DC /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		1DD706F51566554800346AE0 /* libKiwi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libKiwi.a; path = "../Kiwi/build/Release-iphoneos/libKiwi.a"; sourceTree = "<group>"; };
 		1DD706F7156655DC00346AE0 /* libRestKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libRestKit.a; path = "../RestKit/Build/Products/Release-iphoneos/libRestKit.a"; sourceTree = "<group>"; };
@@ -420,6 +424,8 @@
 				1D0957061563AADB008C69E3 /* ico_masters@2x.png */,
 				1D0957071563AADB008C69E3 /* ico_videos.png */,
 				1D0957081563AADB008C69E3 /* ico_videos@2x.png */,
+				1D23710F157E45DF00C89B54 /* menu_fonsDegradat.png */,
+				1D237110157E45DF00C89B54 /* menu_logoUPC.png */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -630,6 +636,8 @@
 				1D09575315650280008C69E3 /* button.back@2x.png in Resources */,
 				1D09575415650280008C69E3 /* button.forward.png in Resources */,
 				1D09575515650280008C69E3 /* button.forward@2x.png in Resources */,
+				1D237111157E45DF00C89B54 /* menu_fonsDegradat.png in Resources */,
+				1D237112157E45DF00C89B54 /* menu_logoUPC.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
