@@ -54,6 +54,8 @@
 		1D09575E156531A2008C69E3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D09575D156531A2008C69E3 /* CoreLocation.framework */; };
 		1D237111157E45DF00C89B54 /* menu_fonsDegradat.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D23710F157E45DF00C89B54 /* menu_fonsDegradat.png */; };
 		1D237112157E45DF00C89B54 /* menu_logoUPC.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D237110157E45DF00C89B54 /* menu_logoUPC.png */; };
+		1D23716D157F40B500C89B54 /* menu_fonsDegradat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D23716B157F40B500C89B54 /* menu_fonsDegradat@2x.png */; };
+		1D23716E157F40B500C89B54 /* menu_logoUPC@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D23716C157F40B500C89B54 /* menu_logoUPC@2x.png */; };
 		1D7BA2FC157781E8000189AB /* UPCLocality.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BA2FB157781E8000189AB /* UPCLocality.m */; };
 		1D7BA300157783EB000189AB /* UPCCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BA2FF157783EB000189AB /* UPCCenter.m */; };
 		1D7BA30215778695000189AB /* UPCLocalityMappingSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BA30115778695000189AB /* UPCLocalityMappingSpec.m */; };
@@ -159,6 +161,8 @@
 		1D09575D156531A2008C69E3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		1D23710F157E45DF00C89B54 /* menu_fonsDegradat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_fonsDegradat.png; sourceTree = "<group>"; };
 		1D237110157E45DF00C89B54 /* menu_logoUPC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_logoUPC.png; sourceTree = "<group>"; };
+		1D23716B157F40B500C89B54 /* menu_fonsDegradat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_fonsDegradat@2x.png"; sourceTree = "<group>"; };
+		1D23716C157F40B500C89B54 /* menu_logoUPC@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_logoUPC@2x.png"; sourceTree = "<group>"; };
 		1D7BA2FA157781E8000189AB /* UPCLocality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPCLocality.h; sourceTree = "<group>"; };
 		1D7BA2FB157781E8000189AB /* UPCLocality.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCLocality.m; sourceTree = "<group>"; };
 		1D7BA2FE157783EB000189AB /* UPCCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPCCenter.h; sourceTree = "<group>"; };
@@ -425,7 +429,9 @@
 				1D0957071563AADB008C69E3 /* ico_videos.png */,
 				1D0957081563AADB008C69E3 /* ico_videos@2x.png */,
 				1D23710F157E45DF00C89B54 /* menu_fonsDegradat.png */,
+				1D23716B157F40B500C89B54 /* menu_fonsDegradat@2x.png */,
 				1D237110157E45DF00C89B54 /* menu_logoUPC.png */,
+				1D23716C157F40B500C89B54 /* menu_logoUPC@2x.png */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -638,6 +644,8 @@
 				1D09575515650280008C69E3 /* button.forward@2x.png in Resources */,
 				1D237111157E45DF00C89B54 /* menu_fonsDegradat.png in Resources */,
 				1D237112157E45DF00C89B54 /* menu_logoUPC.png in Resources */,
+				1D23716D157F40B500C89B54 /* menu_fonsDegradat@2x.png in Resources */,
+				1D23716E157F40B500C89B54 /* menu_logoUPC@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
