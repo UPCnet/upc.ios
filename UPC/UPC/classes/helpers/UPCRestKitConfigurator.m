@@ -75,9 +75,10 @@
     [unitMapping mapKeyPath:@"web_matricula"  toAttribute:@"enrollmentWebAddress"];
     [unitMapping mapKeyPath:@"coord.lat"      toAttribute:@"latitude"];
     [unitMapping mapKeyPath:@"coord.lon"      toAttribute:@"longitude"];
-    [unitMapping mapKeyPath:@"estudis.graus"              toRelationship:@"degrees"      withMapping:qualificationsMapping];
-    [unitMapping mapKeyPath:@"estudis.dobles_titulacions" toRelationship:@"jointDegrees" withMapping:qualificationsMapping];
-    [unitMapping mapKeyPath:@"estudis.masters"            toRelationship:@"masters"      withMapping:qualificationsMapping];
+    [unitMapping mapKeyPath:@"estudis.graus"              toRelationship:@"degrees"            withMapping:qualificationsMapping];
+    [unitMapping mapKeyPath:@"estudis.2ns_cicles"         toRelationship:@"secondCycleDegrees" withMapping:qualificationsMapping];
+    [unitMapping mapKeyPath:@"estudis.dobles_titulacions" toRelationship:@"jointDegrees"       withMapping:qualificationsMapping];
+    [unitMapping mapKeyPath:@"estudis.masters"            toRelationship:@"masters"            withMapping:qualificationsMapping];
     
     RKObjectMapping *buildingMapping = [RKObjectMapping mappingForClass:[UPCBuilding class]];
     [buildingMapping mapKeyPath:@"nom_ca"      toAttribute:@"name"];

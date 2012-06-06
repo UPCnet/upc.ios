@@ -165,14 +165,14 @@
         }];
     }
     
-    if ([unit.masters count] > 0) {
-        [sections addObject:unit.masters];
-        [sectionHeaders addObject:@"2n cicle"];
+    if ([unit.secondCycleDegrees count] > 0) {
+        [sections addObject:unit.secondCycleDegrees];
+        [sectionHeaders addObject:@"2ns cicles"];
         [cellHeightEstimators addObject:qualificationsHeightEstimator];
         [cellConfigurators addObject:qualificationsCellConfigurator];
         [cellActions addObject:^(UITableView *tableView, NSIndexPath *indexPath) {
-            UPCQualifications *qualifications = [unit.masters objectAtIndex:indexPath.row];
-            NSString *degreeInfoAddress = [NSString stringWithFormat:@"http://www.upc.edu/master/fitxa_master.php?id_estudi=%@&lang=ca", qualifications.identifier];
+            UPCQualifications *qualifications = [unit.secondCycleDegrees objectAtIndex:indexPath.row];
+            NSString *degreeInfoAddress = [NSString stringWithFormat:@"http://www.upc.edu/grau/fitxa_grau.php?id_estudi=%@&lang=ca", qualifications.identifier];
             [self performSegueWithIdentifier:@"qualifications" sender:[NSURL URLWithString:degreeInfoAddress]];
         }];
     }
@@ -182,7 +182,23 @@
         [sectionHeaders addObject:@"Dobles titulacions"];
         [cellHeightEstimators addObject:qualificationsHeightEstimator];
         [cellConfigurators addObject:qualificationsCellConfigurator];
-        [cellActions addObject:[NSNull null]];
+        [cellActions addObject:^(UITableView *tableView, NSIndexPath *indexPath) {
+            UPCQualifications *qualifications = [unit.jointDegrees objectAtIndex:indexPath.row];
+            NSString *degreeInfoAddress = [NSString stringWithFormat:@"http://www.upc.edu/grau/fitxa_grau.php?id_estudi=%@&lang=ca", qualifications.identifier];
+            [self performSegueWithIdentifier:@"qualifications" sender:[NSURL URLWithString:degreeInfoAddress]];
+        }];
+    }
+    
+    if ([unit.masters count] > 0) {
+        [sections addObject:unit.masters];
+        [sectionHeaders addObject:@"Màsters universitaris"];
+        [cellHeightEstimators addObject:qualificationsHeightEstimator];
+        [cellConfigurators addObject:qualificationsCellConfigurator];
+        [cellActions addObject:^(UITableView *tableView, NSIndexPath *indexPath) {
+            UPCQualifications *qualifications = [unit.masters objectAtIndex:indexPath.row];
+            NSString *degreeInfoAddress = [NSString stringWithFormat:@"http://www.upc.edu/master/fitxa_master.php?id_estudi=%@&lang=ca", qualifications.identifier];
+            [self performSegueWithIdentifier:@"qualifications" sender:[NSURL URLWithString:degreeInfoAddress]];
+        }];
     }
     
     // Add directions button

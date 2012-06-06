@@ -8,7 +8,7 @@
     "campus_en" : "Campus Diagonal Sud",
     "sigles" : "ETSAB",
     "codi_upc" : "210",
-    "adreça" : "Av. Diagonal, 649. Edifici A. 08028 Barcelona",
+    "adreça" : "Campus Diagonal Sud. Edifici A . Av. Diagonal, 649. 08028 Barcelona",
     "localitat" : "Barcelona",
     "codi_postal" : "08028",
     "director" : "Ferran Sagarra Trias",
@@ -31,50 +31,40 @@
     },
     "estudis" : {
         "graus" : [ {
-                   "id" : "79",
-                   "nom_ca" : "Arquitectura",
-                   "nom_es" : "Arquitectura",
-                   "nom_en" : "Degree in Architecture"
-                   }, {
                    "id" : "228",
                    "nom_ca" : "Grau en Arquitectura",
                    "nom_es" : "Grado en Arquitectura",
                    "nom_en" : "Bachelor's degree in Architecture"
                    } ],
+        "2ns_cicles" : null,
         "dobles_titulacions" : null,
         "masters" : [ {
                      "id" : "21",
-                     "id_titulacio" : "85",
                      "nom_ca" : "Màster universitari en Arquitectura, Energia i Medi Ambient",
                      "nom_es" : "Máster universitario en Arquitectura, Energía y Medio Ambiente",
                      "nom_en" : "Master's degree in Architecture, Energy and the Environment"
                      }, {
                      "id" : "49",
-                     "id_titulacio" : "113",
                      "nom_ca" : "Màster universitari en Gestió i Valoració Urbana",
                      "nom_es" : "Máster universitario en Gestión y Valoración Urbana",
                      "nom_en" : "Master's degree in Urban Management and Valuation"
                      }, {
                      "id" : "59",
-                     "id_titulacio" : "123",
                      "nom_ca" : "Màster universitari en Paisatgisme",
                      "nom_es" : "Máster universitario en Paisajismo",
                      "nom_en" : "Master's degree in Landscaping"
                      }, {
                      "id" : "66",
-                     "id_titulacio" : "130",
                      "nom_ca" : "Màster universitari en Tecnologia a l'Arquitectura",
                      "nom_es" : "Máster universitario en Tecnología en la Arquitectura",
                      "nom_en" : "Master's degree in Architectural Technology"
                      }, {
                      "id" : "69",
-                     "id_titulacio" : "133",
                      "nom_ca" : "Màster universitari en Teoria i Pràctica del Projecte d'Arquitectura",
                      "nom_es" : "Máster universitario en Teoría y Práctica del Proyecto de Arquitectura",
                      "nom_en" : "Master's degree in Theory and Practice of Architectural Design"
                      }, {
                      "id" : "70",
-                     "id_titulacio" : "134",
                      "nom_ca" : "Màster universitari en Urbanisme",
                      "nom_es" : "Máster universitario en Urbanismo",
                      "nom_en" : "Master's degree in Urbanism"

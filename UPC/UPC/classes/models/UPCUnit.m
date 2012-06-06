@@ -32,6 +32,7 @@
 @synthesize latitude;
 @synthesize longitude;
 @synthesize degrees;
+@synthesize secondCycleDegrees;
 @synthesize jointDegrees;
 @synthesize masters;
 

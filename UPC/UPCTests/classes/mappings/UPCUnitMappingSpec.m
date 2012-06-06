@@ -35,7 +35,7 @@ describe(@"UPCUnitMappings", ^{
             [[mappedUnit.campusName should] equal:@"Campus Diagonal Sud"];
             [[mappedUnit.acronym should] equal:@"ETSAB"];
             [[mappedUnit.code should] equal:@"210"];
-            [[mappedUnit.address should] equal:@"Av. Diagonal, 649. Edifici A. 08028 Barcelona"];
+            [[mappedUnit.address should] equal:@"Campus Diagonal Sud. Edifici A . Av. Diagonal, 649. 08028 Barcelona"];
             [[mappedUnit.locality should] equal:@"Barcelona"];
             [[mappedUnit.postcode should] equal:@"08028"];
             [[mappedUnit.directorName should] equal:@"Ferran Sagarra Trias"];
@@ -53,10 +53,14 @@ describe(@"UPCUnitMappings", ^{
         });
         
         it(@"should have correctly parsed its degrees", ^{
-            [[theValue([mappedUnit.degrees count]) should] equal:theValue(2)];
+            [[theValue([mappedUnit.degrees count]) should] equal:theValue(1)];
             UPCQualifications *firstDegree = [mappedUnit.degrees objectAtIndex:0];
-            [[firstDegree.identifier should] equal:@"79"];
-            [[firstDegree.name should] equal:@"Arquitectura"];
+            [[firstDegree.identifier should] equal:@"228"];
+            [[firstDegree.name should] equal:@"Grau en Arquitectura"];
+        });
+        
+        it(@"should have correctly parsed its second cycle degrees", ^{
+            [[theValue([mappedUnit.secondCycleDegrees count]) should] equal:theValue(0)];
         });
         
         it(@"should have correctly parsed its joint degrees", ^{
