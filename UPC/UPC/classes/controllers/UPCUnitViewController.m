@@ -168,7 +168,7 @@
     // Add qualifications
     if ([unit.degrees count] > 0) {
         [sections addObject:unit.degrees];
-        [sectionHeaders addObject:@"Grau"];
+        [sectionHeaders addObject:@"Graus"];
         [cellHeightEstimators addObject:qualificationsHeightEstimator];
         [cellConfigurators addObject:qualificationsCellConfigurator];
         [cellActions addObject:^(UITableView *tableView, NSIndexPath *indexPath) {
