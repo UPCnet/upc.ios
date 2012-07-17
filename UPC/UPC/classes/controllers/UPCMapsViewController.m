@@ -103,10 +103,11 @@
 - (void)showAnnotatedRegion
 {
     static double SPAN_FACTOR = 1.5;
+    static double MIN_SPAN    = 0.002;
     
     if ([self.mapView.annotations count] == 1) {
         id<MKAnnotation> annotation = [self.mapView.annotations objectAtIndex:0];
-        [self.mapView setRegion:MKCoordinateRegionMake([annotation coordinate], MKCoordinateSpanMake(0.0005, 0.0005)) animated:YES];
+        [self.mapView setRegion:MKCoordinateRegionMake([annotation coordinate], MKCoordinateSpanMake(MIN_SPAN, MIN_SPAN)) animated:YES];
     }
     else if ([self.mapView.annotations count] > 1) {
         __block CLLocationDegrees minLatitude  =  DBL_MAX;
@@ -123,7 +124,7 @@
         }];
         
         CLLocationCoordinate2D center = CLLocationCoordinate2DMake((minLatitude + maxLatitude) / 2, (minLongitude + maxLongitude) / 2);
-        MKCoordinateSpan span =  MKCoordinateSpanMake((maxLatitude - minLatitude) * SPAN_FACTOR, (maxLongitude - minLongitude) * SPAN_FACTOR);
+        MKCoordinateSpan span =  MKCoordinateSpanMake(MAX((maxLatitude - minLatitude) * SPAN_FACTOR, MIN_SPAN), MAX((maxLongitude - minLongitude) * SPAN_FACTOR, MIN_SPAN));
         [self.mapView setRegion:MKCoordinateRegionMake(center, span) animated:YES];
     } else {
         [self showDefaultRegion];
