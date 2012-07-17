@@ -547,7 +547,7 @@
                                     <rect key="frame" x="10" y="1" width="300" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZtA-3j-B2Q">
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZtA-3j-B2Q">
                                             <rect key="frame" x="10" y="0.0" width="280" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -697,6 +697,61 @@
         <image name="menu_fonsDegradat.png" width="1" height="9"/>
         <image name="menu_logoUPC.png" width="202" height="45"/>
     </resources>
+    <classes>
+        <class className="UPCAddressVideoCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UPCAddressVideoCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="videoButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="UPCBuildingViewController" superclassName="UPCStructuredDataViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UPCBuildingViewController.h"/>
+        </class>
+        <class className="UPCLocalityViewController" superclassName="UPCStructuredDataViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UPCLocalityViewController.h"/>
+        </class>
+        <class className="UPCMapsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UPCMapsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="UPCQualificationsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UPCQualificationsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="UPCResponsiveWebViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UPCResponsiveWebViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="backButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="forwardButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="refreshButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="stopButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="UPCSearchResultsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UPCSearchResultsViewController.h"/>
+        </class>
+        <class className="UPCStructuredDataViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UPCStructuredDataViewController.h"/>
+        </class>
+        <class className="UPCUnitViewController" superclassName="UPCStructuredDataViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UPCUnitViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="youtubeVideoButtonTapped:"/>
+            </relationships>
+        </class>
+        <class className="UPCViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UPCViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="videosButtonTapped:"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

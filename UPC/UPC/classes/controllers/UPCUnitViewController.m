@@ -34,6 +34,7 @@
         if (indexPath.row == 0) {
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:UNIT_NAME_CELL];
             cell.textLabel.text = [[(NSArray *)[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] description];
+            [cell sizeToFit];
             return cell;
         } else {
             NSString *imageURL = self.unit.youTubeVideoAddress != nil ? (self.unit.videoThumbnailAddress != nil ? self.unit.videoThumbnailAddress : self.unit.photoAddress) : self.unit.photoAddress;
@@ -88,7 +89,9 @@
 {
     return ^(UITableView *tableView, NSIndexPath *indexPath) {
         if (indexPath.row == 0) {
-            return tableView.rowHeight;
+            NSString *text = [[(NSArray *)[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] description];
+            CGSize textSize = [text sizeWithFont:[UIFont boldSystemFontOfSize:17] constrainedToSize:CGSizeMake(280, 500) lineBreakMode:UILineBreakModeWordWrap];
+            return textSize.height + 16;
         } else {
             NSString *text = [[(NSArray *)[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] description];
             CGFloat addressWidth = self.unit.photoAddress || (self.unit.youTubeVideoAddress && self.unit.videoThumbnailAddress) ? 140.f : 280.f;
