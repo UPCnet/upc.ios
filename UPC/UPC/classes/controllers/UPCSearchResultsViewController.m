@@ -29,6 +29,13 @@
 
 #pragma mark Table view data source
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *text = [(UPCSearchResult *)[self.searchResults objectAtIndex:indexPath.row] name];
+    CGSize textSize = [text sizeWithFont:[UIFont boldSystemFontOfSize:17] constrainedToSize:CGSizeMake(267, 500) lineBreakMode:UILineBreakModeWordWrap];
+    return textSize.height + 16;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [searchResults count];
@@ -40,6 +47,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SEARCH_RESULT_CELL];
     cell.textLabel.text = [(UPCSearchResult *)[self.searchResults objectAtIndex:indexPath.row] name];
+    [cell sizeToFit];
     
     return cell;
 }
