@@ -53,7 +53,7 @@
 - (CellConfigurator)contactInfoCellConfigurator
 {
     return ^(UITableView *tableView, NSIndexPath *indexPath) {
-        static NSString *UNIT_NAME_CELL = @"UNIT_NAME_CELL";
+        static NSString *UNIT_NAME_CELL = @"UNIT_CONTACT_INFO_CELL";
         
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:UNIT_NAME_CELL];
         cell.textLabel.text = [[(NSArray *)[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] description];
@@ -136,20 +136,30 @@
     // Add contact info
     if ([unit.phone length] > 0 || [unit.emailAddress length] > 0 || [unit.webAddress length] > 0) {
         NSMutableArray *contactInfo = [[NSMutableArray alloc] init];
+        NSMutableArray *contactURLPrefix = [[NSMutableArray alloc] init];
         if ([unit.phone length] > 0) {
             [contactInfo addObject:unit.phone];
+            [contactURLPrefix addObject:@"tel:"];
         }
         if ([unit.emailAddress length] > 0) {
             [contactInfo addObject:unit.emailAddress];
+            [contactURLPrefix addObject:@"mailto:"];
         }
         if ([unit.webAddress length] > 0) {
             [contactInfo addObject:unit.webAddress];
+            [contactURLPrefix addObject:@""];
         }
         [sections addObject:contactInfo];
         [sectionHeaders addObject:[NSNull null]];
         [cellHeightEstimators addObject:DEFAULT_HEIGHT_ESTIMATOR];
         [cellConfigurators addObject:[self contactInfoCellConfigurator]];
-        [cellActions addObject:[NSNull null]];
+        [cellActions addObject:^(UITableView *tableView, NSIndexPath *indexPath) {
+            NSString *urlPrefix = [contactURLPrefix objectAtIndex:indexPath.row];
+            NSString *address   = [urlPrefix isEqualToString:@"tel:"] ? [[contactInfo objectAtIndex:indexPath.row] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] : [contactInfo objectAtIndex:indexPath.row];
+            NSString *url = [NSString stringWithFormat:@"%@%@", urlPrefix, address];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+            [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+        }];
     }
     
     // Add qualifications
