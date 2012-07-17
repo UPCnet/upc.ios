@@ -33,6 +33,7 @@
 @property (strong, nonatomic) NSString *lastSearchTerm;
 
 - (void)loadLocalities;
+- (void)showDefaultRegion;
 
 @end
 
@@ -51,7 +52,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.mapView setRegion:MKCoordinateRegionMake(CLLocationCoordinate2DMake(41.65, 2), MKCoordinateSpanMake(2, 2)) animated:NO];
+    [self showDefaultRegion];
     [self loadLocalities];
 }
 
@@ -59,6 +60,13 @@
 {
     [self setMapView:nil];
     [super viewDidUnload];
+}
+
+#pragma mark Default map area
+
+- (void)showDefaultRegion
+{
+    [self.mapView setRegion:MKCoordinateRegionMake(CLLocationCoordinate2DMake(41.65, 2), MKCoordinateSpanMake(2, 2)) animated:NO];
 }
 
 #pragma mark Initial loading of localities
@@ -118,7 +126,7 @@
         MKCoordinateSpan span =  MKCoordinateSpanMake((maxLatitude - minLatitude) * SPAN_FACTOR, (maxLongitude - minLongitude) * SPAN_FACTOR);
         [self.mapView setRegion:MKCoordinateRegionMake(center, span) animated:YES];
     } else {
-        [self.mapView setRegion:MKCoordinateRegionMake(CLLocationCoordinate2DMake(41.65, 2), MKCoordinateSpanMake(2, 2)) animated:YES];
+        [self showDefaultRegion];
     }
 }
 
@@ -196,11 +204,15 @@
     } else if ([objectLoader.userData isEqualToString:SEARCH_LOADER]) {
         [self.mapView removeAnnotations:self.mapView.annotations];
         NSArray *buildingsAndUnits = [objects filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"type == 'edifici' OR type == 'unitat'"]];
-        NSDictionary *groupedSearchResults = [buildingsAndUnits groupByLocation];
-        [groupedSearchResults enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-            NSArray *searchResultsInLocation = (NSArray *)obj;
-            [self.mapView addAnnotation:[[UPCSearchResultGroup alloc] initWithSearchResults:searchResultsInLocation]];
-        }];
+        if ([buildingsAndUnits count] > 0) {
+            NSDictionary *groupedSearchResults = [buildingsAndUnits groupByLocation];
+            [groupedSearchResults enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+                NSArray *searchResultsInLocation = (NSArray *)obj;
+                [self.mapView addAnnotation:[[UPCSearchResultGroup alloc] initWithSearchResults:searchResultsInLocation]];
+            }];
+        } else {
+            [[[UIAlertView alloc] initWithTitle:@"Error" message:@"No s'ha obtingut cap resultat" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        }
         [self showAnnotatedRegion];
     } else if ([objectLoader.userData isEqualToString:BUILDING_LOADER]) {
         [self performSegueWithIdentifier:@"building" sender:[objects objectAtIndex:0]];
