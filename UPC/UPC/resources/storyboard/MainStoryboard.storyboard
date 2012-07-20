@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="PeV-w4-YAP">
     <dependencies>
+        <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
@@ -177,6 +178,78 @@
                 </viewController>
             </objects>
             <point key="canvasLocation" x="-251" y="-235"/>
+        </scene>
+        <!--Search Results Selection View Controller - Resultats-->
+        <scene sceneID="hwx-rd-Ybu">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d0v-78-clu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="ljI-pM-6UC" customClass="UPCSearchResultsSelectionViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="CZs-Pt-82m">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SEARCH_RESULT_SELECTION_CELL" id="RLm-1b-8QJ" customClass="UPCSearchResultSelectionCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Search result name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="iHi-46-Myb">
+                                            <rect key="frame" x="20" y="8" width="193" height="27"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="Qau-6p-bvJ">
+                                            <rect key="frame" x="221" y="8" width="79" height="27"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <connections>
+                                                <action selector="switchSearchResultSelection:" destination="ljI-pM-6UC" eventType="valueChanged" id="stE-Dq-JU2"/>
+                                            </connections>
+                                        </switch>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <outlet property="nameLabel" destination="iHi-46-Myb" id="Zx3-JC-Yyy"/>
+                                    <outlet property="selectedSwitch" destination="Qau-6p-bvJ" id="wyL-2Z-NYa"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ljI-pM-6UC" id="vOB-Oc-NWs"/>
+                            <outlet property="delegate" destination="ljI-pM-6UC" id="QGo-mk-PsS"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Resultats" id="Rc0-k8-MEi">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="zDE-3w-0Sl">
+                            <connections>
+                                <action selector="selectionDone:" destination="ljI-pM-6UC" id="TNh-ut-Mw7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="1475" y="1670"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="N5h-T4-Zd0">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TP1-R2-Mx3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController definesPresentationContext="YES" id="Dfw-2c-Ki4" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="dDh-dd-FHv">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.0" green="0.4823529412" blue="0.75165374090000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ljI-pM-6UC" kind="relationship" relationship="rootViewController" id="xXa-hs-hFb"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="933" y="1670"/>
         </scene>
         <!--Responsive Web View Controller-->
         <scene sceneID="7I7-jA-UXS">
@@ -357,6 +430,7 @@
                         <segue destination="bgU-ba-v2E" kind="push" identifier="searchResults" id="BDk-vx-A1h"/>
                         <segue destination="eVg-tv-CBN" kind="push" identifier="building" id="8Au-0r-Mki"/>
                         <segue destination="aEx-ra-9OU" kind="push" identifier="unit" id="qM3-0J-pu7"/>
+                        <segue destination="Dfw-2c-Ki4" kind="modal" identifier="searchSelection" id="iew-ZM-lwh"/>
                     </connections>
                 </viewController>
             </objects>
@@ -732,6 +806,20 @@
                 <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
             </relationships>
         </class>
+        <class className="UPCSearchResultSelectionCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UPCSearchResultSelectionCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="selectedSwitch" candidateClass="UISwitch"/>
+            </relationships>
+        </class>
+        <class className="UPCSearchResultsSelectionViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UPCSearchResultsSelectionViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="selectionDone:"/>
+                <relationship kind="action" name="switchSearchResultSelection:"/>
+            </relationships>
+        </class>
         <class className="UPCSearchResultsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UPCSearchResultsViewController.h"/>
         </class>
@@ -759,6 +847,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="Chj-kk-dBz"/>
         <segue reference="yVj-be-rnI"/>
-        <segue reference="YDy-aD-a7X"/>
+        <segue reference="loS-w2-DWK"/>
     </inferredMetricsTieBreakers>
 </document>

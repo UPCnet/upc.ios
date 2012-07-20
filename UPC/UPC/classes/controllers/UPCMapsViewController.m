@@ -206,20 +206,29 @@
         [self.mapView removeAnnotations:self.mapView.annotations];
         NSArray *buildingsAndUnits = [objects filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"type == 'edifici' OR type == 'unitat'"]];
         if ([buildingsAndUnits count] > 0) {
-            NSDictionary *groupedSearchResults = [buildingsAndUnits groupByLocation];
-            [groupedSearchResults enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-                NSArray *searchResultsInLocation = (NSArray *)obj;
-                [self.mapView addAnnotation:[[UPCSearchResultGroup alloc] initWithSearchResults:searchResultsInLocation]];
-            }];
+            [self performSegueWithIdentifier:@"searchSelection" sender:buildingsAndUnits];
         } else {
             [[[UIAlertView alloc] initWithTitle:@"Error" message:@"No s'ha obtingut cap resultat" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+            [self showAnnotatedRegion];
         }
-        [self showAnnotatedRegion];
     } else if ([objectLoader.userData isEqualToString:BUILDING_LOADER]) {
         [self performSegueWithIdentifier:@"building" sender:[objects objectAtIndex:0]];
     } else if ([objectLoader.userData isEqualToString:UNIT_LOADER]) {
         [self performSegueWithIdentifier:@"unit" sender:[objects objectAtIndex:0]];
     }
+}
+
+#pragma mark Search results selection delegate
+
+- (void)selectionDone:(UPCSearchResultsSelectionViewController *)selectionViewController
+{
+    [self dismissViewControllerAnimated:YES completion:NULL];
+    NSDictionary *groupedSearchResults = [selectionViewController.selectedSearchResults groupByLocation];
+    [groupedSearchResults enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        NSArray *searchResultsInLocation = (NSArray *)obj;
+        [self.mapView addAnnotation:[[UPCSearchResultGroup alloc] initWithSearchResults:searchResultsInLocation]];
+    }];
+    [self showAnnotatedRegion];
 }
 
 #pragma mark Segue management
@@ -246,6 +255,12 @@
         UPCUnitViewController *unitViewController = segue.destinationViewController;
         unitViewController.unit = unit;
         unitViewController.navigationItem.title = unit.name;
+    } else if ([segue.identifier isEqualToString:@"searchSelection"]) {
+        NSArray *buildingsAndUnits = sender;
+        UINavigationController *navigationController = segue.destinationViewController;
+        UPCSearchResultsSelectionViewController *selectionViewController = (UPCSearchResultsSelectionViewController *)navigationController.visibleViewController;
+        selectionViewController.delegate = self;
+        selectionViewController.searchResults = buildingsAndUnits;
     }
 }
 

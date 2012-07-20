@@ -72,6 +72,9 @@
 		1D7BA3671578DA27000189AB /* UPCBuildingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BA3661578DA26000189AB /* UPCBuildingViewController.m */; };
 		1D7BA36A1578DA47000189AB /* UPCUnitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BA3691578DA47000189AB /* UPCUnitViewController.m */; };
 		1D7BA36D1578DBB8000189AB /* UPCStructuredDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BA36C1578DBB7000189AB /* UPCStructuredDataViewController.m */; };
+		1D90343615B960060072B3FB /* UPCSearchResultsSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D90343515B960060072B3FB /* UPCSearchResultsSelectionViewController.m */; };
+		1D90343915B968620072B3FB /* UPCSearchResultSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D90343815B968620072B3FB /* UPCSearchResultSelectionCell.m */; };
+		1D90343C15B971E80072B3FB /* UISwitch+SearchResultIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D90343B15B971E80072B3FB /* UISwitch+SearchResultIndex.m */; };
 		1DCE0AFA157C9BDA002A45DC /* UPCQualificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DCE0AF9157C9BDA002A45DC /* UPCQualificationsViewController.m */; };
 		1DCE0AFF157D0EF1002A45DC /* UPCAddressVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DCE0AFE157D0EF1002A45DC /* UPCAddressVideoCell.m */; };
 		1DCE0B07157D16E9002A45DC /* libSDWebImageARC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DCE0B06157D16E9002A45DC /* libSDWebImageARC.a */; };
@@ -191,6 +194,12 @@
 		1D7BA3691578DA47000189AB /* UPCUnitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCUnitViewController.m; sourceTree = "<group>"; };
 		1D7BA36B1578DBB6000189AB /* UPCStructuredDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPCStructuredDataViewController.h; sourceTree = "<group>"; };
 		1D7BA36C1578DBB7000189AB /* UPCStructuredDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCStructuredDataViewController.m; sourceTree = "<group>"; };
+		1D90343415B960060072B3FB /* UPCSearchResultsSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPCSearchResultsSelectionViewController.h; sourceTree = "<group>"; };
+		1D90343515B960060072B3FB /* UPCSearchResultsSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCSearchResultsSelectionViewController.m; sourceTree = "<group>"; };
+		1D90343715B968620072B3FB /* UPCSearchResultSelectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPCSearchResultSelectionCell.h; sourceTree = "<group>"; };
+		1D90343815B968620072B3FB /* UPCSearchResultSelectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCSearchResultSelectionCell.m; sourceTree = "<group>"; };
+		1D90343A15B971E80072B3FB /* UISwitch+SearchResultIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISwitch+SearchResultIndex.h"; sourceTree = "<group>"; };
+		1D90343B15B971E80072B3FB /* UISwitch+SearchResultIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISwitch+SearchResultIndex.m"; sourceTree = "<group>"; };
 		1DCE0AF8157C9BD9002A45DC /* UPCQualificationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPCQualificationsViewController.h; sourceTree = "<group>"; };
 		1DCE0AF9157C9BDA002A45DC /* UPCQualificationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCQualificationsViewController.m; sourceTree = "<group>"; };
 		1DCE0AFD157D0EF1002A45DC /* UPCAddressVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPCAddressVideoCell.h; sourceTree = "<group>"; };
@@ -385,6 +394,8 @@
 				1DCE0AF9157C9BDA002A45DC /* UPCQualificationsViewController.m */,
 				1D0957471563E326008C69E3 /* UPCResponsiveWebViewController.h */,
 				1D0957481563E326008C69E3 /* UPCResponsiveWebViewController.m */,
+				1D90343415B960060072B3FB /* UPCSearchResultsSelectionViewController.h */,
+				1D90343515B960060072B3FB /* UPCSearchResultsSelectionViewController.m */,
 				1D7BA35C1577CC91000189AB /* UPCSearchResultsViewController.h */,
 				1D7BA35D1577CC91000189AB /* UPCSearchResultsViewController.m */,
 				1D7BA36B1578DBB6000189AB /* UPCStructuredDataViewController.h */,
@@ -464,6 +475,8 @@
 			children = (
 				1DCE0AFD157D0EF1002A45DC /* UPCAddressVideoCell.h */,
 				1DCE0AFE157D0EF1002A45DC /* UPCAddressVideoCell.m */,
+				1D90343715B968620072B3FB /* UPCSearchResultSelectionCell.h */,
+				1D90343815B968620072B3FB /* UPCSearchResultSelectionCell.m */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -494,6 +507,8 @@
 			children = (
 				1D051A1D156A4078007BFE40 /* NSArray+SearchResultsGrouping.h */,
 				1D051A1E156A4078007BFE40 /* NSArray+SearchResultsGrouping.m */,
+				1D90343A15B971E80072B3FB /* UISwitch+SearchResultIndex.h */,
+				1D90343B15B971E80072B3FB /* UISwitch+SearchResultIndex.m */,
 				1DE870E51579191400A1EA7F /* UPCLocalizedCurrentLocation.h */,
 				1DE870E61579191400A1EA7F /* UPCLocalizedCurrentLocation.m */,
 				1DD707781566890B00346AE0 /* UPCRestKitConfigurator.h */,
@@ -714,6 +729,9 @@
 				1DE870E71579191400A1EA7F /* UPCLocalizedCurrentLocation.m in Sources */,
 				1DCE0AFA157C9BDA002A45DC /* UPCQualificationsViewController.m in Sources */,
 				1DCE0AFF157D0EF1002A45DC /* UPCAddressVideoCell.m in Sources */,
+				1D90343615B960060072B3FB /* UPCSearchResultsSelectionViewController.m in Sources */,
+				1D90343915B968620072B3FB /* UPCSearchResultSelectionCell.m in Sources */,
+				1D90343C15B971E80072B3FB /* UISwitch+SearchResultIndex.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

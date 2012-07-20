@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import "RestKit/RestKit.h"
+#import "UPCSearchResultsSelectionViewController.h"
 
 
-@interface UPCMapsViewController : UIViewController <UISearchBarDelegate, RKObjectLoaderDelegate, MKMapViewDelegate>
+@interface UPCMapsViewController : UIViewController <UISearchBarDelegate, RKObjectLoaderDelegate, MKMapViewDelegate, UPCSearchResultsSelectionDelegate>
 
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 
