@@ -1,13 +1,36 @@
-# Xcode
-build/*
-*.pbxuser
-!default.pbxuser
-*.mode1v3
-!default.mode1v3
-*.mode2v3
-!default.mode2v3
-*.perspectivev3
-!default.perspectivev3
-xcuserdata
+# CocoaPods
+Pods
+*.xcworkspace
+Podfile.lock
+
+# OS X temporary files that should never be committed
+.DS_Store
+*.swp
 profile
+
+# Xcode temporary files that should never be committed
+*~.nib
+
+# Xcode build files
+DerivedData/
+build/
+
+# Xcode private settings (window sizes, bookmarks, breakpoints, custom executables, smart groups)
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+# Whitelist the default ones, some projects need to use these
+!default.pbxuser
+!default.mode1v3
+!default.mode2v3
+!default.perspectivev3
+
+# Xcode 4 - semi-personal settings, often included in workspaces
+xcuserdata
+
+# XCode 4 workspaces
+!xcshareddata
+
+# Xcode 4 - Deprecated classes
 *.moved-aside

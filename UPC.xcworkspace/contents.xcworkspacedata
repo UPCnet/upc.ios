@@ -5,12 +5,9 @@
       location = "group:UPC/UPC.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Kiwi/Kiwi.xcodeproj">
+      location = "group:Pods/../RestKit/RestKit.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:RestKit/RestKit.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:SDWebImage/SDWebImage.xcodeproj">
+      location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>

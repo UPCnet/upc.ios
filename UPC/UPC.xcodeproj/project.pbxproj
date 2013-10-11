@@ -77,7 +77,6 @@
 		1D90343C15B971E80072B3FB /* UISwitch+SearchResultIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D90343B15B971E80072B3FB /* UISwitch+SearchResultIndex.m */; };
 		1DCE0AFA157C9BDA002A45DC /* UPCQualificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DCE0AF9157C9BDA002A45DC /* UPCQualificationsViewController.m */; };
 		1DCE0AFF157D0EF1002A45DC /* UPCAddressVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DCE0AFE157D0EF1002A45DC /* UPCAddressVideoCell.m */; };
-		1DCE0B07157D16E9002A45DC /* libSDWebImageARC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DCE0B06157D16E9002A45DC /* libSDWebImageARC.a */; };
 		1DCE0B09157D1CFE002A45DC /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DCE0B08157D1CFE002A45DC /* ImageIO.framework */; };
 		1DD6FA4715B57C0A00EAAF4B /* ico_mastersProfessionals.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DD6FA4515B57C0A00EAAF4B /* ico_mastersProfessionals.png */; };
 		1DD6FA4815B57C0A00EAAF4B /* ico_mastersProfessionals@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DD6FA4615B57C0A00EAAF4B /* ico_mastersProfessionals@2x.png */; };
@@ -97,6 +96,7 @@
 		1DD7078B156698F300346AE0 /* UPCSearchResultsMappingSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD7078A156698F300346AE0 /* UPCSearchResultsMappingSpec.m */; };
 		1DE870E71579191400A1EA7F /* UPCLocalizedCurrentLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE870E61579191400A1EA7F /* UPCLocalizedCurrentLocation.m */; };
 		9AA8D8831806C78B00159AA3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AA8D8821806C78B00159AA3 /* Images.xcassets */; };
+		FA42AC8B1E8E4ABCB2E13560 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3D71F9A0084193A151C1EB /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -227,6 +227,8 @@
 		1DD7078A156698F300346AE0 /* UPCSearchResultsMappingSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCSearchResultsMappingSpec.m; sourceTree = "<group>"; };
 		1DE870E51579191400A1EA7F /* UPCLocalizedCurrentLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPCLocalizedCurrentLocation.h; sourceTree = "<group>"; };
 		1DE870E61579191400A1EA7F /* UPCLocalizedCurrentLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCLocalizedCurrentLocation.m; sourceTree = "<group>"; };
+		2C3D71F9A0084193A151C1EB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		51941388B77842C0AAE5DA7B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = ../Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		9AA8D8821806C78B00159AA3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -248,8 +250,8 @@
 				1DD707001566561A00346AE0 /* Security.framework in Frameworks */,
 				1DD707021566562300346AE0 /* SystemConfiguration.framework in Frameworks */,
 				1DD707041566562F00346AE0 /* libxml2.dylib in Frameworks */,
-				1DCE0B07157D16E9002A45DC /* libSDWebImageARC.a in Frameworks */,
 				1DCE0B09157D1CFE002A45DC /* ImageIO.framework in Frameworks */,
+				FA42AC8B1E8E4ABCB2E13560 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +288,7 @@
 				1D0956DC1563A704008C69E3 /* UPCTests */,
 				1D0956B71563A704008C69E3 /* Frameworks */,
 				1D0956B51563A704008C69E3 /* Products */,
+				51941388B77842C0AAE5DA7B /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -318,6 +321,7 @@
 				1DD707051566580E00346AE0 /* QuartzCore.framework */,
 				1DCE0B06157D16E9002A45DC /* libSDWebImageARC.a */,
 				1DCE0B08157D1CFE002A45DC /* ImageIO.framework */,
+				2C3D71F9A0084193A151C1EB /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -575,9 +579,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D0956E71563A704008C69E3 /* Build configuration list for PBXNativeTarget "UPC" */;
 			buildPhases = (
+				C4C75C19421B461AB1D0F289 /* Check Pods Manifest.lock */,
 				1D0956B01563A704008C69E3 /* Sources */,
 				1D0956B11563A704008C69E3 /* Frameworks */,
 				1D0956B21563A704008C69E3 /* Resources */,
+				76964C9B4D7749DCB6D2A70B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -704,6 +710,36 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
+		76964C9B4D7749DCB6D2A70B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C4C75C19421B461AB1D0F289 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -811,6 +847,7 @@
 		};
 		1D0956E81563A704008C69E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51941388B77842C0AAE5DA7B /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -820,8 +857,8 @@
 				INFOPLIST_FILE = "UPC/UPC-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = (
+					"$(inherited)",
 					"-all_load",
-					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -832,6 +869,7 @@
 		};
 		1D0956E91563A704008C69E3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51941388B77842C0AAE5DA7B /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -842,8 +880,8 @@
 				INFOPLIST_FILE = "UPC/UPC-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = (
+					"$(inherited)",
 					"-all_load",
-					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
