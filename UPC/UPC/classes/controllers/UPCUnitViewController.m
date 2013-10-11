@@ -26,7 +26,7 @@
 
 - (CellConfigurator)unitInfoCellConfigurator
 {
-    return ^(UITableView *tableView, NSIndexPath *indexPath) {
+    return ^id(UITableView *tableView, NSIndexPath *indexPath) {
         static NSString *UNIT_NAME_CELL          = @"UNIT_NAME_CELL";
         static NSString *UNIT_ADDRESS_VIDEO_CELL = @"UNIT_ADDRESS_VIDEO_CELL";
         static NSString *UNIT_ADDRESS_CELL       = @"UNIT_ADDRESS_CELL";
