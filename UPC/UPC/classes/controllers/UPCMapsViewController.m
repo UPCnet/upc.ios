@@ -74,12 +74,22 @@
 - (void)loadLocalities
 {
     RKObjectManager *objectManager = [UPCRestKitConfigurator sharedManager];
-    [objectManager.requestQueue cancelAllRequests];
-    [objectManager loadObjectsAtResourcePath:@"/InfoLocalitatsv1.php" usingBlock:^(RKObjectLoader *loader) {
-        [loader.mappingProvider setMapping:[loader.mappingProvider objectMappingForClass:[UPCLocality class]] forKeyPath:@""];
-        loader.delegate = self;
-        loader.userData = LOCALITY_LOADER;
-    }];
+    [objectManager.operationQueue cancelAllOperations];
+//    [objectManager loadObjectsAtResourcePath:@"/InfoLocalitatsv1.php" usingBlock:^(RKObjectLoader *loader) {
+//        [loader.mappingProvider setMapping:[loader.mappingProvider objectMappingForClass:[UPCLocality class]] forKeyPath:@""];
+//        loader.delegate = self;
+//        loader.userData = LOCALITY_LOADER;
+        [objectManager getObjectsAtPath:@"InfoLocalitatsv1.php" parameters:nil success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
+         {
+             [self.mapView removeAnnotations:self.mapView.annotations];
+             [[mappingResult array] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                 [self.mapView addAnnotation:obj];
+             }];
+             [self showAnnotatedRegion];
+             
+         } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+             [[[UIAlertView alloc] initWithTitle:@"Error" message:@"S'ha produït un error de comunicació. Sisplau, intenta-ho de nou més tard." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+         }];
 }
 
 #pragma mark Search bar
@@ -88,13 +98,28 @@
 {
     [searchBar resignFirstResponder];
     RKObjectManager *objectManager = [UPCRestKitConfigurator sharedManager];
-    [objectManager.requestQueue cancelAllRequests];
-    NSString *searchPath = [@"/CercadorMapsv1.php" stringByAppendingQueryParameters:[NSDictionary dictionaryWithObject:searchBar.text forKey:@"text"]];
-    [objectManager loadObjectsAtResourcePath:searchPath usingBlock:^(RKObjectLoader *loader) {
-        [loader.mappingProvider setMapping:[loader.mappingProvider objectMappingForClass:[UPCSearchResult class]] forKeyPath:@""];
-        loader.delegate = self;
-        loader.userData = SEARCH_LOADER;
-    }];
+    [[RKObjectManager sharedManager].operationQueue cancelAllOperations];
+//    NSString *searchPath = [@"/CercadorMapsv1.php" stringByAppendingQueryParameters:[NSDictionary dictionaryWithObject:searchBar.text forKey:@"text"]];
+//    [objectManager loadObjectsAtResourcePath:searchPath usingBlock:^(RKObjectLoader *loader) {
+//        [loader.mappingProvider setMapping:[loader.mappingProvider objectMappingForClass:[UPCSearchResult class]] forKeyPath:@""];
+//        loader.delegate = self;
+//        loader.userData = SEARCH_LOADER;
+//    }];
+    [RKObjectManager.sharedManager getObjectsAtPath:@"/CercadorMapsv1.php" parameters:@{@"text":searchBar.text} success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
+     {
+         [self.mapView removeAnnotations:self.mapView.annotations];
+         NSArray *buildingsAndUnits = [[mappingResult array] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"type == 'edifici' OR type == 'unitat'"]];
+         if ([buildingsAndUnits count] > 0) {
+             [self performSegueWithIdentifier:@"searchSelection" sender:buildingsAndUnits];
+         } else {
+             [[[UIAlertView alloc] initWithTitle:@"Error" message:@"No s'ha obtingut cap resultat" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+             [self showAnnotatedRegion];
+         }
+
+     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+         [[[UIAlertView alloc] initWithTitle:@"Error" message:@"S'ha produït un error de comunicació. Sisplau, intenta-ho de nou més tard." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+     }];
+    
     self.lastSearchTerm = searchBar.text;
 }
 
@@ -164,22 +189,36 @@
             UPCSearchResult *searchResult = [searchResultGroup.searchResults objectAtIndex:0];
             if ([searchResult.type isEqualToString:BUILDING_TYPE]) {
                 RKObjectManager *objectManager = [UPCRestKitConfigurator sharedManager];
-                [objectManager.requestQueue cancelAllRequests];
-                NSString *searchPath = [@"/InfoEdificiv1.php" stringByAppendingQueryParameters:[NSDictionary dictionaryWithObject:searchResult.identifier forKey:@"id"]];
-                [objectManager loadObjectsAtResourcePath:searchPath usingBlock:^(RKObjectLoader *loader) {
-                    [loader.mappingProvider setMapping:[loader.mappingProvider objectMappingForClass:[UPCBuilding class]] forKeyPath:@""];
-                    loader.delegate = self;
-                    loader.userData = BUILDING_LOADER;
-                }];
+                [[RKObjectManager sharedManager].operationQueue cancelAllOperations];
+//                NSString *searchPath = [@"/InfoEdificiv1.php" stringByAppendingQueryParameters:[NSDictionary dictionaryWithObject:searchResult.identifier forKey:@"id"]];
+//                [objectManager loadObjectsAtResourcePath:searchPath usingBlock:^(RKObjectLoader *loader) {
+//                    [loader.mappingProvider setMapping:[loader.mappingProvider objectMappingForClass:[UPCBuilding class]] forKeyPath:@""];
+//                    loader.delegate = self;
+//                    loader.userData = BUILDING_LOADER;
+//                }];
+                [RKObjectManager.sharedManager getObjectsAtPath:@"/InfoEdificiv1.php" parameters:@{@"id":searchResult.identifier} success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
+                 {
+                     [self performSegueWithIdentifier:@"building" sender:[[mappingResult array] objectAtIndex:0]];
+                     
+                 } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                     [[[UIAlertView alloc] initWithTitle:@"Error" message:@"S'ha produït un error de comunicació. Sisplau, intenta-ho de nou més tard." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+                 }];
             } else if ([searchResult.type isEqualToString:UNIT_TYPE]) {
                 RKObjectManager *objectManager = [UPCRestKitConfigurator sharedManager];
-                [objectManager.requestQueue cancelAllRequests];
-                NSString *searchPath = [@"/InfoUnitatv1.php" stringByAppendingQueryParameters:[NSDictionary dictionaryWithObject:searchResult.identifier forKey:@"id"]];
-                [objectManager loadObjectsAtResourcePath:searchPath usingBlock:^(RKObjectLoader *loader) {
-                    [loader.mappingProvider setMapping:[loader.mappingProvider objectMappingForClass:[UPCUnit class]] forKeyPath:@""];
-                    loader.delegate = self;
-                    loader.userData = UNIT_LOADER;
-                }];
+                [[RKObjectManager sharedManager].operationQueue cancelAllOperations];
+//                NSString *searchPath = [@"/InfoUnitatv1.php" stringByAppendingQueryParameters:[NSDictionary dictionaryWithObject:searchResult.identifier forKey:@"id"]];
+//                [objectManager loadObjectsAtResourcePath:searchPath usingBlock:^(RKObjectLoader *loader) {
+//                    [loader.mappingProvider setMapping:[loader.mappingProvider objectMappingForClass:[UPCUnit class]] forKeyPath:@""];
+//                    loader.delegate = self;
+//                    loader.userData = UNIT_LOADER;
+//                }];
+                [RKObjectManager.sharedManager getObjectsAtPath:@"/InfoUnitatv1.php" parameters:@{@"id":searchResult.identifier} success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
+                 {
+                     [self performSegueWithIdentifier:@"unit" sender:[[mappingResult array] objectAtIndex:0]];
+                     
+                 } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                     [[[UIAlertView alloc] initWithTitle:@"Error" message:@"S'ha produït un error de comunicació. Sisplau, intenta-ho de nou més tard." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+                 }];
             }
         } else {
             [self performSegueWithIdentifier:@"searchResults" sender:view];
@@ -187,36 +226,36 @@
     }
 }
 
-#pragma mark RestKit object loading
-
-- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
-{
-    [[[UIAlertView alloc] initWithTitle:@"Error" message:@"S'ha produït un error de comunicació. Sisplau, intenta-ho de nou més tard." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-}
-
-- (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
-{
-    if ([objectLoader.userData isEqualToString:LOCALITY_LOADER]) {
-        [self.mapView removeAnnotations:self.mapView.annotations];
-        [objects enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            [self.mapView addAnnotation:obj];
-        }];
-        [self showAnnotatedRegion];
-    } else if ([objectLoader.userData isEqualToString:SEARCH_LOADER]) {
-        [self.mapView removeAnnotations:self.mapView.annotations];
-        NSArray *buildingsAndUnits = [objects filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"type == 'edifici' OR type == 'unitat'"]];
-        if ([buildingsAndUnits count] > 0) {
-            [self performSegueWithIdentifier:@"searchSelection" sender:buildingsAndUnits];
-        } else {
-            [[[UIAlertView alloc] initWithTitle:@"Error" message:@"No s'ha obtingut cap resultat" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-            [self showAnnotatedRegion];
-        }
-    } else if ([objectLoader.userData isEqualToString:BUILDING_LOADER]) {
-        [self performSegueWithIdentifier:@"building" sender:[objects objectAtIndex:0]];
-    } else if ([objectLoader.userData isEqualToString:UNIT_LOADER]) {
-        [self performSegueWithIdentifier:@"unit" sender:[objects objectAtIndex:0]];
-    }
-}
+//#pragma mark RestKit object loading
+//
+//- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
+//{
+//    [[[UIAlertView alloc] initWithTitle:@"Error" message:@"S'ha produït un error de comunicació. Sisplau, intenta-ho de nou més tard." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+//}
+//
+//- (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
+//{
+//    if ([objectLoader.userData isEqualToString:LOCALITY_LOADER]) {
+//        [self.mapView removeAnnotations:self.mapView.annotations];
+//        [objects enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+//            [self.mapView addAnnotation:obj];
+//        }];
+//        [self showAnnotatedRegion];
+//    } else if ([objectLoader.userData isEqualToString:SEARCH_LOADER]) {
+//        [self.mapView removeAnnotations:self.mapView.annotations];
+//        NSArray *buildingsAndUnits = [objects filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"type == 'edifici' OR type == 'unitat'"]];
+//        if ([buildingsAndUnits count] > 0) {
+//            [self performSegueWithIdentifier:@"searchSelection" sender:buildingsAndUnits];
+//        } else {
+//            [[[UIAlertView alloc] initWithTitle:@"Error" message:@"No s'ha obtingut cap resultat" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+//            [self showAnnotatedRegion];
+//        }
+//    } else if ([objectLoader.userData isEqualToString:BUILDING_LOADER]) {
+//        [self performSegueWithIdentifier:@"building" sender:[objects objectAtIndex:0]];
+//    } else if ([objectLoader.userData isEqualToString:UNIT_LOADER]) {
+//        [self performSegueWithIdentifier:@"unit" sender:[objects objectAtIndex:0]];
+//    }
+//}
 
 #pragma mark Search results selection delegate
 

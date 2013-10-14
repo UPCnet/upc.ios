@@ -59,41 +59,57 @@
     UPCSearchResult *searchResult = [searchResults objectAtIndex:indexPath.row];
     if ([searchResult.type isEqualToString:BUILDING_TYPE]) {
         RKObjectManager *objectManager = [UPCRestKitConfigurator sharedManager];
-        [objectManager.requestQueue cancelAllRequests];
-        NSString *searchPath = [@"/InfoEdificiv1.php" stringByAppendingQueryParameters:[NSDictionary dictionaryWithObject:searchResult.identifier forKey:@"id"]];
-        [objectManager loadObjectsAtResourcePath:searchPath usingBlock:^(RKObjectLoader *loader) {
-            [loader.mappingProvider setMapping:[loader.mappingProvider objectMappingForClass:[UPCBuilding class]] forKeyPath:@""];
-            loader.delegate = self;
-            loader.userData = BUILDING_LOADER;
-        }];
+        [[RKObjectManager sharedManager].operationQueue cancelAllOperations];
+//        NSString *searchPath = [@"/InfoEdificiv1.php" stringByAppendingQueryParameters:[NSDictionary dictionaryWithObject:searchResult.identifier forKey:@"id"]];
+//        [objectManager loadObjectsAtResourcePath:searchPath usingBlock:^(RKObjectLoader *loader) {
+//            [loader.mappingProvider setMapping:[loader.mappingProvider objectMappingForClass:[UPCBuilding class]] forKeyPath:@""];
+//            loader.delegate = self;
+//            loader.userData = BUILDING_LOADER;
+//        }];
+        [RKObjectManager.sharedManager getObjectsAtPath:@"/InfoEdificiv1.php" parameters:@{@"id":searchResult.identifier} success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
+         {
+             [self performSegueWithIdentifier:@"building" sender:[[mappingResult array] objectAtIndex:0]];
+             
+         } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+             [[[UIAlertView alloc] initWithTitle:@"Error" message:@"S'ha produït un error de comunicació. Sisplau, intenta-ho de nou més tard." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+             [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+         }];
     } else if ([searchResult.type isEqualToString:UNIT_TYPE]) {
         RKObjectManager *objectManager = [UPCRestKitConfigurator sharedManager];
-        [objectManager.requestQueue cancelAllRequests];
-        NSString *searchPath = [@"/InfoUnitatv1.php" stringByAppendingQueryParameters:[NSDictionary dictionaryWithObject:searchResult.identifier forKey:@"id"]];
-        [objectManager loadObjectsAtResourcePath:searchPath usingBlock:^(RKObjectLoader *loader) {
-            [loader.mappingProvider setMapping:[loader.mappingProvider objectMappingForClass:[UPCUnit class]] forKeyPath:@""];
-            loader.delegate = self;
-            loader.userData = UNIT_LOADER;
-        }];
+        [[RKObjectManager sharedManager].operationQueue cancelAllOperations];
+//        NSString *searchPath = [@"/InfoUnitatv1.php" stringByAppendingQueryParameters:[NSDictionary dictionaryWithObject:searchResult.identifier forKey:@"id"]];
+//        [objectManager loadObjectsAtResourcePath:searchPath usingBlock:^(RKObjectLoader *loader) {
+//            [loader.mappingProvider setMapping:[loader.mappingProvider objectMappingForClass:[UPCUnit class]] forKeyPath:@""];
+//            loader.delegate = self;
+//            loader.userData = UNIT_LOADER;
+//        }];
+        [RKObjectManager.sharedManager getObjectsAtPath:@"/InfoUnitatv1.php" parameters:@{@"id":searchResult.identifier} success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
+         {
+             [self performSegueWithIdentifier:@"unit" sender:[[mappingResult array] objectAtIndex:0]];
+             
+         } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+             [[[UIAlertView alloc] initWithTitle:@"Error" message:@"S'ha produït un error de comunicació. Sisplau, intenta-ho de nou més tard." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+             [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+         }];
     }
 }
 
-#pragma mark RestKit object loading
-
-- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
-{
-    [[[UIAlertView alloc] initWithTitle:@"Error" message:@"S'ha produït un error de comunicació. Sisplau, intenta-ho de nou més tard." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
-}
-
-- (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
-{
-    if ([objectLoader.userData isEqualToString:BUILDING_LOADER]) {
-        [self performSegueWithIdentifier:@"building" sender:[objects objectAtIndex:0]];
-    } else if ([objectLoader.userData isEqualToString:UNIT_LOADER]) {
-        [self performSegueWithIdentifier:@"unit" sender:[objects objectAtIndex:0]];
-    }
-}
+//#pragma mark RestKit object loading
+//
+//- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
+//{
+//    [[[UIAlertView alloc] initWithTitle:@"Error" message:@"S'ha produït un error de comunicació. Sisplau, intenta-ho de nou més tard." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+//    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+//}
+//
+//- (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
+//{
+//    if ([objectLoader.userData isEqualToString:BUILDING_LOADER]) {
+//        [self performSegueWithIdentifier:@"building" sender:[objects objectAtIndex:0]];
+//    } else if ([objectLoader.userData isEqualToString:UNIT_LOADER]) {
+//        [self performSegueWithIdentifier:@"unit" sender:[objects objectAtIndex:0]];
+//    }
+//}
 
 #pragma mark Navigation
 

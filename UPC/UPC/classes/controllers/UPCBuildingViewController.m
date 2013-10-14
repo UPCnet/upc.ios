@@ -114,13 +114,21 @@
         [cellConfigurators addObject:unitCellConfigurator];
         [cellActions addObject:^(UITableView *tableView, NSIndexPath *indexPath) {
             RKObjectManager *objectManager = [UPCRestKitConfigurator sharedManager];
-            [objectManager.requestQueue cancelAllRequests];
+            [[RKObjectManager sharedManager].operationQueue cancelAllOperations];
             UPCUnit *unit = [building.units objectAtIndex:indexPath.row];
-            NSString *searchPath = [@"/InfoUnitatv1.php" stringByAppendingQueryParameters:[NSDictionary dictionaryWithObject:unit.identifier forKey:@"id"]];
-            [objectManager loadObjectsAtResourcePath:searchPath usingBlock:^(RKObjectLoader *loader) {
-                [loader.mappingProvider setMapping:[loader.mappingProvider objectMappingForClass:[UPCUnit class]] forKeyPath:@""];
-                loader.delegate = self;
-            }];
+//            NSString *searchPath = [@"/InfoUnitatv1.php" stringByAppendingQueryParameters:[NSDictionary dictionaryWithObject:unit.identifier forKey:@"id"]];
+//            [objectManager loadObjectsAtResourcePath:searchPath usingBlock:^(RKObjectLoader *loader) {
+//                [loader.mappingProvider setMapping:[loader.mappingProvider objectMappingForClass:[UPCUnit class]] forKeyPath:@""];
+//                loader.delegate = self;
+//            }];
+            [RKObjectManager.sharedManager getObjectsAtPath:@"/InfoUnitatv1.php" parameters:@{@"id":unit.identifier} success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
+             {
+                [self performSegueWithIdentifier:@"unit" sender:[[mappingResult array] objectAtIndex:0]];
+                 
+             } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                 [[[UIAlertView alloc] initWithTitle:@"Error" message:@"S'ha produït un error de comunicació. Sisplau, intenta-ho de nou més tard." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+                 [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+             }];
         }];
     }
     
@@ -145,18 +153,18 @@
     self.cellActions = cellActions;
 }
 
-#pragma mark RestKit object loading
+//#pragma mark RestKit object loading
+//
+//- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
+//{
+//    [[[UIAlertView alloc] initWithTitle:@"Error" message:@"S'ha produït un error de comunicació. Sisplau, intenta-ho de nou més tard." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+//    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+//}
 
-- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
-{
-    [[[UIAlertView alloc] initWithTitle:@"Error" message:@"S'ha produït un error de comunicació. Sisplau, intenta-ho de nou més tard." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
-}
-
-- (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
-{
-    [self performSegueWithIdentifier:@"unit" sender:[objects objectAtIndex:0]];
-}
+//- (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
+//{
+//    [self performSegueWithIdentifier:@"unit" sender:[objects objectAtIndex:0]];
+//}
 
 #pragma mark Segue management
 

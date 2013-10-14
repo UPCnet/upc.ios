@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RestKit/RestKit.h"
+#import <RestKit/RestKit.h>
 #import "UPCStructuredDataViewController.h"
 #import "UPCLocality.h"
 
 
-@interface UPCLocalityViewController : UPCStructuredDataViewController <RKObjectLoaderDelegate>
+@interface UPCLocalityViewController : UPCStructuredDataViewController
 
 @property (strong, nonatomic) UPCLocality *locality;
 
