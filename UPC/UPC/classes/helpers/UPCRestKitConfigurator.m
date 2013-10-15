@@ -7,7 +7,7 @@
 //
 
 #import "UPCRestKitConfigurator.h"
-#import "RestKit/RKJSONParserJSONKit.h"
+#import <RestKit/RestKit.h>
 #import "UPCSearchResult.h"
 #import "UPCLocality.h"
 #import "UPCCenter.h"
@@ -157,12 +157,12 @@
 //    [self.mappingProvider addObjectMapping:qualificationsMapping];
 //    [self.mappingProvider addObjectMapping:buildingMapping];
 
-[self addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:searchResultMapping method:RKRequestMethodGET pathPattern:nil keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
-[self addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:centerMapping method:RKRequestMethodGET pathPattern:nil keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
-[self addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:localityMapping method:RKRequestMethodGET pathPattern:nil keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
-[self addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:unitMapping method:RKRequestMethodGET pathPattern:nil keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
-[self addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:qualificationsMapping method:RKRequestMethodGET pathPattern:nil keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
-[self addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:buildingMapping method:RKRequestMethodGET pathPattern:nil keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
+//[self addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:centerMapping method:RKRequestMethodGET pathPattern:nil keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
+//[self addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:qualificationsMapping method:RKRequestMethodGET pathPattern:nil keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
+[self addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:buildingMapping method:RKRequestMethodGET pathPattern:@"InfoEdificiv1.php" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
+[self addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:searchResultMapping method:RKRequestMethodGET pathPattern:@"CercadorMapsv1.php" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
+[self addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:unitMapping method:RKRequestMethodGET pathPattern:@"InfoUnitatv1.php" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
+[self addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:localityMapping method:RKRequestMethodGET pathPattern:@"InfoLocalitatsv1.php" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
 }
 
 @end

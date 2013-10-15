@@ -59,14 +59,16 @@
     UPCSearchResult *searchResult = [searchResults objectAtIndex:indexPath.row];
     if ([searchResult.type isEqualToString:BUILDING_TYPE]) {
         RKObjectManager *objectManager = [UPCRestKitConfigurator sharedManager];
-        [[RKObjectManager sharedManager].operationQueue cancelAllOperations];
+        [objectManager.operationQueue cancelAllOperations];
+        
 //        NSString *searchPath = [@"/InfoEdificiv1.php" stringByAppendingQueryParameters:[NSDictionary dictionaryWithObject:searchResult.identifier forKey:@"id"]];
 //        [objectManager loadObjectsAtResourcePath:searchPath usingBlock:^(RKObjectLoader *loader) {
 //            [loader.mappingProvider setMapping:[loader.mappingProvider objectMappingForClass:[UPCBuilding class]] forKeyPath:@""];
 //            loader.delegate = self;
 //            loader.userData = BUILDING_LOADER;
 //        }];
-        [RKObjectManager.sharedManager getObjectsAtPath:@"/InfoEdificiv1.php" parameters:@{@"id":searchResult.identifier} success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
+        
+        [objectManager getObjectsAtPath:@"InfoEdificiv1.php" parameters:@{@"id":searchResult.identifier} success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
          {
              [self performSegueWithIdentifier:@"building" sender:[[mappingResult array] objectAtIndex:0]];
              
@@ -76,14 +78,16 @@
          }];
     } else if ([searchResult.type isEqualToString:UNIT_TYPE]) {
         RKObjectManager *objectManager = [UPCRestKitConfigurator sharedManager];
-        [[RKObjectManager sharedManager].operationQueue cancelAllOperations];
+        [objectManager.operationQueue cancelAllOperations];
+        
 //        NSString *searchPath = [@"/InfoUnitatv1.php" stringByAppendingQueryParameters:[NSDictionary dictionaryWithObject:searchResult.identifier forKey:@"id"]];
 //        [objectManager loadObjectsAtResourcePath:searchPath usingBlock:^(RKObjectLoader *loader) {
 //            [loader.mappingProvider setMapping:[loader.mappingProvider objectMappingForClass:[UPCUnit class]] forKeyPath:@""];
 //            loader.delegate = self;
 //            loader.userData = UNIT_LOADER;
 //        }];
-        [RKObjectManager.sharedManager getObjectsAtPath:@"/InfoUnitatv1.php" parameters:@{@"id":searchResult.identifier} success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
+        
+        [objectManager getObjectsAtPath:@"InfoUnitatv1.php" parameters:@{@"id":searchResult.identifier} success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
          {
              [self performSegueWithIdentifier:@"unit" sender:[[mappingResult array] objectAtIndex:0]];
              

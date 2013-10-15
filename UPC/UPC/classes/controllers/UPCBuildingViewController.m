@@ -114,14 +114,16 @@
         [cellConfigurators addObject:unitCellConfigurator];
         [cellActions addObject:^(UITableView *tableView, NSIndexPath *indexPath) {
             RKObjectManager *objectManager = [UPCRestKitConfigurator sharedManager];
-            [[RKObjectManager sharedManager].operationQueue cancelAllOperations];
+            [objectManager.operationQueue cancelAllOperations];
             UPCUnit *unit = [building.units objectAtIndex:indexPath.row];
+            
 //            NSString *searchPath = [@"/InfoUnitatv1.php" stringByAppendingQueryParameters:[NSDictionary dictionaryWithObject:unit.identifier forKey:@"id"]];
 //            [objectManager loadObjectsAtResourcePath:searchPath usingBlock:^(RKObjectLoader *loader) {
 //                [loader.mappingProvider setMapping:[loader.mappingProvider objectMappingForClass:[UPCUnit class]] forKeyPath:@""];
 //                loader.delegate = self;
 //            }];
-            [RKObjectManager.sharedManager getObjectsAtPath:@"/InfoUnitatv1.php" parameters:@{@"id":unit.identifier} success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
+            
+            [objectManager getObjectsAtPath:@"InfoUnitatv1.php" parameters:@{@"id":unit.identifier} success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
              {
                 [self performSegueWithIdentifier:@"unit" sender:[[mappingResult array] objectAtIndex:0]];
                  

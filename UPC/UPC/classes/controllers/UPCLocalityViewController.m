@@ -101,12 +101,14 @@
             RKObjectManager *objectManager = [UPCRestKitConfigurator sharedManager];
             [objectManager.operationQueue cancelAllOperations];
             UPCCenter *center = [locality.ownCenters objectAtIndex:indexPath.row];
+            
 //            NSString *searchPath = [@"/InfoUnitatv1.php" stringByAppendingQueryParameters:[NSDictionary dictionaryWithObject:center.identifier forKey:@"id"]];
 //            [objectManager loadObjectsAtResourcePath:searchPath usingBlock:^(RKObjectLoader *loader) {
 //                [loader.mappingProvider setMapping:[loader.mappingProvider objectMappingForClass:[UPCUnit class]] forKeyPath:@""];
 //                loader.delegate = self;
 //            }];
-            [objectManager getObjectsAtPath:@"/ws/InfoUnitatv1.php" parameters:@{@"id":center.identifier} success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
+            
+            [objectManager getObjectsAtPath:@"InfoUnitatv1.php" parameters:@{@"id":center.identifier} success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
              {
                  [self performSegueWithIdentifier:@"unit" sender:[[mappingResult array] objectAtIndex:0]];
                  
@@ -126,12 +128,14 @@
             RKObjectManager *objectManager = [UPCRestKitConfigurator sharedManager];
             [objectManager.operationQueue cancelAllOperations];
             UPCCenter *center = [locality.attachedCenters objectAtIndex:indexPath.row];
+            
 //            NSString *searchPath = [@"/InfoUnitatv1.php" stringByAppendingQueryParameters:[NSDictionary dictionaryWithObject:center.identifier forKey:@"id"]];
 //            [objectManager loadObjectsAtResourcePath:searchPath usingBlock:^(RKObjectLoader *loader) {
 //                [loader.mappingProvider setMapping:[loader.mappingProvider objectMappingForClass:[UPCUnit class]] forKeyPath:@""];
 //                loader.delegate = self;
 //            }];
-            [objectManager getObjectsAtPath:@"/ws/InfoUnitatv1.php" parameters:@{@"id":center.identifier} success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
+            
+            [objectManager getObjectsAtPath:@"InfoUnitatv1.php" parameters:@{@"id":center.identifier} success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
              {
                  [self performSegueWithIdentifier:@"unit" sender:[[mappingResult array] objectAtIndex:0]];
                  

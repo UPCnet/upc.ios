@@ -75,10 +75,12 @@
 {
     RKObjectManager *objectManager = [UPCRestKitConfigurator sharedManager];
     [objectManager.operationQueue cancelAllOperations];
-//    [objectManager loadObjectsAtResourcePath:@"/InfoLocalitatsv1.php" usingBlock:^(RKObjectLoader *loader) {
+
+//        [objectManager loadObjectsAtResourcePath:@"/InfoLocalitatsv1.php" usingBlock:^(RKObjectLoader *loader) {
 //        [loader.mappingProvider setMapping:[loader.mappingProvider objectMappingForClass:[UPCLocality class]] forKeyPath:@""];
 //        loader.delegate = self;
 //        loader.userData = LOCALITY_LOADER;
+    
         [objectManager getObjectsAtPath:@"InfoLocalitatsv1.php" parameters:nil success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
          {
              [self.mapView removeAnnotations:self.mapView.annotations];
@@ -98,14 +100,16 @@
 {
     [searchBar resignFirstResponder];
     RKObjectManager *objectManager = [UPCRestKitConfigurator sharedManager];
-    [[RKObjectManager sharedManager].operationQueue cancelAllOperations];
+    [objectManager.operationQueue cancelAllOperations];
+    
 //    NSString *searchPath = [@"/CercadorMapsv1.php" stringByAppendingQueryParameters:[NSDictionary dictionaryWithObject:searchBar.text forKey:@"text"]];
 //    [objectManager loadObjectsAtResourcePath:searchPath usingBlock:^(RKObjectLoader *loader) {
 //        [loader.mappingProvider setMapping:[loader.mappingProvider objectMappingForClass:[UPCSearchResult class]] forKeyPath:@""];
 //        loader.delegate = self;
 //        loader.userData = SEARCH_LOADER;
 //    }];
-    [RKObjectManager.sharedManager getObjectsAtPath:@"/CercadorMapsv1.php" parameters:@{@"text":searchBar.text} success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
+    
+    [objectManager getObjectsAtPath:@"CercadorMapsv1.php" parameters:@{@"text":searchBar.text} success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
      {
          [self.mapView removeAnnotations:self.mapView.annotations];
          NSArray *buildingsAndUnits = [[mappingResult array] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"type == 'edifici' OR type == 'unitat'"]];
@@ -189,14 +193,16 @@
             UPCSearchResult *searchResult = [searchResultGroup.searchResults objectAtIndex:0];
             if ([searchResult.type isEqualToString:BUILDING_TYPE]) {
                 RKObjectManager *objectManager = [UPCRestKitConfigurator sharedManager];
-                [[RKObjectManager sharedManager].operationQueue cancelAllOperations];
+                [objectManager.operationQueue cancelAllOperations];
+
 //                NSString *searchPath = [@"/InfoEdificiv1.php" stringByAppendingQueryParameters:[NSDictionary dictionaryWithObject:searchResult.identifier forKey:@"id"]];
 //                [objectManager loadObjectsAtResourcePath:searchPath usingBlock:^(RKObjectLoader *loader) {
 //                    [loader.mappingProvider setMapping:[loader.mappingProvider objectMappingForClass:[UPCBuilding class]] forKeyPath:@""];
 //                    loader.delegate = self;
 //                    loader.userData = BUILDING_LOADER;
 //                }];
-                [RKObjectManager.sharedManager getObjectsAtPath:@"/InfoEdificiv1.php" parameters:@{@"id":searchResult.identifier} success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
+                
+                [objectManager getObjectsAtPath:@"InfoEdificiv1.php" parameters:@{@"id":searchResult.identifier} success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
                  {
                      [self performSegueWithIdentifier:@"building" sender:[[mappingResult array] objectAtIndex:0]];
                      
@@ -205,14 +211,16 @@
                  }];
             } else if ([searchResult.type isEqualToString:UNIT_TYPE]) {
                 RKObjectManager *objectManager = [UPCRestKitConfigurator sharedManager];
-                [[RKObjectManager sharedManager].operationQueue cancelAllOperations];
+                [objectManager.operationQueue cancelAllOperations];
+
 //                NSString *searchPath = [@"/InfoUnitatv1.php" stringByAppendingQueryParameters:[NSDictionary dictionaryWithObject:searchResult.identifier forKey:@"id"]];
 //                [objectManager loadObjectsAtResourcePath:searchPath usingBlock:^(RKObjectLoader *loader) {
 //                    [loader.mappingProvider setMapping:[loader.mappingProvider objectMappingForClass:[UPCUnit class]] forKeyPath:@""];
 //                    loader.delegate = self;
 //                    loader.userData = UNIT_LOADER;
 //                }];
-                [RKObjectManager.sharedManager getObjectsAtPath:@"/InfoUnitatv1.php" parameters:@{@"id":searchResult.identifier} success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
+
+                [objectManager getObjectsAtPath:@"InfoUnitatv1.php" parameters:@{@"id":searchResult.identifier} success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
                  {
                      [self performSegueWithIdentifier:@"unit" sender:[[mappingResult array] objectAtIndex:0]];
                      
