@@ -156,6 +156,13 @@
 //    [self.mappingProvider addObjectMapping:unitMapping];
 //    [self.mappingProvider addObjectMapping:qualificationsMapping];
 //    [self.mappingProvider addObjectMapping:buildingMapping];
+
+[self addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:searchResultMapping method:RKRequestMethodGET pathPattern:nil keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
+[self addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:centerMapping method:RKRequestMethodGET pathPattern:nil keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
+[self addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:localityMapping method:RKRequestMethodGET pathPattern:nil keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
+[self addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:unitMapping method:RKRequestMethodGET pathPattern:nil keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
+[self addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:qualificationsMapping method:RKRequestMethodGET pathPattern:nil keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
+[self addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:buildingMapping method:RKRequestMethodGET pathPattern:nil keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
 }
 
 @end
