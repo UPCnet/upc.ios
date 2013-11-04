@@ -94,6 +94,10 @@
 		1DD7078115668FA300346AE0 /* searchResult.json in Resources */ = {isa = PBXBuildFile; fileRef = 1DD7078015668FA300346AE0 /* searchResult.json */; };
 		1DD7078B156698F300346AE0 /* UPCSearchResultsMappingSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD7078A156698F300346AE0 /* UPCSearchResultsMappingSpec.m */; };
 		1DE870E71579191400A1EA7F /* UPCLocalizedCurrentLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE870E61579191400A1EA7F /* UPCLocalizedCurrentLocation.m */; };
+		9A747FB01827AB4C00D84702 /* ico_biblioteques@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A747FAC1827AB4C00D84702 /* ico_biblioteques@2x.png */; };
+		9A747FB11827AB4C00D84702 /* ico_upc_commons@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A747FAD1827AB4C00D84702 /* ico_upc_commons@2x.png */; };
+		9A747FB21827AB4C00D84702 /* ico_upc_commons.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A747FAE1827AB4C00D84702 /* ico_upc_commons.png */; };
+		9A747FB31827AB4C00D84702 /* ico_biblioteques.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A747FAF1827AB4C00D84702 /* ico_biblioteques.png */; };
 		9AA8D8831806C78B00159AA3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AA8D8821806C78B00159AA3 /* Images.xcassets */; };
 		FA42AC8B1E8E4ABCB2E13560 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3D71F9A0084193A151C1EB /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -228,6 +232,10 @@
 		1DE870E61579191400A1EA7F /* UPCLocalizedCurrentLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCLocalizedCurrentLocation.m; sourceTree = "<group>"; };
 		2C3D71F9A0084193A151C1EB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		51941388B77842C0AAE5DA7B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = ../Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		9A747FAC1827AB4C00D84702 /* ico_biblioteques@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ico_biblioteques@2x.png"; path = "../../../../../../Downloads/ico_biblioteques@2x.png"; sourceTree = "<group>"; };
+		9A747FAD1827AB4C00D84702 /* ico_upc_commons@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ico_upc_commons@2x.png"; path = "../../../../../../Downloads/ico_upc_commons@2x.png"; sourceTree = "<group>"; };
+		9A747FAE1827AB4C00D84702 /* ico_upc_commons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ico_upc_commons.png; path = ../../../../../../Downloads/ico_upc_commons.png; sourceTree = "<group>"; };
+		9A747FAF1827AB4C00D84702 /* ico_biblioteques.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ico_biblioteques.png; path = ../../../../../../Downloads/ico_biblioteques.png; sourceTree = "<group>"; };
 		9AA8D8821806C78B00159AA3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -434,6 +442,10 @@
 		1D0956FE1563AADB008C69E3 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				9A747FAC1827AB4C00D84702 /* ico_biblioteques@2x.png */,
+				9A747FAD1827AB4C00D84702 /* ico_upc_commons@2x.png */,
+				9A747FAE1827AB4C00D84702 /* ico_upc_commons.png */,
+				9A747FAF1827AB4C00D84702 /* ico_biblioteques.png */,
 				1D09574E1565027F008C69E3 /* button.back.png */,
 				1D09574F15650280008C69E3 /* button.back@2x.png */,
 				1D09575015650280008C69E3 /* button.forward.png */,
@@ -644,6 +656,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A747FB31827AB4C00D84702 /* ico_biblioteques.png in Resources */,
 				1D0956EF1563A7B7008C69E3 /* InfoPlist.strings in Resources */,
 				1D0956FD1563A813008C69E3 /* MainStoryboard.storyboard in Resources */,
 				1D0957181563AADB008C69E3 /* ico_atenea.png in Resources */,
@@ -669,10 +682,13 @@
 				1D0957461563B796008C69E3 /* Default@2x.png in Resources */,
 				1D09575215650280008C69E3 /* button.back.png in Resources */,
 				1D09575315650280008C69E3 /* button.back@2x.png in Resources */,
+				9A747FB11827AB4C00D84702 /* ico_upc_commons@2x.png in Resources */,
 				1D09575415650280008C69E3 /* button.forward.png in Resources */,
+				9A747FB01827AB4C00D84702 /* ico_biblioteques@2x.png in Resources */,
 				1D09575515650280008C69E3 /* button.forward@2x.png in Resources */,
 				1D237111157E45DF00C89B54 /* menu_fonsDegradat.png in Resources */,
 				1D237112157E45DF00C89B54 /* menu_logoUPC.png in Resources */,
+				9A747FB21827AB4C00D84702 /* ico_upc_commons.png in Resources */,
 				1D23716D157F40B500C89B54 /* menu_fonsDegradat@2x.png in Resources */,
 				1D23716E157F40B500C89B54 /* menu_logoUPC@2x.png in Resources */,
 				1DD6FA4715B57C0A00EAAF4B /* ico_mastersProfessionals.png in Resources */,

@@ -33,7 +33,13 @@
 
 - (void)viewDidLoad
 {
-    self.responsiveURLs = [NSDictionary dictionaryWithObjectsAndKeys:@"http://www.upc.edu/grau/graus.php?lang=ca", @"graus", @"http://www.upc.edu/master/masters.php?lang=ca", @"masters", @"http://m.formaciocontinua.upc.edu/cat", @"mastersProfessionals", @"http://m.atenea.upc.edu?app=true&lang=ca", @"atenea", nil];
+    self.responsiveURLs = @{@"graus": @"http://www.upc.edu/grau/graus.php?lang=ca",
+                            @"masters": @"http://www.upc.edu/master/masters.php?lang=ca",
+                            @"mastersProfessionals": @"http://m.formaciocontinua.upc.edu/cat",
+                            @"atenea": @"http://m.atenea.upc.edu?app=true&lang=ca",
+                            @"bibliotecnica": @"http://m.bibliotecnica.upc.edu/home/index.php?app=true",
+                            @"upcommons": @"http://m.bibliotecnica.upc.edu/upcommons/index.php?app=true"};
+    
     self.titles = [NSDictionary dictionaryWithObjectsAndKeys:@"Graus", @"graus", @"Màsters universitaris", @"masters", @"Formació permanent", @"mastersProfessionals", @"Atenea", @"atenea", nil];
     [super viewDidLoad];
 }
@@ -54,7 +60,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"graus"] || [segue.identifier isEqualToString:@"masters"] || [segue.identifier isEqualToString:@"mastersProfessionals"] || [segue.identifier isEqualToString:@"atenea"]) {
+    if ([segue.identifier isEqualToString:@"graus"] || [segue.identifier isEqualToString:@"masters"] || [segue.identifier isEqualToString:@"mastersProfessionals"] || [segue.identifier isEqualToString:@"atenea"] || [segue.identifier isEqualToString:@"bibliotecnica"] || [segue.identifier isEqualToString:@"upcommons"]) {
         UPCResponsiveWebViewController *webViewController = (UPCResponsiveWebViewController *)[segue destinationViewController];
         webViewController.url = [NSURL URLWithString:[self.responsiveURLs objectForKey:segue.identifier]];
         webViewController.navigationItem.title = [self.titles objectForKey:segue.identifier];

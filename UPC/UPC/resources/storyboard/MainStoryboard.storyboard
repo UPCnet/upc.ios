@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="PeV-w4-YAP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="PeV-w4-YAP">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -74,25 +74,31 @@
                                 <rect key="frame" x="124" y="195" width="72" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" image="ico_masters.png">
+                                <state key="normal" image="ico_biblioteques.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="YtV-gx-haE" kind="push" identifier="bibliotecnica" id="eZp-kk-AM7"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elE-XJ-D0e" userLabel="Button - UPCommons">
                                 <rect key="frame" x="228" y="195" width="72" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" image="ico_masters.png">
+                                <state key="normal" image="ico_upc_commons.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="YtV-gx-haE" kind="push" identifier="upcommons" id="Vcv-eT-tgd"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Màsters universitaris" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" preferredMaxLayoutWidth="80" translatesAutoresizingMaskIntoConstraints="NO" id="wRT-VC-aFt">
                                 <rect key="frame" x="120" y="143" width="80" height="34"/>
@@ -841,12 +847,12 @@
         <image name="button.back.png" width="20" height="20"/>
         <image name="button.forward.png" width="20" height="20"/>
         <image name="ico_atenea.png" width="72" height="72"/>
+        <image name="ico_biblioteques.png" width="72" height="72"/>
         <image name="ico_graus.png" width="72" height="72"/>
         <image name="ico_mapes.png" width="72" height="72"/>
         <image name="ico_masters.png" width="72" height="72"/>
-        <image name="ico_masters.png" width="72" height="72"/>
-        <image name="ico_masters.png" width="72" height="72"/>
         <image name="ico_mastersProfessionals.png" width="72" height="72"/>
+        <image name="ico_upc_commons.png" width="72" height="72"/>
         <image name="ico_videos.png" width="72" height="72"/>
         <image name="menu_fonsDegradat.png" width="1" height="9"/>
         <image name="menu_logoUPC.png" width="202" height="45"/>
@@ -857,8 +863,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="Ph5-Fr-l6e"/>
         <segue reference="yVj-be-rnI"/>
-        <segue reference="GrQ-BQ-tai"/>
         <segue reference="loS-w2-DWK"/>
     </inferredMetricsTieBreakers>
 </document>
