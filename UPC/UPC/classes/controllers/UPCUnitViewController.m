@@ -11,8 +11,9 @@
 #import "UPCAddressVideoCell.h"
 #import "UPCQualifications.h"
 #import "UPCLocalizedCurrentLocation.h"
-#import "UIButton+WebCache.h"
-
+//#import "UIButton+WebCache.h"
+#import <SDWebImage/UIButton+WebCache.h>
+//#import <SDWebImage/SDWebImageManager.h>
 
 #pragma mark Class implementation
 
@@ -42,7 +43,7 @@
             UPCAddressVideoCell *cell = [tableView dequeueReusableCellWithIdentifier:reusableCellIdentifier];
             cell.addressLabel.text = [[(NSArray *)[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] description];
             if (imageURL) {
-                [cell.videoButton setImageWithURL:[NSURL URLWithString:imageURL]];
+                [cell.videoButton setBackgroundImageWithURL:[NSURL URLWithString:imageURL] forState:UIControlStateNormal];
             }
             [cell sizeToFit];
             return cell;
