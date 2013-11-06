@@ -6,9 +6,13 @@
 //  Copyright (c) 2012 Universitat Politècnica de Catalunya. All rights reserved.
 //
 
+#import "UPCAppDelegate.h"
 #import "UPCViewController.h"
 #import "UPCResponsiveWebViewController.h"
-
+#import <GAI.h>
+#import <GAIFields.h>
+#import <GAITracker.h>
+#import <GAIDictionaryBuilder.h>
 
 #pragma mark Class extension
 
@@ -41,7 +45,14 @@
                             @"upcommons": @"http://m.bibliotecnica.upc.edu/upcommons/index.php?app=true"};
     
     self.titles = [NSDictionary dictionaryWithObjectsAndKeys:@"Graus", @"graus", @"Màsters universitaris", @"masters", @"Formació permanent", @"mastersProfessionals", @"Atenea", @"atenea", nil];
+
     [super viewDidLoad];
+
+    [[GAI sharedInstance].defaultTracker set:kGAIScreenName
+                                       value:@"Home Screen"];
+    // Send the screen view.
+    [[GAI sharedInstance].defaultTracker
+     send:[[GAIDictionaryBuilder createAppView] build]];
 }
 
 - (void)viewDidUnload

@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <GAI.h>
 
 @interface UPCAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) id<GAITracker> tracker;
 
 @end
