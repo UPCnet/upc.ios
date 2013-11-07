@@ -624,6 +624,11 @@
 				CLASSPREFIX = UPC;
 				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = "Universitat Politècnica de Catalunya";
+				TargetAttributes = {
+					1D0956B31563A704008C69E3 = {
+						DevelopmentTeam = 2QN5CNK73Y;
+					};
+				};
 			};
 			buildConfigurationList = 1D0956AE1563A704008C69E3 /* Build configuration list for PBXProject "UPC" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -857,14 +862,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Victor Fernandez de Alba (626X8MSU8J)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: UPCnet Serveis D'Access a Internet de la Universitat Politecnica de Catalunya, SL. (2QN5CNK73Y)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: UPCnet Serveis D'Access a Internet de la Universitat Politecnica de Catalunya, SL. (2QN5CNK73Y)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UPC/UPC-Prefix.pch";
 				INFOPLIST_FILE = "UPC/UPC-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "BBA45481-5135-4902-9AAB-DE3C7E56AE86";
+				PROVISIONING_PROFILE = "D22DA970-DA67-444D-9670-B50ADD4A101C";
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -875,15 +882,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Victor Fernandez de Alba (626X8MSU8J)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Victor Fernandez de Alba (626X8MSU8J)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: UPCnet Serveis D'Access a Internet de la Universitat Politecnica de Catalunya, SL. (2QN5CNK73Y)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: UPCnet Serveis D'Access a Internet de la Universitat Politecnica de Catalunya, SL. (2QN5CNK73Y)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UPC/UPC-Prefix.pch";
 				INFOPLIST_FILE = "UPC/UPC-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "BBA45481-5135-4902-9AAB-DE3C7E56AE86";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "BBA45481-5135-4902-9AAB-DE3C7E56AE86";
+				PROVISIONING_PROFILE = "D22DA970-DA67-444D-9670-B50ADD4A101C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D22DA970-DA67-444D-9670-B50ADD4A101C";
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
