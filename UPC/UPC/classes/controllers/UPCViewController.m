@@ -44,7 +44,7 @@
                             @"bibliotecnica": @"http://m.bibliotecnica.upc.edu/home/index.php?app=true",
                             @"upcommons": @"http://m.bibliotecnica.upc.edu/upcommons/index.php?app=true"};
     
-    self.titles = [NSDictionary dictionaryWithObjectsAndKeys:@"Graus", @"graus", @"Màsters universitaris", @"masters", @"Formació permanent", @"mastersProfessionals", @"Atenea", @"atenea", nil];
+    self.titles = @{@"graus": @"Graus", @"masters": @"Màsters universitaris", @"mastersProfessionals": @"Formació permanent", @"atenea": @"Atenea", @"bibliotecnica": @"Biblioteca", @"upcommons": @"UPCommons"};
 
     [super viewDidLoad];
 
