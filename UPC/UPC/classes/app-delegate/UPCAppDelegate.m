@@ -7,6 +7,7 @@
 //
 
 #import "UPCAppDelegate.h"
+#import "Flurry.h"
 
 /** Google Analytics configuration constants **/
 static NSString *const kGaPropertyId = @"UA-11662238-3"; // Placeholder property ID.
@@ -29,6 +30,7 @@ static int const kGaDispatchPeriod = 1;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [Flurry startSession:@"R98VC7QJFMVHFJBN6NH6"];
     [self initializeGoogleAnalytics];
 //    [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
     return YES;
