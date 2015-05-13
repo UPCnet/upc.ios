@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1D051A1F156A4078007BFE40 /* NSArray+SearchResultsGrouping.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D051A1E156A4078007BFE40 /* NSArray+SearchResultsGrouping.m */; };
-		1D051A26156A4138007BFE40 /* NSString+TestAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D051A23156A4138007BFE40 /* NSString+TestAdditions.m */; };
-		1D051A27156A4138007BFE40 /* RKJSONParserJSONKit+TestAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D051A25156A4138007BFE40 /* RKJSONParserJSONKit+TestAdditions.m */; };
-		1D051A29156A415D007BFE40 /* SearchResultsGroupingSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D051A28156A415D007BFE40 /* SearchResultsGroupingSpec.m */; };
 		1D051A2A156A4952007BFE40 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D09575D156531A2008C69E3 /* CoreLocation.framework */; };
 		1D051A31156A6323007BFE40 /* UPCSearchResultGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D051A30156A6323007BFE40 /* UPCSearchResultGroup.m */; };
 		1D0956B91563A704008C69E3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D0956B81563A704008C69E3 /* UIKit.framework */; };
@@ -58,15 +55,12 @@
 		1D23716E157F40B500C89B54 /* menu_logoUPC@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D23716C157F40B500C89B54 /* menu_logoUPC@2x.png */; };
 		1D7BA2FC157781E8000189AB /* UPCLocality.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BA2FB157781E8000189AB /* UPCLocality.m */; };
 		1D7BA300157783EB000189AB /* UPCCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BA2FF157783EB000189AB /* UPCCenter.m */; };
-		1D7BA30215778695000189AB /* UPCLocalityMappingSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BA30115778695000189AB /* UPCLocalityMappingSpec.m */; };
 		1D7BA30415778770000189AB /* localities.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D7BA30315778770000189AB /* localities.json */; };
 		1D7BA30715778EEC000189AB /* UPCUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BA30615778EEC000189AB /* UPCUnit.m */; };
 		1D7BA30915779F7D000189AB /* unit.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D7BA30815779F7D000189AB /* unit.json */; };
 		1D7BA30C15779FF2000189AB /* UPCQualifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BA30B15779FF2000189AB /* UPCQualifications.m */; };
-		1D7BA30E1577A44B000189AB /* UPCUnitMappingSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BA30D1577A44B000189AB /* UPCUnitMappingSpec.m */; };
 		1D7BA3101577AA03000189AB /* building.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D7BA30F1577AA03000189AB /* building.json */; };
 		1D7BA3131577AA2B000189AB /* UPCBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BA3121577AA2B000189AB /* UPCBuilding.m */; };
-		1D7BA3151577ABF9000189AB /* UPCBuildingMappingSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BA3141577ABF8000189AB /* UPCBuildingMappingSpec.m */; };
 		1D7BA3181577B49B000189AB /* UPCLocalityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BA3171577B49B000189AB /* UPCLocalityViewController.m */; };
 		1D7BA35E1577CC92000189AB /* UPCSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BA35D1577CC91000189AB /* UPCSearchResultsViewController.m */; };
 		1D7BA3671578DA27000189AB /* UPCBuildingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BA3661578DA26000189AB /* UPCBuildingViewController.m */; };
@@ -91,7 +85,6 @@
 		1DD7077A1566890B00346AE0 /* UPCRestKitConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD707791566890B00346AE0 /* UPCRestKitConfigurator.m */; };
 		1DD7077D15668F5C00346AE0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DD7077E15668F5C00346AE0 /* InfoPlist.strings */; };
 		1DD7078115668FA300346AE0 /* searchResult.json in Resources */ = {isa = PBXBuildFile; fileRef = 1DD7078015668FA300346AE0 /* searchResult.json */; };
-		1DD7078B156698F300346AE0 /* UPCSearchResultsMappingSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD7078A156698F300346AE0 /* UPCSearchResultsMappingSpec.m */; };
 		1DE870E71579191400A1EA7F /* UPCLocalizedCurrentLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE870E61579191400A1EA7F /* UPCLocalizedCurrentLocation.m */; };
 		9A2D0E331828D7BD0040392A /* ico_biblioteques.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A2D0E2F1828D7BD0040392A /* ico_biblioteques.png */; };
 		9A2D0E341828D7BD0040392A /* ico_upc_commons@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A2D0E301828D7BD0040392A /* ico_upc_commons@2x.png */; };
@@ -115,11 +108,6 @@
 /* Begin PBXFileReference section */
 		1D051A1D156A4078007BFE40 /* NSArray+SearchResultsGrouping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+SearchResultsGrouping.h"; sourceTree = "<group>"; };
 		1D051A1E156A4078007BFE40 /* NSArray+SearchResultsGrouping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+SearchResultsGrouping.m"; sourceTree = "<group>"; };
-		1D051A22156A4138007BFE40 /* NSString+TestAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TestAdditions.h"; sourceTree = "<group>"; };
-		1D051A23156A4138007BFE40 /* NSString+TestAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TestAdditions.m"; sourceTree = "<group>"; };
-		1D051A24156A4138007BFE40 /* RKJSONParserJSONKit+TestAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RKJSONParserJSONKit+TestAdditions.h"; sourceTree = "<group>"; };
-		1D051A25156A4138007BFE40 /* RKJSONParserJSONKit+TestAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RKJSONParserJSONKit+TestAdditions.m"; sourceTree = "<group>"; };
-		1D051A28156A415D007BFE40 /* SearchResultsGroupingSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultsGroupingSpec.m; sourceTree = "<group>"; };
 		1D051A2F156A6323007BFE40 /* UPCSearchResultGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPCSearchResultGroup.h; sourceTree = "<group>"; };
 		1D051A30156A6323007BFE40 /* UPCSearchResultGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCSearchResultGroup.m; sourceTree = "<group>"; };
 		1D0956B41563A704008C69E3 /* UPC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UPC.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -176,18 +164,15 @@
 		1D7BA2FB157781E8000189AB /* UPCLocality.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCLocality.m; sourceTree = "<group>"; };
 		1D7BA2FE157783EB000189AB /* UPCCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPCCenter.h; sourceTree = "<group>"; };
 		1D7BA2FF157783EB000189AB /* UPCCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCCenter.m; sourceTree = "<group>"; };
-		1D7BA30115778695000189AB /* UPCLocalityMappingSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCLocalityMappingSpec.m; sourceTree = "<group>"; };
 		1D7BA30315778770000189AB /* localities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = localities.json; sourceTree = "<group>"; };
 		1D7BA30515778EEC000189AB /* UPCUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPCUnit.h; sourceTree = "<group>"; };
 		1D7BA30615778EEC000189AB /* UPCUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCUnit.m; sourceTree = "<group>"; };
 		1D7BA30815779F7D000189AB /* unit.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = unit.json; sourceTree = "<group>"; };
 		1D7BA30A15779FF2000189AB /* UPCQualifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPCQualifications.h; sourceTree = "<group>"; };
 		1D7BA30B15779FF2000189AB /* UPCQualifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCQualifications.m; sourceTree = "<group>"; };
-		1D7BA30D1577A44B000189AB /* UPCUnitMappingSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCUnitMappingSpec.m; sourceTree = "<group>"; };
 		1D7BA30F1577AA03000189AB /* building.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = building.json; sourceTree = "<group>"; };
 		1D7BA3111577AA2A000189AB /* UPCBuilding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPCBuilding.h; sourceTree = "<group>"; };
 		1D7BA3121577AA2B000189AB /* UPCBuilding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCBuilding.m; sourceTree = "<group>"; };
-		1D7BA3141577ABF8000189AB /* UPCBuildingMappingSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCBuildingMappingSpec.m; sourceTree = "<group>"; };
 		1D7BA3161577B49B000189AB /* UPCLocalityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPCLocalityViewController.h; sourceTree = "<group>"; };
 		1D7BA3171577B49B000189AB /* UPCLocalityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCLocalityViewController.m; sourceTree = "<group>"; };
 		1D7BA35C1577CC91000189AB /* UPCSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPCSearchResultsViewController.h; sourceTree = "<group>"; };
@@ -224,11 +209,11 @@
 		1DD707791566890B00346AE0 /* UPCRestKitConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCRestKitConfigurator.m; sourceTree = "<group>"; };
 		1DD7077E15668F5C00346AE0 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		1DD7078015668FA300346AE0 /* searchResult.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = searchResult.json; sourceTree = "<group>"; };
-		1DD7078A156698F300346AE0 /* UPCSearchResultsMappingSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCSearchResultsMappingSpec.m; sourceTree = "<group>"; };
 		1DE870E51579191400A1EA7F /* UPCLocalizedCurrentLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPCLocalizedCurrentLocation.h; sourceTree = "<group>"; };
 		1DE870E61579191400A1EA7F /* UPCLocalizedCurrentLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCLocalizedCurrentLocation.m; sourceTree = "<group>"; };
 		2C3D71F9A0084193A151C1EB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		51941388B77842C0AAE5DA7B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = ../Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		43CC6CE3AB3C42D0F9986B45 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		5C7BC11405171AF31C6033AF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		9A2D0E2F1828D7BD0040392A /* ico_biblioteques.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_biblioteques.png; sourceTree = "<group>"; };
 		9A2D0E301828D7BD0040392A /* ico_upc_commons@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico_upc_commons@2x.png"; sourceTree = "<group>"; };
 		9A2D0E311828D7BD0040392A /* ico_biblioteques@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico_biblioteques@2x.png"; sourceTree = "<group>"; };
@@ -278,10 +263,6 @@
 		1D051A21156A40E9007BFE40 /* test-helpers */ = {
 			isa = PBXGroup;
 			children = (
-				1D051A22156A4138007BFE40 /* NSString+TestAdditions.h */,
-				1D051A23156A4138007BFE40 /* NSString+TestAdditions.m */,
-				1D051A24156A4138007BFE40 /* RKJSONParserJSONKit+TestAdditions.h */,
-				1D051A25156A4138007BFE40 /* RKJSONParserJSONKit+TestAdditions.m */,
 			);
 			path = "test-helpers";
 			sourceTree = "<group>";
@@ -294,7 +275,7 @@
 				1D0956DC1563A704008C69E3 /* UPCTests */,
 				1D0956B71563A704008C69E3 /* Frameworks */,
 				1D0956B51563A704008C69E3 /* Products */,
-				51941388B77842C0AAE5DA7B /* Pods.xcconfig */,
+				D077A348C25998D770069D33 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -563,10 +544,6 @@
 		1DD707821566932800346AE0 /* mappings */ = {
 			isa = PBXGroup;
 			children = (
-				1D7BA3141577ABF8000189AB /* UPCBuildingMappingSpec.m */,
-				1D7BA30115778695000189AB /* UPCLocalityMappingSpec.m */,
-				1DD7078A156698F300346AE0 /* UPCSearchResultsMappingSpec.m */,
-				1D7BA30D1577A44B000189AB /* UPCUnitMappingSpec.m */,
 			);
 			path = mappings;
 			sourceTree = "<group>";
@@ -574,7 +551,6 @@
 		1DD707831566934900346AE0 /* helpers */ = {
 			isa = PBXGroup;
 			children = (
-				1D051A28156A415D007BFE40 /* SearchResultsGroupingSpec.m */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -586,6 +562,15 @@
 				9A6491F6185063950023BE80 /* libFlurry_4.3.0.a */,
 			);
 			path = Flurry;
+			sourceTree = "<group>";
+		};
+		D077A348C25998D770069D33 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5C7BC11405171AF31C6033AF /* Pods.debug.xcconfig */,
+				43CC6CE3AB3C42D0F9986B45 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -627,7 +612,7 @@
 			name = UPCTests;
 			productName = UPCTests;
 			productReference = 1D0956D51563A704008C69E3 /* UPCTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -747,7 +732,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C4C75C19421B461AB1D0F289 /* Check Pods Manifest.lock */ = {
@@ -804,13 +789,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DD7078B156698F300346AE0 /* UPCSearchResultsMappingSpec.m in Sources */,
-				1D051A26156A4138007BFE40 /* NSString+TestAdditions.m in Sources */,
-				1D051A27156A4138007BFE40 /* RKJSONParserJSONKit+TestAdditions.m in Sources */,
-				1D051A29156A415D007BFE40 /* SearchResultsGroupingSpec.m in Sources */,
-				1D7BA30215778695000189AB /* UPCLocalityMappingSpec.m in Sources */,
-				1D7BA30E1577A44B000189AB /* UPCUnitMappingSpec.m in Sources */,
-				1D7BA3151577ABF9000189AB /* UPCBuildingMappingSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -872,8 +850,10 @@
 		};
 		1D0956E81563A704008C69E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 51941388B77842C0AAE5DA7B /* Pods.xcconfig */;
+			baseConfigurationReference = 5C7BC11405171AF31C6033AF /* Pods.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: UPCnet Serveis D'Access a Internet de la Universitat Politecnica de Catalunya, SL. (2QN5CNK73Y)";
@@ -884,20 +864,22 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/sneridagh/dev/iOS/upc.ios/UPC/Flurry,
+					/Users/miguel/Documents/Apps/upc.ios/UPC/Flurry,
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "D22DA970-DA67-444D-9670-B50ADD4A101C";
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		1D0956E91563A704008C69E3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 51941388B77842C0AAE5DA7B /* Pods.xcconfig */;
+			baseConfigurationReference = 43CC6CE3AB3C42D0F9986B45 /* Pods.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: UPCnet Serveis D'Access a Internet de la Universitat Politecnica de Catalunya, SL. (2QN5CNK73Y)";
@@ -908,12 +890,12 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/sneridagh/dev/iOS/upc.ios/UPC/Flurry,
+					/Users/miguel/Documents/Apps/upc.ios/UPC/Flurry,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "D22DA970-DA67-444D-9670-B50ADD4A101C";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D22DA970-DA67-444D-9670-B50ADD4A101C";
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

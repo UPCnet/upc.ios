@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <GAI.h>
+#import <GoogleAnalytics-iOS-SDK/GAI.h>
 
 @interface UPCAppDelegate : UIResponder <UIApplicationDelegate>
 
