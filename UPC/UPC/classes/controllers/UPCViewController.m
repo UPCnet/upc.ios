@@ -42,9 +42,10 @@
                             @"mastersProfessionals": @"http://m.formaciocontinua.upc.edu/cat",
                             @"atenea": @"http://m.atenea.upc.edu?app=true&lang=ca",
                             @"bibliotecnica": @"http://m.bibliotecnica.upc.edu/home/index.php?app=true",
-                            @"upcommons": @"http://m.bibliotecnica.upc.edu/upcommons/index.php?app=true"};
-    
-    self.titles = @{@"graus": @"Graus", @"masters": @"Màsters universitaris", @"mastersProfessionals": @"Formació permanent", @"atenea": @"Atenea", @"bibliotecnica": @"Biblioteca", @"upcommons": @"UPCommons"};
+                            @"upcommons": @"http://m.bibliotecnica.upc.edu/upcommons/index.php?app=true",
+                            @"futur": @"http://futur.upc.edu"};
+
+    self.titles = @{@"graus": @"Graus", @"masters": @"Màsters universitaris", @"mastersProfessionals": @"Formació permanent", @"atenea": @"Atenea", @"bibliotecnica": @"Biblioteca", @"upcommons": @"UPCommons", @"futur": @"FUTUR UPC"};
 
     [super viewDidLoad];
 
@@ -71,7 +72,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"graus"] || [segue.identifier isEqualToString:@"masters"] || [segue.identifier isEqualToString:@"mastersProfessionals"] || [segue.identifier isEqualToString:@"atenea"] || [segue.identifier isEqualToString:@"bibliotecnica"] || [segue.identifier isEqualToString:@"upcommons"]) {
+    if ([segue.identifier isEqualToString:@"graus"] || [segue.identifier isEqualToString:@"masters"] || [segue.identifier isEqualToString:@"mastersProfessionals"] || [segue.identifier isEqualToString:@"atenea"] || [segue.identifier isEqualToString:@"bibliotecnica"] || [segue.identifier isEqualToString:@"upcommons"] || [segue.identifier isEqualToString:@"futur"] ) {
         UPCResponsiveWebViewController *webViewController = (UPCResponsiveWebViewController *)[segue destinationViewController];
         webViewController.url = [NSURL URLWithString:[self.responsiveURLs objectForKey:segue.identifier]];
         webViewController.navigationItem.title = [self.titles objectForKey:segue.identifier];
