@@ -90,7 +90,6 @@
 		9A2D0E341828D7BD0040392A /* ico_upc_commons@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A2D0E301828D7BD0040392A /* ico_upc_commons@2x.png */; };
 		9A2D0E351828D7BD0040392A /* ico_biblioteques@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A2D0E311828D7BD0040392A /* ico_biblioteques@2x.png */; };
 		9A2D0E361828D7BD0040392A /* ico_upc_commons.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A2D0E321828D7BD0040392A /* ico_upc_commons.png */; };
-		9A6491F7185063950023BE80 /* libFlurry_4.3.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A6491F6185063950023BE80 /* libFlurry_4.3.0.a */; };
 		9AA8D8831806C78B00159AA3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AA8D8821806C78B00159AA3 /* Images.xcassets */; };
 		FA42AC8B1E8E4ABCB2E13560 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3D71F9A0084193A151C1EB /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -218,8 +217,6 @@
 		9A2D0E301828D7BD0040392A /* ico_upc_commons@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico_upc_commons@2x.png"; sourceTree = "<group>"; };
 		9A2D0E311828D7BD0040392A /* ico_biblioteques@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico_biblioteques@2x.png"; sourceTree = "<group>"; };
 		9A2D0E321828D7BD0040392A /* ico_upc_commons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_upc_commons.png; sourceTree = "<group>"; };
-		9A6491F5185063950023BE80 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
-		9A6491F6185063950023BE80 /* libFlurry_4.3.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_4.3.0.a; sourceTree = "<group>"; };
 		9AA8D8821806C78B00159AA3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -231,7 +228,6 @@
 				4992F8521B03A50F004239A0 /* CoreData.framework in Frameworks */,
 				1DD707061566580E00346AE0 /* QuartzCore.framework in Frameworks */,
 				1D0956B91563A704008C69E3 /* UIKit.framework in Frameworks */,
-				9A6491F7185063950023BE80 /* libFlurry_4.3.0.a in Frameworks */,
 				1D0956BB1563A704008C69E3 /* Foundation.framework in Frameworks */,
 				1D0956BD1563A704008C69E3 /* CoreGraphics.framework in Frameworks */,
 				1D09573A1563B547008C69E3 /* MapKit.framework in Frameworks */,
@@ -270,7 +266,6 @@
 		1D0956A91563A704008C69E3 = {
 			isa = PBXGroup;
 			children = (
-				9A6491F4185063950023BE80 /* Flurry */,
 				1D0956BE1563A704008C69E3 /* UPC */,
 				1D0956DC1563A704008C69E3 /* UPCTests */,
 				1D0956B71563A704008C69E3 /* Frameworks */,
@@ -553,15 +548,6 @@
 			children = (
 			);
 			path = helpers;
-			sourceTree = "<group>";
-		};
-		9A6491F4185063950023BE80 /* Flurry */ = {
-			isa = PBXGroup;
-			children = (
-				9A6491F5185063950023BE80 /* Flurry.h */,
-				9A6491F6185063950023BE80 /* libFlurry_4.3.0.a */,
-			);
-			path = Flurry;
 			sourceTree = "<group>";
 		};
 		D077A348C25998D770069D33 /* Pods */ = {
@@ -862,10 +848,6 @@
 				GCC_PREFIX_HEADER = "UPC/UPC-Prefix.pch";
 				INFOPLIST_FILE = "UPC/UPC-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/miguel/Documents/Apps/upc.ios/UPC/Flurry,
-				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -888,10 +870,6 @@
 				GCC_PREFIX_HEADER = "UPC/UPC-Prefix.pch";
 				INFOPLIST_FILE = "UPC/UPC-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/miguel/Documents/Apps/upc.ios/UPC/Flurry,
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D22DA970-DA67-444D-9670-B50ADD4A101C";
