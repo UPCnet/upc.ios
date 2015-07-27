@@ -7,7 +7,7 @@
 //
 
 #import "UPCAppDelegate.h"
-#import "Flurry.h"
+#import <FlurrySDK/Flurry.h>
 
 /** Google Analytics configuration constants **/
 static NSString *const kGaPropertyId = @"UA-11662238-3"; // Placeholder property ID.
