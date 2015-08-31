@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="PeV-w4-YAP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="PeV-w4-YAP">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -239,7 +239,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="videosButtonTapped:" destination="2" eventType="touchUpInside" id="40Y-Ol-2Fa"/>
                                     <segue destination="YtV-gx-haE" kind="push" identifier="futur" id="CCB-wy-SVq"/>
                                 </connections>
                             </button>
@@ -908,7 +907,7 @@
         <image name="button.forward.png" width="20" height="20"/>
         <image name="ico_atenea.png" width="72" height="72"/>
         <image name="ico_biblioteques.png" width="72" height="72"/>
-        <image name="ico_futur.png" width="44" height="40"/>
+        <image name="ico_futur.png" width="72" height="72"/>
         <image name="ico_graus.png" width="72" height="72"/>
         <image name="ico_mapes.png" width="72" height="72"/>
         <image name="ico_masters.png" width="72" height="72"/>
@@ -924,8 +923,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="XhF-VH-1iE"/>
-        <segue reference="yVj-be-rnI"/>
+        <segue reference="CCB-wy-SVq"/>
         <segue reference="loS-w2-DWK"/>
+        <segue reference="yVj-be-rnI"/>
     </inferredMetricsTieBreakers>
 </document>
